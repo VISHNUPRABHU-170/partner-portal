@@ -1,0 +1,13 @@
+.mat-sidenav {
+  &.open {
+    position: fixed;
+    inset: 0;
+    height: 100%;
+    width: 300px;
+  }
+}
+
+.mat-drawer {
+  background-color: #2C0E47 !important;
+  color: #ffffff !important;
+}

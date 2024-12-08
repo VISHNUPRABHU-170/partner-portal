@@ -1,0 +1,6 @@
+<span (click)="onClick()" [routerLink]="data.routerLink" [ngClass]="{'active': data.active}" class="nav-link">
+  @if(data.linkIcon) {
+    <mat-icon>{{data.linkIcon}}</mat-icon>
+  }
+  {{data.linkText}}
+</span>

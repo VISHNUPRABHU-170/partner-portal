@@ -1,0 +1,11 @@
+.feature-request-dashboard {
+  width: 100%;
+
+  .mat-toolbar {
+    color: #2C0E47;
+    background-color: #00000029;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+  }
+}

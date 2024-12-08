@@ -1,0 +1,17 @@
+.navigation-sub {
+  padding: 20px 0px 0px 25px;
+  display: flex;
+  gap: 20px;
+
+  .mat-divider {
+    border-right-color: #BD8EF740;
+  }
+
+  ul {
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
