@@ -3,7 +3,7 @@ import { NavigationLinkComponentModel, ROUTE_MAPPER } from './navigation-link.co
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { NavigationService } from '../../services/navigation.service';
+import { NavigationService } from '../../../core/services/navigation/navigation.service';
 
 @Component({
   selector: 'app-navigation-link',

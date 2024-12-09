@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { IconComponentModel } from './icon.component.model';
 import { MatIconModule } from '@angular/material/icon';
-import { NavigationService } from '../../../navigation/services/navigation.service';
+import { NavigationService } from '../../services/navigation/navigation.service';
 
 @Component({
   selector: 'app-icon',

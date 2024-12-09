@@ -1,0 +1,13 @@
+<div class="app-registration">
+  <mat-card appearance="outlined">
+    <mat-card-content>
+        <app-input [data]="userNameInputConfig" [formGroup]="registrationForm"></app-input>
+        <app-input [data]="passwordInputConfig" [formGroup]="registrationForm"></app-input>
+        <app-input [data]="confirmPasswordInputConfig" [formGroup]="registrationForm"></app-input>
+        <app-button [data]="registerButtonConfig"></app-button>
+        <div>
+          <span>Already have an account? <app-link [data]="logInLinkConfig"></app-link></span>
+        </div>
+    </mat-card-content>
+  </mat-card>
+</div>

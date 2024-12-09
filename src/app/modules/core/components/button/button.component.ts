@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { ButtonComponentModel } from './buttom.component.model';
-import { NavigationService } from '../../../navigation/services/navigation.service';
+import { NavigationService } from '../../services/navigation/navigation.service';
 
 @Component({
   selector: 'app-button',
@@ -16,7 +16,8 @@ export class ButtonComponent {
   constructor(private navigationService: NavigationService) {}
 
   onClick() {
-    console.log(this.data.routerLink);
-    this.navigationService.navigate(this.data.routerLink);
+    if (this.data.routerLink) {
+      this.navigationService.navigate(this.data.routerLink);
+    }
   }
 }

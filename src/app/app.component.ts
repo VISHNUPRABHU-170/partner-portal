@@ -3,11 +3,13 @@ import { HeaderComponent } from './modules/header/components/header/header.compo
 import { NavigationMainComponent } from './modules/navigation/components/navigation-main/navigation-main.component';
 import { navigationConfig } from './modules/core/configs/navigation';
 import { RouterOutlet } from '@angular/router';
+import { RegisterComponent } from './modules/auth/components/register/register.component';
+import { LoginComponent } from './modules/auth/components/login/login.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HeaderComponent, NavigationMainComponent, RouterOutlet],
+  imports: [HeaderComponent, NavigationMainComponent, RegisterComponent, LoginComponent, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

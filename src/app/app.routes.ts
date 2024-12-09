@@ -5,12 +5,22 @@ import { SupportFormComponent } from './modules/assistance-requests/components/s
 import { SupportDashboardComponent } from './modules/assistance-requests/components/support/support-dashboard/support-dashboard.component';
 import { FeatureRequestFormComponent } from './modules/assistance-requests/components/feature-request/feature-request-form/feature-request-form.component';
 import { FeatureRequestDashboardComponent } from './modules/assistance-requests/components/feature-request/feature-request-dashboard/feature-request-dashboard.component';
+import { RegisterComponent } from './modules/auth/components/register/register.component';
+import { LoginComponent } from './modules/auth/components/login/login.component';
 
 export const routes: Routes = [
   {
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full'
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: 'dashboard',
