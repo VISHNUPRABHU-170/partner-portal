@@ -7,6 +7,7 @@ import { FeatureRequestFormComponent } from './modules/assistance-requests/compo
 import { FeatureRequestDashboardComponent } from './modules/assistance-requests/components/feature-request/feature-request-dashboard/feature-request-dashboard.component';
 import { RegisterComponent } from './modules/auth/components/register/register.component';
 import { LoginComponent } from './modules/auth/components/login/login.component';
+import { MainComponent } from './modules/main/main/main.component';
 
 export const routes: Routes = [
   {
@@ -23,34 +24,45 @@ export const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'dashboard',
-    component: DashboardComponent
-  },
-  {
-    path: 'assistance-requests',
-    component: AssistanceRequestsComponent,
+    path: 'partner-portal',
+    component: MainComponent,
     children: [
       {
         path: '',
-        redirectTo: 'support-dashboard',
+        redirectTo: 'dashboard',
         pathMatch: 'full'
       },
       {
-        path: 'support-form',
-        component: SupportFormComponent
+        path: 'dashboard',
+        component: DashboardComponent
       },
       {
-        path: 'support-dashboard',
-        component: SupportDashboardComponent
-      },
-      {
-        path: 'feature-request-form',
-        component: FeatureRequestFormComponent
-      },
-      {
-        path: 'feature-request-dashboard',
-        component: FeatureRequestDashboardComponent
+        path: 'assistance-requests',
+        component: AssistanceRequestsComponent,
+        children: [
+          {
+            path: '',
+            redirectTo: 'support-dashboard',
+            pathMatch: 'full'
+          },
+          {
+            path: 'support-form',
+            component: SupportFormComponent
+          },
+          {
+            path: 'support-dashboard',
+            component: SupportDashboardComponent
+          },
+          {
+            path: 'feature-request-form',
+            component: FeatureRequestFormComponent
+          },
+          {
+            path: 'feature-request-dashboard',
+            component: FeatureRequestDashboardComponent
+          }
+        ]
       }
     ]
-  }
+  },
 ];

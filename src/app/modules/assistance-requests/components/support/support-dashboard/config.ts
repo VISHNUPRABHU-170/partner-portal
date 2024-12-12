@@ -2,5 +2,5 @@ import { ButtonComponentModel } from "../../../../core/components/button/button.
 
 export const createRequestButtonConfig: ButtonComponentModel = {
   label: 'Create a Request',
-  routerLink: '/assistance-requests/support-form'
+  routerLink: '/partner-portal/assistance-requests/support-form'
 };

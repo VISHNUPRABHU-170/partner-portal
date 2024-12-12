@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class NavigationService {
-  routeChange = new BehaviorSubject<string>('');
+  routeChange = new BehaviorSubject<string>('partner-portal');
 
   constructor (private router: Router) {
     this.router.events.subscribe((data: any) => {

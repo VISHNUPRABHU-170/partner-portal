@@ -1,10 +1,10 @@
-import { NavigationLinkComponentModel } from "../../navigation/components/navigation-link/navigation-link.component.model";
-import { NavigationMainComponentModel } from "../../navigation/components/navigation-main/navigation-main.component.model";
+import { NavigationLinkComponentModel } from "../components/navigation-link/navigation-link.component.model";
+import { NavigationMainComponentModel } from "../components/navigation-main/navigation-main.component.model";
 
 const dashboardNavLinkConfig: NavigationLinkComponentModel = {
   linkText: "Dashboard",
   linkIcon: "home",
-  routerLink: "/dashboard"
+  routerLink: "/partner-portal/dashboard"
 };
 
 const resourcesNavLinkConfig: NavigationLinkComponentModel = {
@@ -22,19 +22,19 @@ const accountManagementNavLinkConfig: NavigationLinkComponentModel = {
 const assistanceRequestNavLinkConfig: NavigationLinkComponentModel = {
   linkText: "Assistance & Requests",
   linkIcon: "support_agent",
-  routerLink: "/assistance-requests"
+  routerLink: "/partner-portal/assistance-requests"
 };
 
 const supportNavLinkConfig: NavigationLinkComponentModel = {
   linkText: "Support",
   linkIcon: "support",
-  routerLink: "/assistance-requests/support-dashboard"
+  routerLink: "/partner-portal/assistance-requests/support-dashboard"
 };
 
 const featureRequestNavLinkConfig: NavigationLinkComponentModel = {
   linkText: "Feature Request",
   linkIcon: "post_add",
-  routerLink: "/assistance-requests/feature-request-dashboard"
+  routerLink: "/partner-portal/assistance-requests/feature-request-dashboard"
 };
 
 

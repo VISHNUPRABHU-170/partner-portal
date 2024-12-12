@@ -6,6 +6,7 @@ import { ButtonComponent } from '../../../core/components/button/button.componen
 import { LinkComponent } from '../../../core/components/link/link.component';
 import { logInLinkConfig, registerFormConfig } from './config';
 import { FormBuilderComponent } from '../../../core/components/form-builder/form-builder.component';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +19,9 @@ export class RegisterComponent {
   registerFormConfig = registerFormConfig;
   logInLinkConfig = logInLinkConfig;
 
+  constructor (private authService: AuthService) { }
+
   onRegister(data: any) {
-    console.log(data);
+    this.authService.onRegister();
   }
 }

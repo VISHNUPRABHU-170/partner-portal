@@ -2,5 +2,5 @@ import { IconComponentModel } from "../../../../core/components/icon/icon.compon
 
 export const backIconConfig: IconComponentModel = {
   name: 'arrow_back',
-  routerLink: '/assistance-requests/feature-request-dashboard'
+  routerLink: '/partner-portal/assistance-requests/feature-request-dashboard'
 };

@@ -6,32 +6,34 @@ export interface NavigationLinkComponentModel {
 }
 
 export enum RouteType {
-  DASHBOARD = '/dashboard',
-  ASSISTANCE_REQUESTS = '/assistance-requests',
-  ASSISTANCE_REQUEST_SUPPORT_DASHBOARD = '/assistance-requests/support-dashboard',
+  DASHBOARD = '/partner-portal/dashboard',
+  ASSISTANCE_REQUESTS = '/partner-portal/assistance-requests',
+  ASSISTANCE_REQUEST_SUPPORT_DASHBOARD = '/partner-portal/assistance-requests/support-dashboard',
   ASSISTANCE_REQUEST_FEATURE_REQUEST_DASHBOARD = '/assistance-requests/feature-request-dashboard',
 }
 
 export const ROUTE_MAPPER: { [key in string]: string[] } = {};
 
-ROUTE_MAPPER[RouteType.DASHBOARD] = ['/', '/dashboard'];
+ROUTE_MAPPER[RouteType.DASHBOARD] = [
+  '/partner-portal',
+  '/partner-portal/dashboard'
+];
+
 ROUTE_MAPPER[RouteType.ASSISTANCE_REQUESTS] = [
-  '/assistance-requests',
-  '/assistance-requests/support-dashboard',
-  '/assistance-requests/support-form',
-  '/assistance-requests/feature-request-dashboard',
-  '/assistance-requests/feature-request-form'
+  '/partner-portal/assistance-requests',
+  '/partner-portal/assistance-requests/support-dashboard',
+  '/partner-portal/assistance-requests/support-form',
+  '/partner-portal/assistance-requests/feature-request-dashboard',
+  '/partner-portal/assistance-requests/feature-request-form'
 ];
+
 ROUTE_MAPPER[RouteType.ASSISTANCE_REQUEST_SUPPORT_DASHBOARD] = [
-  '/assistance-requests',
-  '/assistance-requests/support-dashboard',
-  '/assistance-requests/support-form'
+  '/partner-portal/assistance-requests',
+  '/partner-portal/assistance-requests/support-dashboard',
+  '/partner-portal/assistance-requests/support-form'
 ];
+
 ROUTE_MAPPER[RouteType.ASSISTANCE_REQUEST_FEATURE_REQUEST_DASHBOARD] = [
-  '/assistance-requests/feature-request-dashboard',
-  '/assistance-requests/feature-request-form'
+  '/partner-portal/assistance-requests/feature-request-dashboard',
+  '/partner-portal/assistance-requests/feature-request-form'
 ];
-
-
-
-

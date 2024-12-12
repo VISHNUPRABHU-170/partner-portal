@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { LinkComponent } from '../../../core/components/link/link.component';
 import { loginFormConfig, registerLinkConfig } from './config';
 import { FormBuilderComponent } from '../../../core/components/form-builder/form-builder.component';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,9 @@ export class LoginComponent {
   loginFormConfig = loginFormConfig;
   registerLinkConfig = registerLinkConfig;
 
+  constructor (private authService: AuthService) {}
+
   onLogIn(data: any) {
-    console.log(data);
+    this.authService.onLogin();
   }
 }
