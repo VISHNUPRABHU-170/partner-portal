@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { ButtonComponentModel } from './buttom.component.model';
+import { ButtonComponentModel } from './button.component.model';
 import { NavigationService } from '../../services/navigation/navigation.service';
 
 @Component({

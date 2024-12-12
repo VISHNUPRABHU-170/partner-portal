@@ -1,37 +1,21 @@
 import { MatCardModule } from '@angular/material/card';
 import { Component } from '@angular/core';
-import { logInButtonConfig, passwordInputConfig, registerLinkConfig, userNameInputConfig } from './config';
-import { InputComponent } from '../../../core/components/input/input.component';
 import { LinkComponent } from '../../../core/components/link/link.component';
-import { ButtonComponent } from '../../../core/components/button/button.component';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { loginFormConfig, registerLinkConfig } from './config';
+import { FormBuilderComponent } from '../../../core/components/form-builder/form-builder.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [MatCardModule, InputComponent, LinkComponent, ButtonComponent],
+  imports: [MatCardModule, FormBuilderComponent, LinkComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-  loginForm!: FormGroup;
-
-  userNameInputConfig = userNameInputConfig;
-  passwordInputConfig = passwordInputConfig;
-  logInButtonConfig = logInButtonConfig;
+  loginFormConfig = loginFormConfig;
   registerLinkConfig = registerLinkConfig;
 
-  constructor (private formBuilder: FormBuilder) { }
-
-  ngOnInit(): void {
-    this.registrationFormGroup();
-  }
-
-  registrationFormGroup() {
-    this.loginForm = this.formBuilder.group({
-      userName: ['', Validators.required],
-      password: ['', Validators.required],
-      confirmPassword: ['', Validators.required]
-    });
+  onLogIn(data: any) {
+    console.log(data);
   }
 }

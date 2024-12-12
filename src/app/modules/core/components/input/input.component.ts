@@ -1,7 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { InputComponentModel, INPUT_TYPE_MAPPER } from './input.component.model';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-input',
@@ -10,25 +10,16 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
   templateUrl: './input.component.html',
   styleUrl: './input.component.scss'
 })
-export class InputComponent {
+export class InputComponent implements OnChanges {
   @Input() data!: InputComponentModel;
   @Input() formGroup!: FormGroup;
+  @Input() formControl!: FormControl;
 
   inputError = '';
 
   INPUT_TYPE_MAPPER = INPUT_TYPE_MAPPER;
 
-  ngOnInit(): void {
-    this.subscribeToFromControl();
-  }
-
-  subscribeToFromControl() {
-    this.formGroup.get(this.data.formControlName)?.statusChanges.subscribe(() => {
-      if (this.formGroup.get(this.data.formControlName)?.errors) {
-
-      } else {
-
-      }
-    })
+  ngOnChanges(): void {
+    console.log(this.formGroup);
   }
 }

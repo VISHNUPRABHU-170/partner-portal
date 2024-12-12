@@ -1,26 +1,42 @@
-import { ButtonComponentModel } from "../../../core/components/button/buttom.component.model";
+import { ButtonComponentModel } from "../../../core/components/button/button.component.model";
+import { ComponentType, FormBuilderComponentModel, FormControlModel } from "../../../core/components/form-builder/form-builder.component.model";
 import { InputComponentModel, InputType } from "../../../core/components/input/input.component.model";
 import { LinkComponentModel } from "../../../core/components/link/link.component.model";
 
-export const userNameInputConfig: InputComponentModel = {
+const userNameInputConfig: InputComponentModel = {
   label: "Enter UserName",
   type: InputType.TEXT,
-  formControlName: 'userName'
 };
 
-export const passwordInputConfig: InputComponentModel = {
+const userNameFormControlConfig: FormControlModel = {
+  name: 'userName',
+  config: userNameInputConfig,
+  componentType: ComponentType.INPUT
+}
+
+const passwordInputConfig: InputComponentModel = {
   label: "Enter Password",
   type: InputType.PASSWORD,
-  formControlName: 'password'
 };
 
-export const confirmPasswordInputConfig: InputComponentModel = {
+const passwordFormControlConfig: FormControlModel = {
+  name: 'password',
+  config: passwordInputConfig,
+  componentType: ComponentType.INPUT
+}
+
+const confirmPasswordInputConfig: InputComponentModel = {
   label: "Confirm Password",
   type: InputType.PASSWORD,
-  formControlName: 'confirmPassword'
 };
 
-export const registerButtonConfig: ButtonComponentModel = {
+const confirmPasswordFormControlConfig: FormControlModel = {
+  name: 'confirmPassword',
+  config: confirmPasswordInputConfig,
+  componentType: ComponentType.INPUT
+}
+
+const registerButtonConfig: ButtonComponentModel = {
   label: 'Register',
   routerLink: ''
 };
@@ -28,4 +44,9 @@ export const registerButtonConfig: ButtonComponentModel = {
 export const logInLinkConfig: LinkComponentModel = {
   label: 'Login',
   routerLink: 'login'
+};
+
+export const registerFormConfig: FormBuilderComponentModel = {
+  formGroup: [userNameFormControlConfig, passwordFormControlConfig, confirmPasswordFormControlConfig],
+  formFooter: [registerButtonConfig]
 };

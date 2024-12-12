@@ -1,16 +1,17 @@
 .app-registration {
   width: 100%;
   height: 100%;
-  // color: #2C0E47;
   background-color: #00000029;
   display: flex;
   justify-content: center;
   align-items: center;
 
   .mdc-card {
-    width: 500px;
-    height: 500px;
+    padding: 10px 0px;
     border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .mat-mdc-card-content {
@@ -19,6 +20,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 15px;
+  }
+
+  .mat-mdc-card-header {
+    display: flex;
+    font-size: 24px;
+    font-weight: 500;
+    color: #2C0E47;
+    padding: 25px 0px;
   }
 }

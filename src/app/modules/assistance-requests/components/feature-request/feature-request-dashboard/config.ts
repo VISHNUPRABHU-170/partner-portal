@@ -1,4 +1,4 @@
-import { ButtonComponentModel } from "../../../../core/components/button/buttom.component.model";
+import { ButtonComponentModel } from "../../../../core/components/button/button.component.model";
 
 export const createRequestButtonConfig: ButtonComponentModel = {
   label: 'Create a Request',

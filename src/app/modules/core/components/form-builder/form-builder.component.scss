@@ -1,0 +1,12 @@
+.form-container {
+  padding: 0px 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .form-footer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+}

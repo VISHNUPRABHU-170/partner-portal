@@ -1,5 +1,5 @@
 <mat-form-field [formGroup]="formGroup" appearance="outline">
   <mat-label>{{data.label}}</mat-label>
-  <input matInput [type]="INPUT_TYPE_MAPPER[data.type]" [formControlName]="data.formControlName">
+  <input matInput [type]="INPUT_TYPE_MAPPER[data.type]" [formControl]="formControl">
   <mat-error></mat-error>
 </mat-form-field>

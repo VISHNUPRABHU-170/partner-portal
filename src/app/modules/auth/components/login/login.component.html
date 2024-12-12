@@ -1,9 +1,8 @@
 <div class="app-registration">
   <mat-card appearance="outlined">
+    <mat-card-header>LOGIN</mat-card-header>
     <mat-card-content>
-      <app-input [data]="userNameInputConfig" [formGroup]="loginForm"></app-input>
-      <app-input [data]="passwordInputConfig" [formGroup]="loginForm"></app-input>
-      <app-button [data]="logInButtonConfig"></app-button>
+      <app-form-builder [data]="loginFormConfig" (event)="onLogIn($event)"></app-form-builder>
       <div>
         <span>Already have an account? <app-link [data]="registerLinkConfig"></app-link></span>
       </div>
