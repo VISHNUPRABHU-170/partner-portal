@@ -23,7 +23,6 @@ export class NavigationLinkComponent implements OnInit {
 
   subscribeToNavigation() {
     this.navigationService.routeChange.subscribe((url: string) => {
-      console.log(url, this.data.routerLink);
       if (url) {
         if (ROUTE_MAPPER[this.data.routerLink]?.includes(url)) {
           this.data.active = true;

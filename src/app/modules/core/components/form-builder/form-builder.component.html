@@ -4,7 +4,7 @@
   }
   <div class="form-footer">
     @for(footerConfig of data.formFooter; track footerConfig) {
-      <app-button [data]="footerConfig" (click)="onClick()"></app-button>
+      <app-button [data]="footerConfig" (event)="onClick($event)"></app-button>
     }
   </div>
 </div>

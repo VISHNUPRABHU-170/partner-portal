@@ -19,6 +19,6 @@ export class LoginComponent {
   constructor (private authService: AuthService) {}
 
   onLogIn(data: any) {
-    this.authService.onLogin();
+    this.authService.onLogin(data);
   }
 }

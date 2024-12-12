@@ -27,7 +27,7 @@ const passwordFormControlConfig: FormControlModel = {
 
 const logInButtonConfig: ButtonComponentModel = {
   label: 'Login',
-  routerLink: ''
+  routerLink: 'partner-portal'
 };
 
 export const registerLinkConfig: LinkComponentModel = {

@@ -23,7 +23,7 @@ export class FormBuilderComponent {
     this.formGroup = this.formBuilder.createFormGroup(this.formGroup, this.data);
   }
 
-  onClick() {
+  onClick(data: any) {
     this.event.emit(this.formGroup.value);
   }
 }

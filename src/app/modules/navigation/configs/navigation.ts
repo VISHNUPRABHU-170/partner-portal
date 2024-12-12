@@ -7,18 +7,6 @@ const dashboardNavLinkConfig: NavigationLinkComponentModel = {
   routerLink: "/partner-portal/dashboard"
 };
 
-const resourcesNavLinkConfig: NavigationLinkComponentModel = {
-  linkText: "Resources",
-  linkIcon: "home",
-  routerLink: "dashboard"
-};
-
-const accountManagementNavLinkConfig: NavigationLinkComponentModel = {
-  linkText: "Account Management",
-  linkIcon: "home",
-  routerLink: "dashboard"
-};
-
 const assistanceRequestNavLinkConfig: NavigationLinkComponentModel = {
   linkText: "Assistance & Requests",
   linkIcon: "support_agent",

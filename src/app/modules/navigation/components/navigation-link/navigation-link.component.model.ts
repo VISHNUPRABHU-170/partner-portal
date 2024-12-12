@@ -9,7 +9,7 @@ export enum RouteType {
   DASHBOARD = '/partner-portal/dashboard',
   ASSISTANCE_REQUESTS = '/partner-portal/assistance-requests',
   ASSISTANCE_REQUEST_SUPPORT_DASHBOARD = '/partner-portal/assistance-requests/support-dashboard',
-  ASSISTANCE_REQUEST_FEATURE_REQUEST_DASHBOARD = '/assistance-requests/feature-request-dashboard',
+  ASSISTANCE_REQUEST_FEATURE_REQUEST_DASHBOARD = '/partner-portal/assistance-requests/feature-request-dashboard',
 }
 
 export const ROUTE_MAPPER: { [key in string]: string[] } = {};

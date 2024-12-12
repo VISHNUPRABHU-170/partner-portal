@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { ButtonComponentModel } from './button.component.model';
 import { NavigationService } from '../../services/navigation/navigation.service';
@@ -12,12 +12,11 @@ import { NavigationService } from '../../services/navigation/navigation.service'
 })
 export class ButtonComponent {
   @Input() data!: ButtonComponentModel;
+  event = output<ButtonComponentModel>();
 
   constructor(private navigationService: NavigationService) {}
 
   onClick() {
-    if (this.data.routerLink) {
-      this.navigationService.navigate(this.data.routerLink);
-    }
+    this.event.emit(this.data);
   }
 }

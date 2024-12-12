@@ -1,8 +1,8 @@
-import { Component, DestroyRef } from '@angular/core';
-import { HeaderComponent } from './modules/header/components/header/header.component';
-import { NavigationMainComponent } from './modules/navigation/components/navigation-main/navigation-main.component';
-import { Router, RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { NavigationService } from './modules/core/services/navigation/navigation.service';
 import { AuthService } from './modules/auth/services/auth.service';
+import { environments } from './environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -11,20 +11,14 @@ import { AuthService } from './modules/auth/services/auth.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
-
-  constructor (private authService: AuthService, private destroyRef: DestroyRef, private router: Router) { }
+export class AppComponent implements OnInit {
+  constructor (
+    private service: NavigationService,
+    private authService: AuthService
+  ) { }
 
   ngOnInit(): void {
-    const Subscription = this.authService.authStatus.subscribe((status: boolean) => {
-      if (status) {
-        this.router.navigate(['partner-portal']);
-      } else {
-        this.router.navigate(['login']);
-      }
-    });
-    this.destroyRef.onDestroy(() => {
-      Subscription?.unsubscribe();
-    });
+    this.authService.authLoginURL = environments.authLoginURL;
+    this.authService.authRegisterURL = environments.authRegisterURL;
   }
 }
