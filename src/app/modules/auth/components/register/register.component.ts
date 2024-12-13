@@ -19,6 +19,6 @@ export class RegisterComponent {
   constructor (private authService: AuthService) { }
 
   onRegister(data: any) {
-    this.authService.onRegister();
+    this.authService.onRegister(data);
   }
 }

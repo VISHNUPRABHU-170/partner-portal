@@ -3,6 +3,8 @@ import { RouterOutlet } from '@angular/router';
 import { NavigationService } from './modules/core/services/navigation/navigation.service';
 import { AuthService } from './modules/auth/services/auth.service';
 import { environments } from './environments/environment';
+import { RestApiService } from './modules/core/services/rest-api/rest-api.service';
+import { endPoints } from './modules/core/constants/endPoints';
 
 @Component({
   selector: 'app-root',
@@ -14,11 +16,13 @@ import { environments } from './environments/environment';
 export class AppComponent implements OnInit {
   constructor (
     private service: NavigationService,
-    private authService: AuthService
+    private authService: AuthService,
+    private restApiService: RestApiService
   ) { }
 
   ngOnInit(): void {
-    this.authService.authLoginURL = environments.authLoginURL;
-    this.authService.authRegisterURL = environments.authRegisterURL;
+    this.authService.authLoginURL = endPoints.authLoginURL;
+    this.authService.authRegisterURL = endPoints.authRegisterURL;
+    this.restApiService.backendBaseURL = environments.backendBaseURL;
   }
 }

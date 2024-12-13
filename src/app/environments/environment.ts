@@ -1,4 +1,3 @@
 export const environments = {
-  authLoginURL: '/auth/login',
-  authRegisterURL: '/auth/register',
+  backendBaseURL: 'http://localhost:8000/api/partner-portal',
 }

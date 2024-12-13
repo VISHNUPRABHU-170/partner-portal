@@ -1,6 +1,5 @@
 import { RestApiService } from './../../core/services/rest-api/rest-api.service';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +11,24 @@ export class AuthService {
   constructor (private restApiService: RestApiService) { }
 
   onLogin(data: any) {
-    this.restApiService.post(this.authLoginURL, data);
+    this.restApiService.post(this.authLoginURL, data).subscribe({
+      next: (response: any) => {
+
+      },
+      error: (error: any) => {
+
+      }
+    });
   }
 
-  onRegister() {
+  onRegister(data: any) {
+    this.restApiService.post(this.authRegisterURL, data).subscribe({
+      next: (response: any) => {
 
+      },
+      error: (error: any) => {
+
+      }
+    });
   }
 }
