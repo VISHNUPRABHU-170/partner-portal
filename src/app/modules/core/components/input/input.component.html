@@ -1,5 +1,11 @@
 <mat-form-field [formGroup]="formGroup" appearance="outline">
   <mat-label>{{data.label}}</mat-label>
   <input matInput [type]="INPUT_TYPE_MAPPER[data.type]" [formControl]="formControl">
-  <mat-error></mat-error>
+  <mat-error>
+    @if(formControl.hasError('required')) {
+      Field Required
+    } @else if(formControl.hasError('message')) {
+      {{formControl.getError('message')[0]}}
+    }
+  </mat-error>
 </mat-form-field>

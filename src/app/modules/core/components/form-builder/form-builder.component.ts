@@ -24,6 +24,10 @@ export class FormBuilderComponent {
   }
 
   onClick(data: any) {
-    this.event.emit(this.formGroup.value);
+    if (this.formGroup.valid) {
+      this.event.emit(this.formGroup.value);
+    } else {
+      this.formGroup.markAllAsTouched();
+    }
   }
 }

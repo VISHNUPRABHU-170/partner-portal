@@ -1,5 +1,5 @@
 import { ButtonComponentModel } from "../../../core/components/button/button.component.model";
-import { ComponentType, FormBuilderComponentModel, FormControlModel } from "../../../core/components/form-builder/form-builder.component.model";
+import { ComponentType, FormBuilderComponentModel, FormControlModel, FormGroupValidatorModel, FormValidators } from "../../../core/components/form-builder/form-builder.component.model";
 import { InputComponentModel, InputType } from "../../../core/components/input/input.component.model";
 import { LinkComponentModel } from "../../../core/components/link/link.component.model";
 
@@ -11,7 +11,8 @@ const userNameInputConfig: InputComponentModel = {
 const userNameFormControlConfig: FormControlModel = {
   name: 'userName',
   config: userNameInputConfig,
-  componentType: ComponentType.INPUT
+  componentType: ComponentType.INPUT,
+  validators: [FormValidators.REQUIRED]
 }
 
 const passwordInputConfig: InputComponentModel = {
@@ -22,7 +23,8 @@ const passwordInputConfig: InputComponentModel = {
 const passwordFormControlConfig: FormControlModel = {
   name: 'password',
   config: passwordInputConfig,
-  componentType: ComponentType.INPUT
+  componentType: ComponentType.INPUT,
+  validators: [FormValidators.REQUIRED, FormValidators.PASSWORD]
 }
 
 const confirmPasswordInputConfig: InputComponentModel = {
@@ -33,7 +35,8 @@ const confirmPasswordInputConfig: InputComponentModel = {
 const confirmPasswordFormControlConfig: FormControlModel = {
   name: 'confirmPassword',
   config: confirmPasswordInputConfig,
-  componentType: ComponentType.INPUT
+  componentType: ComponentType.INPUT,
+  validators: [FormValidators.REQUIRED, FormValidators.PASSWORD]
 }
 
 const registerButtonConfig: ButtonComponentModel = {
@@ -46,7 +49,16 @@ export const logInLinkConfig: LinkComponentModel = {
   routerLink: 'login'
 };
 
+const formGroupValidatorConfig: FormGroupValidatorModel = {
+  validatorType: FormValidators.MATCH_FIELD,
+  config: {
+    control1: 'password',
+    control2: 'confirmPassword'
+  }
+}
+
 export const registerFormConfig: FormBuilderComponentModel = {
   formGroup: [userNameFormControlConfig, passwordFormControlConfig, confirmPasswordFormControlConfig],
-  formFooter: [registerButtonConfig]
+  formFooter: [registerButtonConfig],
+  validators: formGroupValidatorConfig
 };

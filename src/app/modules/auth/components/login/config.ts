@@ -1,5 +1,5 @@
 import { ButtonComponentModel } from "../../../core/components/button/button.component.model";
-import { ComponentType, FormBuilderComponentModel, FormControlModel } from "../../../core/components/form-builder/form-builder.component.model";
+import { ComponentType, FormBuilderComponentModel, FormControlModel, FormValidators } from "../../../core/components/form-builder/form-builder.component.model";
 import { InputComponentModel, InputType } from "../../../core/components/input/input.component.model";
 import { LinkComponentModel } from "../../../core/components/link/link.component.model";
 
@@ -11,18 +11,20 @@ const userNameInputConfig: InputComponentModel = {
 const userNameFormControlConfig: FormControlModel = {
   name: 'userName',
   config: userNameInputConfig,
-  componentType: ComponentType.INPUT
+  componentType: ComponentType.INPUT,
+  validators: [FormValidators.REQUIRED]
 }
 
 const passwordInputConfig: InputComponentModel = {
   label: "Enter Password",
-  type: InputType.PASSWORD,
+  type: InputType.PASSWORD
 };
 
 const passwordFormControlConfig: FormControlModel = {
   name: 'password',
   config: passwordInputConfig,
-  componentType: ComponentType.INPUT
+  componentType: ComponentType.INPUT,
+  validators: [FormValidators.REQUIRED]
 }
 
 const logInButtonConfig: ButtonComponentModel = {
