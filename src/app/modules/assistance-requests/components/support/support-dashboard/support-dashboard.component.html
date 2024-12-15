@@ -1,6 +1,6 @@
 <div class="support-dashboard">
   <mat-toolbar>
     <span>Support</span>
-    <app-button [data]="createRequestButtonConfig"></app-button>
+    <app-button [data]="createRequestButtonConfig" (event)="onCreateRequest($event)"></app-button>
   </mat-toolbar>
 </div>

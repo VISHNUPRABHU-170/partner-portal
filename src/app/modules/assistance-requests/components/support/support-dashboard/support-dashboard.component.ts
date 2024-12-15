@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { createRequestButtonConfig } from './config';
 import { ButtonComponent } from '../../../../core/components/button/button.component';
+import { NavigationService } from '../../../../core/services/navigation/navigation.service';
+import { ButtonComponentModel } from '../../../../core/components/button/button.component.model';
 
 @Component({
   selector: 'app-support-dashboard',
@@ -12,4 +14,10 @@ import { ButtonComponent } from '../../../../core/components/button/button.compo
 })
 export class SupportDashboardComponent {
   createRequestButtonConfig = createRequestButtonConfig;
+
+  constructor (private navigationService: NavigationService) { }
+
+  onCreateRequest(data: ButtonComponentModel) {
+    this.navigationService.navigate(data.routerLink);
+  }
 }
