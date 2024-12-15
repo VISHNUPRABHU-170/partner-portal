@@ -17,7 +17,7 @@ export class AuthService {
   ) { }
 
   onLogin(data: any) {
-    this.restApiService.post('auth/test', data).subscribe({
+    this.restApiService.post(this.authLoginURL, data).subscribe({
       next: (response: any) => {
         if (response.success === true) {
           this.storageService.setSessionItem('token', response.token);
