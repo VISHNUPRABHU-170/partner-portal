@@ -1,0 +1,23 @@
+<mat-stepper #stepper>
+  @for(stepper of data.stepper; let i = $index; track stepper) {
+  <mat-step [stepControl]="formGroup" [label]="stepper.label">
+      @for(controlConfig of stepper.formControls; track controlConfig) {
+        <ng-container dynamicFormControl [data]="controlConfig" [formGroup]="formGroup"></ng-container>
+      }
+    <div>
+      @if(i) {
+        <button mat-button matStepperPrevious>Back</button>
+      }
+      <button mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  }
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-stepper>

@@ -1,6 +1,7 @@
 export interface InputComponentModel {
   label: string;
   type: InputType;
+  className?: string
 }
 
 export enum InputType {

@@ -39,9 +39,10 @@ export class AuthService {
         if (response.success == true) {
           this.navigationService.navigate('login');
         }
+        this.toasterService.show(response.message, response.success);
       },
       error: (error: any) => {
-
+        this.toasterService.show(error.message, error.success);
       }
     });
   }
