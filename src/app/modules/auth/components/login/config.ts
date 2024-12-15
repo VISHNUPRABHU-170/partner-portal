@@ -4,7 +4,7 @@ import { InputComponentModel, InputType } from "../../../core/components/input/i
 import { LinkComponentModel } from "../../../core/components/link/link.component.model";
 
 const userNameInputConfig: InputComponentModel = {
-  label: "Enter UserName",
+  label: "Enter User Name",
   type: InputType.TEXT,
 };
 

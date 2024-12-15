@@ -1,7 +1,8 @@
+import { Injectable } from '@angular/core';
 import { NavigationService } from './../../core/services/navigation/navigation.service';
 import { StorageService } from '../../core/services/storage/storage.service';
 import { RestApiService } from './../../core/services/rest-api/rest-api.service';
-import { Injectable } from '@angular/core';
+import { ToasterService } from '../../core/services/toaster/toaster.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ export class AuthService {
   constructor (
     private restApiService: RestApiService,
     private storageService: StorageService,
-    private navigationService: NavigationService
+    private navigationService: NavigationService,
+    private toasterService: ToasterService
   ) { }
 
   onLogin(data: any) {
@@ -23,9 +25,10 @@ export class AuthService {
           this.storageService.setSessionItem('token', response.token);
           this.navigationService.navigate('partner-portal');
         }
+        this.toasterService.show(response.message, response.success);
       },
       error: (error: any) => {
-
+        this.toasterService.show(error.message, error.success);
       }
     });
   }
