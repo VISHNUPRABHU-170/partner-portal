@@ -2,14 +2,19 @@
   width: 100%;
 
   .mat-toolbar {
-      color: #2C0E47;
-      background-color: #00000029;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      display: flex;
-      gap: 5px;
+    color: #2C0E47;
+    background-color: #00000029;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 5px;
 
-      app-icon {
-        margin-top: 5px;
-      }
+    app-icon {
+      margin-top: 5px;
     }
+  }
+
+  .content {
+    padding: 50px;
+    background-color: #fff7fd;
+  }
 }

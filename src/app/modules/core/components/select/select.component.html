@@ -1,0 +1,15 @@
+<mat-form-field [formGroup]="formGroup">
+  <mat-label>{{data.label}}</mat-label>
+  <mat-select [formControl]="formControl">
+    @for (option of data.options; track option) {
+    <mat-option [value]="option.key">{{option.value}}</mat-option>
+    }
+  </mat-select>
+  <mat-error>
+    @if(formControl.hasError('required')) {
+    Field Required
+    } @else if(formControl.hasError('message')) {
+    {{formControl.getError('message')[0]}}
+    }
+  </mat-error>
+</mat-form-field>

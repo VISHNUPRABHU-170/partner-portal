@@ -2,6 +2,11 @@ import { ButtonComponentModel } from '../button/button.component.model';
 import { Type } from "@angular/core";
 import { InputComponent } from "../input/input.component";
 import { InputComponentModel } from "../input/input.component.model";
+import { SelectComponentModel } from '../select/select.component.model';
+import { SelectComponent } from '../select/select.component';
+import { TextareaComponent } from '../textarea/textarea.component';
+import { ChipInputComponent } from '../chip-input/chip-input.component';
+import { ChipInputComponentModel } from '../chip-input/chip-input.component.model';
 
 export interface FormBuilderComponentModel {
   formGroup: FormControlModel[];
@@ -19,7 +24,7 @@ export interface FormGroupValidatorModel {
 
 export interface FormControlModel {
   name: string;
-  config: InputComponentModel;
+  config: InputComponentModel | SelectComponentModel | ChipInputComponentModel;
   componentType: ComponentType;
   validators: FormValidators[];
   value?: string;
@@ -33,12 +38,16 @@ export enum FormValidators {
 
 export enum ComponentType {
   INPUT = "INPUT",
-  BUTTON = "BUTTON",
+  SELECT = "SELECT",
+  TEXT_AREA = "TEXT_AREA",
+  CHIP_INPUT = "CHIP_INPUT"
 }
 
-export type dynamicComponentType = Type<InputComponent>;
+export type dynamicComponentType = Type<InputComponent | SelectComponent | TextareaComponent | ChipInputComponent>;
 
 export const COMPONENT_TYPE_MAPPER: { [key: string]: dynamicComponentType; } = {};
 
 COMPONENT_TYPE_MAPPER[ComponentType.INPUT] = InputComponent;
-
+COMPONENT_TYPE_MAPPER[ComponentType.SELECT] = SelectComponent;
+COMPONENT_TYPE_MAPPER[ComponentType.TEXT_AREA] = TextareaComponent;
+COMPONENT_TYPE_MAPPER[ComponentType.CHIP_INPUT] = ChipInputComponent;

@@ -1,0 +1,26 @@
+<mat-form-field [formGroup]="formGroup">
+  <mat-label>{{data.label}}</mat-label>
+  <mat-chip-grid #chipGrid [formControl]="formControl">
+    @for (item of selectedItems; track $index) {
+    <mat-chip-row (removed)="remove(item)">
+      {{item}}
+      <button matChipRemove>
+        <app-icon [data]="{name: 'cancel'}"></app-icon>
+      </button>
+    </mat-chip-row>
+    }
+  </mat-chip-grid>
+  <input [matChipInputFor]="chipGrid" [matAutocomplete]="auto" />
+  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+    @for (option of data.autoCompleteOptions; track option) {
+    <mat-option [value]="option.key">{{option.value}}</mat-option>
+    }
+  </mat-autocomplete>
+  <mat-error>
+    @if(formControl.hasError('required')) {
+    Field Required
+    } @else if(formControl.hasError('message')) {
+    {{formControl.getError('message')[0]}}
+    }
+  </mat-error>
+</mat-form-field>
