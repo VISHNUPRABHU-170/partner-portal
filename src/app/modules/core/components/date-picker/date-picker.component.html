@@ -1,6 +1,8 @@
 <mat-form-field [formGroup]="formGroup" [hideRequiredMarker]="true">
   <mat-label>{{data.label}}</mat-label>
-  <textarea matInput [formControl]="formControl"></textarea>
+  <input matInput [matDatepicker]="picker" [formControl]="formControl">
+  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
   <mat-error>
     @if(formControl.hasError('required')) {
     Field Required

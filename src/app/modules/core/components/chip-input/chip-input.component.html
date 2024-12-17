@@ -1,4 +1,4 @@
-<mat-form-field [formGroup]="formGroup">
+<mat-form-field [formGroup]="formGroup" [hideRequiredMarker]="true">
   <mat-label>{{data.label}}</mat-label>
   <mat-chip-grid #chipGrid [formControl]="formControl">
     @for (item of selectedItems; track $index) {

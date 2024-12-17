@@ -1,12 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { TextareaComponentModel } from './textarea.component.model';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-textarea',
   standalone: true,
-  imports: [MatInputModule],
+  imports: [MatInputModule, ReactiveFormsModule],
   templateUrl: './textarea.component.html',
   styleUrl: './textarea.component.scss'
 })

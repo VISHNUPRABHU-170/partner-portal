@@ -1,6 +1,10 @@
 <div class="support-form">
   <mat-toolbar>
     <app-icon [data]="backIconConfig"></app-icon>
-    <span>Support Form</span>
+    <span>Create Request</span>
   </mat-toolbar>
+  <div class="content">
+    <app-stepper [data]="stepperConfig"></app-stepper>
+  </div>
+  <app-upload></app-upload>
 </div>

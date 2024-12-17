@@ -1,4 +1,4 @@
-<mat-form-field [formGroup]="formGroup">
+<mat-form-field [formGroup]="formGroup" [hideRequiredMarker]="true">
   <mat-label>{{data.label}}</mat-label>
   <mat-select [formControl]="formControl">
     @for (option of data.options; track option) {

@@ -7,7 +7,7 @@
       }
       <div class="button-container">
         @if(i) {
-        <button mat-flat-button matStepperPrevious>Back</button>
+        <button mat-stroked-button matStepperPrevious>Back</button>
         }
         <button mat-flat-button matStepperNext>Next</button>
       </div>
@@ -18,8 +18,8 @@
     <ng-template matStepLabel>Done</ng-template>
     <p>You are now done.</p>
     <div class="button-container">
-      <button mat-flat-button matStepperPrevious>Back</button>
-      <button mat-flat-button (click)="stepper.reset()">Reset</button>
+      <button mat-stroked-button matStepperPrevious>Back</button>
+      <button mat-flat-button (click)="onSubmit()">Submit</button>
     </div>
   </mat-step>
 </mat-stepper>

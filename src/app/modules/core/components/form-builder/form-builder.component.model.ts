@@ -7,6 +7,8 @@ import { SelectComponent } from '../select/select.component';
 import { TextareaComponent } from '../textarea/textarea.component';
 import { ChipInputComponent } from '../chip-input/chip-input.component';
 import { ChipInputComponentModel } from '../chip-input/chip-input.component.model';
+import { DatePickerComponent } from '../date-picker/date-picker.component';
+import { DatePickerComponentModel } from '../date-picker/date-picker.component.model';
 
 export interface FormBuilderComponentModel {
   formGroup: FormControlModel[];
@@ -24,7 +26,7 @@ export interface FormGroupValidatorModel {
 
 export interface FormControlModel {
   name: string;
-  config: InputComponentModel | SelectComponentModel | ChipInputComponentModel;
+  config: InputComponentModel | SelectComponentModel | ChipInputComponentModel | DatePickerComponentModel;
   componentType: ComponentType;
   validators: FormValidators[];
   value?: string;
@@ -40,10 +42,11 @@ export enum ComponentType {
   INPUT = "INPUT",
   SELECT = "SELECT",
   TEXT_AREA = "TEXT_AREA",
-  CHIP_INPUT = "CHIP_INPUT"
+  CHIP_INPUT = "CHIP_INPUT",
+  DATE_PICKER = "DATE_PICKER"
 }
 
-export type dynamicComponentType = Type<InputComponent | SelectComponent | TextareaComponent | ChipInputComponent>;
+export type dynamicComponentType = Type<InputComponent | SelectComponent | TextareaComponent | ChipInputComponent | DatePickerComponent>;
 
 export const COMPONENT_TYPE_MAPPER: { [key: string]: dynamicComponentType; } = {};
 
@@ -51,3 +54,4 @@ COMPONENT_TYPE_MAPPER[ComponentType.INPUT] = InputComponent;
 COMPONENT_TYPE_MAPPER[ComponentType.SELECT] = SelectComponent;
 COMPONENT_TYPE_MAPPER[ComponentType.TEXT_AREA] = TextareaComponent;
 COMPONENT_TYPE_MAPPER[ComponentType.CHIP_INPUT] = ChipInputComponent;
+COMPONENT_TYPE_MAPPER[ComponentType.DATE_PICKER] = DatePickerComponent;

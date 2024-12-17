@@ -6,6 +6,7 @@ import { ComponentType, FormControlModel, FormValidators } from '../../../../cor
 import { SelectComponentModel } from '../../../../core/components/select/select.component.model';
 import { TextareaComponentModel } from '../../../../core/components/textarea/textarea.component.model';
 import { ChipInputComponentModel } from '../../../../core/components/chip-input/chip-input.component.model';
+import { DatePickerComponentModel } from '../../../../core/components/date-picker/date-picker.component.model';
 
 export const backIconConfig: IconComponentModel = {
   name: 'arrow_back',
@@ -13,7 +14,7 @@ export const backIconConfig: IconComponentModel = {
 };
 
 const titleInputConfig: InputComponentModel = {
-  label: "Enter title",
+  label: "Enter Title",
   type: InputType.TEXT
 };
 
@@ -33,37 +34,33 @@ const descriptionControlConfig: FormControlModel = {
   name: 'description',
   config: descriptionInputConfig,
   componentType: ComponentType.TEXT_AREA,
-  validators: []
+  validators: [FormValidators.REQUIRED]
 };
 
-const selectRequestTypeConfig: SelectComponentModel = {
-  label: "Select Request Type",
+const selectPriorityLevelConfig: SelectComponentModel = {
+  label: "Priority Level",
   options: [
-    { key: 'feature', value: 'Feature' },
-    { key: 'bug', value: 'Bug' },
+    { key: 'high', value: 'High' },
+    { key: 'medium', value: 'Medium' },
+    { key: 'low', value: 'Low' }
   ]
 };
 
-const selectRequestTypeControlConfig: FormControlModel = {
+const selectPriorityLevelControlConfig: FormControlModel = {
   name: 'selectRequestType',
-  config: selectRequestTypeConfig,
+  config: selectPriorityLevelConfig,
   componentType: ComponentType.SELECT,
   validators: [FormValidators.REQUIRED]
 };
 
-const selectCloudProviderConfig: SelectComponentModel = {
-  label: "Select a Cloud Provider",
-  options: [
-    { key: 'aws', value: 'AWS' },
-    { key: 'azure', value: 'AZURE' },
-    { key: 'gcp', value: 'GCP' }
-  ]
+const timeLineInputConfig: DatePickerComponentModel = {
+  label: "Feature Deadline"
 };
 
-const selectCloudProviderControlConfig: FormControlModel = {
-  name: 'selectCloudProvider',
-  config: selectCloudProviderConfig,
-  componentType: ComponentType.SELECT,
+const timeLineControlConfig: FormControlModel = {
+  name: "deadLine",
+  config: timeLineInputConfig,
+  componentType: ComponentType.DATE_PICKER,
   validators: [FormValidators.REQUIRED]
 };
 
@@ -84,17 +81,17 @@ const tagsSelectionControlConfig: FormControlModel = {
 };
 
 const requestTypeStepperConfig: StepperModel = {
-  label: "Request Type",
-  formControls: [selectRequestTypeControlConfig, selectCloudProviderControlConfig]
+  label: "Request Details",
+  formControls: [selectPriorityLevelControlConfig, timeLineControlConfig]
 };
 
 const titleStepperConfig: StepperModel = {
-  label: 'Enter Title',
+  label: 'Feature Details',
   formControls: [titleControlConfig, descriptionControlConfig]
 };
 
 const tagsStepperConfig: StepperModel = {
-  label: 'Select Tags',
+  label: 'Attachments',
   formControls: [tagsSelectionControlConfig]
 };
 
