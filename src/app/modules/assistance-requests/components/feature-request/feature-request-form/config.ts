@@ -47,7 +47,7 @@ const selectPriorityLevelConfig: SelectComponentModel = {
 };
 
 const selectPriorityLevelControlConfig: FormControlModel = {
-  name: 'selectRequestType',
+  name: 'priority',
   config: selectPriorityLevelConfig,
   componentType: ComponentType.SELECT,
   validators: [FormValidators.REQUIRED]
@@ -74,7 +74,7 @@ const tagsSelectionInputConfig: ChipInputComponentModel = {
 };
 
 const tagsSelectionControlConfig: FormControlModel = {
-  name: 'selectTags',
+  name: 'tags',
   config: tagsSelectionInputConfig,
   componentType: ComponentType.CHIP_INPUT,
   validators: [FormValidators.REQUIRED]

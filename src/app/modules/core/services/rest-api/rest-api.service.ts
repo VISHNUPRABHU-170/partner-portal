@@ -10,6 +10,10 @@ export class RestApiService {
 
   constructor (private httpClient: HttpClient) { }
 
+  get(endPoint: string): Observable<any> {
+    return this.httpClient.get(`${this.backendBaseURL}/${endPoint}`);
+  }
+
   post(endPoint: string, data: any): Observable<any> {
     return this.httpClient.post(`${this.backendBaseURL}/${endPoint}`, data);
   }

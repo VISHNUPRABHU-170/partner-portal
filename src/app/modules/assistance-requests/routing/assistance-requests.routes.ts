@@ -8,12 +8,12 @@ export const assistanceRequestRoutes: Route[] = [
   },
   {
     path: 'support-form',
-    loadComponent: () => import('../components/support/support-form/support-form.component')
+    loadComponent: () => import('../components/support-request/support-form/support-form.component')
       .then(c => c.SupportFormComponent)
   },
   {
     path: 'support-dashboard',
-    loadComponent: () => import('../components/support/support-dashboard/support-dashboard.component')
+    loadComponent: () => import('../components/support-request/support-dashboard/support-dashboard.component')
       .then(c => c.SupportDashboardComponent)
   },
   {

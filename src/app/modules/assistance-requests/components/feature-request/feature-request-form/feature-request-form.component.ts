@@ -4,6 +4,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { IconComponent } from '../../../../core/components/icon/icon.component';
 import { MatCardModule } from '@angular/material/card';
 import { StepperComponent } from '../../../../core/components/stepper/stepper.component';
+import { FeatureTicketModel } from '../../../models/feature-ticket.model';
+import { FeatureRequestService } from '../../../services/feature-request/feature-request.service';
 
 @Component({
   selector: 'app-feature-request-form',
@@ -15,4 +17,14 @@ import { StepperComponent } from '../../../../core/components/stepper/stepper.co
 export class FeatureRequestFormComponent {
   backIconConfig = backIconConfig;
   stepperConfig = stepperConfig;
+
+  constructor (private featureTicketService: FeatureRequestService) { }
+
+  // ngOnInit(): void {
+  //   this.featureTicketService.getAllTicket();
+  // }
+
+  onSubmit(data: FeatureTicketModel) {
+    this.featureTicketService.createTicket(data);
+  }
 }
