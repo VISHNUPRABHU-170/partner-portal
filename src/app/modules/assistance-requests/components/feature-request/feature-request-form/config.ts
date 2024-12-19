@@ -53,6 +53,22 @@ const selectPriorityLevelControlConfig: FormControlModel = {
   validators: [FormValidators.REQUIRED]
 };
 
+const selectCloudProviderConfig: SelectComponentModel = {
+  label: "Select Cloud Provider",
+  options: [
+    { key: 'aws', value: 'AWS' },
+    { key: 'azure', value: 'AZURE' },
+    { key: 'gcp', value: 'GCP' }
+  ]
+};
+
+const selectCloudProviderControlConfig: FormControlModel = {
+  name: 'cloudProvider',
+  config: selectCloudProviderConfig,
+  componentType: ComponentType.SELECT,
+  validators: [FormValidators.REQUIRED]
+};
+
 const timeLineInputConfig: DatePickerComponentModel = {
   label: "Feature Deadline"
 };
@@ -92,7 +108,7 @@ const titleStepperConfig: StepperModel = {
 
 const tagsStepperConfig: StepperModel = {
   label: 'Attachments',
-  formControls: [tagsSelectionControlConfig]
+  formControls: [selectCloudProviderControlConfig, tagsSelectionControlConfig]
 };
 
 export const stepperConfig: StepperComponentModel = {

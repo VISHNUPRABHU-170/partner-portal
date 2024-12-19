@@ -1,0 +1,7 @@
+<mat-card appearance="outlined">
+  <mat-card-header>{{chartConfig.title}}</mat-card-header>
+  <mat-card-content>
+    <highcharts-chart [Highcharts]="Highcharts" [options]="chartData"
+      style="display: block;"></highcharts-chart>
+  </mat-card-content>
+</mat-card>

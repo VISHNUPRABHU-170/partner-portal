@@ -3,4 +3,18 @@
     <span>Feature Request</span>
     <app-button [data]="createRequestButtonConfig" (event)="onCreateRequest($event)"></app-button>
   </mat-toolbar>
+  <div class="content">
+    <div class="chart-container">
+      <span>Overall Summary - Feature Request</span>
+      <div class="charts">
+        <app-pie-chart [chartConfig]="awsChartConfig"></app-pie-chart>
+        <app-pie-chart [chartConfig]="azureChartConfig"></app-pie-chart>
+        <app-pie-chart [chartConfig]="gcpChartConfig"></app-pie-chart>
+        <app-pie-chart [chartConfig]="othersChartConfig"></app-pie-chart>
+      </div>
+    </div>
+    <div>
+
+    </div>
+  </div>
 </div>

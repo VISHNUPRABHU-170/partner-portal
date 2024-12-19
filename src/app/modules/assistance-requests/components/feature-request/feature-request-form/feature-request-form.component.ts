@@ -20,10 +20,6 @@ export class FeatureRequestFormComponent {
 
   constructor (private featureTicketService: FeatureRequestService) { }
 
-  // ngOnInit(): void {
-  //   this.featureTicketService.getAllTicket();
-  // }
-
   onSubmit(data: FeatureTicketModel) {
     this.featureTicketService.createTicket(data);
   }
