@@ -1,7 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { PieChartComponentModel } from './pie-chart.component.model';
-import { HighchartsChartModule } from 'highcharts-angular';
+import { HighchartsChartComponent, HighchartsChartModule } from 'highcharts-angular';
 import { ChartBuilderService } from '../../services/chart-builder/chart-builder.service';
 import Highcharts from 'highcharts';
 
@@ -18,11 +18,14 @@ export class PieChartComponent {
 
   Highcharts = Highcharts;
   chartData!: Highcharts.Options;
+  chartInstance: Highcharts.Chart | undefined;
 
   constructor (private chartBuilderService: ChartBuilderService) {}
 
-  ngOnInit() {
-    this.chartData = this.chartBuilderService.prepareChartConfig(this.chartConfig) as Highcharts.Options;
+  ngOnChanges(): void {
+    this.chartData = {
+      ...this.chartBuilderService.prepareChartConfig(this.chartConfig)
+    } as Highcharts.Options;
   }
 
 }

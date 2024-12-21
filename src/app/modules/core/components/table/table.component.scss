@@ -1,0 +1,17 @@
+table {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  th.mat-mdc-header-cell, td {
+    border-bottom-color: rgb(226, 222, 222);
+    text-align: center;
+  }
+
+  th {
+    background-color: #FBF7FF;
+    color: #2C0E47;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 500;
+  }
+}

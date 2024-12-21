@@ -56,9 +56,9 @@ const selectPriorityLevelControlConfig: FormControlModel = {
 const selectCloudProviderConfig: SelectComponentModel = {
   label: "Select Cloud Provider",
   options: [
-    { key: 'aws', value: 'AWS' },
-    { key: 'azure', value: 'AZURE' },
-    { key: 'gcp', value: 'GCP' }
+    { key: 'AWS', value: 'AWS' },
+    { key: 'AZURE', value: 'AZURE' },
+    { key: 'GCP', value: 'GCP' }
   ]
 };
 

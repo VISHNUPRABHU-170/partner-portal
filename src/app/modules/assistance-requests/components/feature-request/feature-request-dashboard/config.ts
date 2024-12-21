@@ -11,14 +11,11 @@ export const awsChartConfig: PieChartComponentModel = {
   chartType: ChartType.DOUGHNUT,
   series: {
     type: 'pie',
-    name: 'Ticket Submissions',
-    data: [
-      { name: '', value: 60, color: '#5FD198' },
-      { name: '', value: 40, color: '#FAD27D' },
-    ],
+    name: 'Tickets',
+    data: [],
   },
   centerText: {
-    title: '60',
+    title: '0',
     subTitle: 'Submissions'
   }
 };
@@ -28,14 +25,11 @@ export const azureChartConfig: PieChartComponentModel = {
   chartType: ChartType.DOUGHNUT,
   series: {
     type: 'pie',
-    name: 'Ticket Submissions',
-    data: [
-      { name: '', value: 90, color: '#5FD198' },
-      { name: '', value: 10, color: '#2FC8EB' },
-    ],
+    name: 'Tickets',
+    data: [],
   },
   centerText: {
-    title: '90',
+    title: '0',
     subTitle: 'Submissions'
   }
 };
@@ -45,14 +39,11 @@ export const gcpChartConfig: PieChartComponentModel = {
   chartType: ChartType.DOUGHNUT,
   series: {
     type: 'pie',
-    name: 'Ticket Submissions',
-    data: [
-      { name: '', value: 30, color: '#5FD198' },
-      { name: '', value: 70, color: '#EB6253' },
-    ],
+    name: 'Tickets',
+    data: [],
   },
   centerText: {
-    title: '30',
+    title: '0',
     subTitle: 'Submissions'
   }
 };
@@ -62,14 +53,11 @@ export const othersChartConfig: PieChartComponentModel = {
   chartType: ChartType.DOUGHNUT,
   series: {
     type: 'pie',
-    name: 'Ticket Submissions',
-    data: [
-      { name: '', value: 45, color: '#5FD198' },
-      { name: '', value: 55, color: '#C7C7C7' },
-    ],
+    name: 'Tickets',
+    data: [],
   },
   centerText: {
-    title: '45',
+    title: '0',
     subTitle: 'Submissions'
   }
 };

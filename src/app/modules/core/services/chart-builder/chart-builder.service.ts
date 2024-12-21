@@ -1,127 +1,120 @@
 import { CenterTextModel, ChartSeriesModel, ChartType, PieChartComponentModel } from '../../components/pie-chart/pie-chart.component.model';
-import { SeriesOptionsType } from 'highcharts';
+import { chart, SeriesOptionsType } from 'highcharts';
 
 export class ChartBuilderService {
-
-  basicConfig: Highcharts.Options = {
-    chart: {
-      type: 'pie',
-      width: 270,
-      height: 270,
-    },
-    title: {
-      text: undefined
-    },
-    credits: {
-      enabled: false
-    },
-    legend: {
-      enabled: false
-    },
-    plotOptions: {
-      pie: {
-        size: '100%',
-        allowPointSelect: true,
-        cursor: 'pointer',
-        dataLabels: {
-          enabled: true,
-          distance: -30,
-          format: '{point.name}',
-          style: {
-            fontSize: '12px',
-          }
-        }
-      }
-    },
-    series: []
-  };
-
   constructor () { }
 
-  prepareChartConfig(config: PieChartComponentModel) {
-    this.prepareCharType(config.chartType);
-    this.prepareChartSeries(config.series);
-    if (config.centerText) this.prepareCenterText(config.centerText);
-    return this.basicConfig;
+  prepareChartConfig(config: PieChartComponentModel): Highcharts.Options {
+    const baseConfig: Highcharts.Options = {
+      chart: {
+        type: 'pie',
+        width: 270,
+        height: 270,
+      },
+      title: {
+        text: undefined,
+      },
+      credits: {
+        enabled: false,
+      },
+      legend: {
+        enabled: false,
+      },
+      accessibility: {
+        enabled: false,
+      },
+      plotOptions: {
+        pie: {
+          size: '100%',
+          allowPointSelect: true,
+          cursor: 'pointer',
+          dataLabels: {
+            enabled: true,
+            distance: -30,
+            format: '{point.name}',
+            style: {
+              fontSize: '12px',
+            },
+          },
+        },
+      },
+      series: [],
+    };
+    this.prepareCharType(baseConfig, config.chartType);
+    this.prepareChartSeries(baseConfig, config.series);
+    if (config.centerText) {
+      this.prepareCenterText(baseConfig, config.centerText);
+    }
+    return baseConfig;
   }
 
-  prepareCharType(chartType: ChartType) {
-    const plotOptions = this.basicConfig.plotOptions;
-    if (plotOptions && plotOptions.pie) {
-      if (chartType === ChartType.STANDARD) {
-        plotOptions.pie.innerSize = '0%';
-      } else {
-        plotOptions.pie.innerSize = '85%';
-      }
+  prepareCharType(config: Highcharts.Options, chartType: ChartType): void {
+    const plotOptions = config.plotOptions?.pie;
+    if (plotOptions) {
+      plotOptions.innerSize = chartType === ChartType.STANDARD ? '0%' : '85%';
     }
   }
 
-  prepareChartSeries(seriesData: ChartSeriesModel) {
+  prepareChartSeries(config: Highcharts.Options, seriesData: ChartSeriesModel): void {
     const series = {
       type: seriesData.type,
       name: seriesData.name,
-      data: [] as { name: string; y: number; color: string; }[]
-    };
-    if (!seriesData.data.length) {
-      const data = {
-        name: '',
-        y: 100,
-        color: '#C7C7C7'
-      };
-      series.data.push(data);
-    } else {
-      seriesData.data.forEach((item) => {
-        const data = {
+      data: seriesData.data.length
+        ? seriesData.data.map(item => ({
           name: item.name,
           y: item.value,
-          color: item.color
-        };
-        series.data.push(data);
-      });
-    }
-    this.basicConfig.series?.push(series as SeriesOptionsType);
+          color: item.color,
+        }))
+        : [{ name: '', y: 100, color: '#C7C7C7' }],
+    };
+
+    config.series = [series as SeriesOptionsType];
   }
 
-  prepareCenterText(centerText: CenterTextModel) {
-    this.basicConfig.chart = {
-      ...this.basicConfig.chart,
+  prepareCenterText(config: Highcharts.Options, centerText: CenterTextModel): void {
+    config.chart = {
+      ...config.chart,
       events: {
-        load: function () {
-          const chart = this;
-          const numberText = chart.renderer.text(centerText.title, chart.plotLeft + chart.plotWidth / 2, chart.plotTop + chart.plotHeight / 2)
+        render: function () {
+          const chart = this as Highcharts.Chart & { customElements?: Highcharts.SVGElement[]; };
+          if (!chart.customElements) {
+            chart.customElements = [];
+          }
+          chart.customElements.forEach((el: Highcharts.SVGElement) => el.destroy());
+          chart.customElements = [];
+          const mainText = chart.renderer
+            .text(centerText.title, chart.plotLeft + chart.plotWidth / 2, chart.plotTop + chart.plotHeight / 2)
             .css({
               fontSize: '28px',
               fontWeight: 'bold',
-              color: '#000000'
+              color: '#000000',
             })
-            .attr({
-              zIndex: 5
-            })
+            .attr({ zIndex: 5 })
             .add();
-
-          const numberBBox = numberText.getBBox();
-          numberText.attr({
-            x: (chart.plotLeft + chart.plotWidth / 2) - (numberBBox.width / 2),
-            y: (chart.plotTop + chart.plotHeight / 2) - 10
+          const mainBBox = mainText.getBBox();
+          mainText.attr({
+            x: (chart.plotLeft + chart.plotWidth / 2) - mainBBox.width / 2,
+            y: (chart.plotTop + chart.plotHeight / 2) - 10,
           });
-
-          const submissionsText = chart.renderer.text(centerText.subTitle, chart.plotLeft + chart.plotWidth / 2, chart.plotTop + chart.plotHeight / 2 + 25) // Adjust position below the number
+          chart.customElements.push(mainText);
+          const subtitle = chart.renderer
+            .text(centerText.subTitle, chart.plotLeft + chart.plotWidth / 2, chart.plotTop + chart.plotHeight / 2 + 25)
             .css({
               fontSize: '16px',
-              color: '#000000'
+              color: '#000000',
             })
-            .attr({
-              zIndex: 5
-            })
+            .attr({ zIndex: 5 })
             .add();
-
-          const submissionsBBox = submissionsText.getBBox();
-          submissionsText.attr({
-            x: (chart.plotLeft + chart.plotWidth / 2) - (submissionsBBox.width / 2),
-            y: (chart.plotTop + chart.plotHeight / 2) + 25
+          const subtitleBBox = subtitle.getBBox();
+          subtitle.attr({
+            x: (chart.plotLeft + chart.plotWidth / 2) - subtitleBBox.width / 2,
+            y: (chart.plotTop + chart.plotHeight / 2) + 25,
           });
-        }
-      }
-    };
+          chart.customElements.push(subtitle);
+        },
+      },
+    } as Highcharts.ChartOptions;
   }
+
+
 }

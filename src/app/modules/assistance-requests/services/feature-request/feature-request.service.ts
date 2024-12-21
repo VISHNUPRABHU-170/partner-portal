@@ -15,8 +15,8 @@ export class FeatureRequestService {
   getAllTicket() {
     this.restApiService.get(this.endPoint).subscribe(
       {
-        next: (data: FeatureTicketModel[]) => {
-          this.ticketBehaviorSubject.next(data);
+        next: (response: any) => {
+          this.ticketBehaviorSubject.next(response.data as FeatureTicketModel[]);
         },
         error: (error: any) => {
 
