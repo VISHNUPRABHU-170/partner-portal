@@ -17,6 +17,7 @@ export class PieChartComponent {
   @Input() chartConfig!: PieChartComponentModel;
 
   Highcharts = Highcharts;
+
   chartData!: Highcharts.Options;
   chartInstance: Highcharts.Chart | undefined;
 
