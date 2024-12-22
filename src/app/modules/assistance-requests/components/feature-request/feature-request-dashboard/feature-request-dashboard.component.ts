@@ -73,7 +73,6 @@ export class FeatureRequestDashboardComponent implements OnInit {
   }
 
   updateChartConfig(ticketStatus: any) {
-    console.log(ticketStatus);
     this.awsChartConfig = this.chartUtils.updateChartConfig(ticketStatus.awsTickets, ticketStatus.totalTickets, CloudProviders.AWS, this.awsChartConfig);
     this.azureChartConfig = this.chartUtils.updateChartConfig(ticketStatus.azureTickets, ticketStatus.totalTickets, CloudProviders.AZURE, this.azureChartConfig);
     this.gcpChartConfig = this.chartUtils.updateChartConfig(ticketStatus.gcpTickets, ticketStatus.totalTickets, CloudProviders.GCP, this.gcpChartConfig);
