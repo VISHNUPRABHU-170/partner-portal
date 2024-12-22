@@ -1,11 +1,12 @@
-import { DatePipe, TitleCasePipe } from '@angular/common';
+import { TitleCasePipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
+import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
 
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [MatTableModule, TitleCasePipe],
+  imports: [MatTableModule, TitleCasePipe, ProgressBarComponent],
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss'
 })

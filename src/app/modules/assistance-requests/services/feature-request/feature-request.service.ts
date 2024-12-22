@@ -8,21 +8,35 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class FeatureRequestService {
   endPoint = 'feature';
-  ticketBehaviorSubject = new BehaviorSubject<FeatureTicketModel[]>([]);
+  ticketStatusBehaviorSubject = new BehaviorSubject<any>([]);
+  ticketsBehaviorSubject = new BehaviorSubject<FeatureTicketModel[]>([]);
 
   constructor (private restApiService: RestApiService) { }
 
-  getAllTicket() {
-    this.restApiService.get(this.endPoint).subscribe(
+  getTicketStatus() {
+    this.restApiService.get(this.endPoint + '/ticketStatus').subscribe(
       {
         next: (response: any) => {
-          this.ticketBehaviorSubject.next(response.data as FeatureTicketModel[]);
+          this.ticketStatusBehaviorSubject.next(response.data);
         },
         error: (error: any) => {
 
         }
       }
     );
+  }
+
+  getTickets(params: any) {
+    this.restApiService.get(this.endPoint + '/tickets', params).subscribe(
+      {
+        next: (response: any) => {
+          this.ticketsBehaviorSubject.next(response.data as FeatureTicketModel[]);
+        },
+        error: (error: any) => {
+
+        }
+      }
+    );;
   }
 
   createTicket(data: FeatureTicketModel) {

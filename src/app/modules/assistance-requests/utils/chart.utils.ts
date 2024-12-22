@@ -3,10 +3,8 @@ import { CLOUD_COLOR_MAPPER, CloudProviders, FeatureTicketModel } from "../model
 
 export class ChartUtils {
 
-  updateChartConfig(tickets: FeatureTicketModel[], cloudProvider: CloudProviders, chartConfig: PieChartComponentModel): PieChartComponentModel {
+  updateChartConfig(providerTickets: number, totalTickets: number, cloudProvider: CloudProviders, chartConfig: PieChartComponentModel): PieChartComponentModel {
     const newChartConfig = { ...chartConfig };
-    const totalTickets = tickets.length;
-    const providerTickets = tickets.filter((ticket: FeatureTicketModel) => cloudProvider === ticket.cloudProvider).length;
     if (!totalTickets && !providerTickets) {
       newChartConfig.series.data = [this.prepareSeries(0, CLOUD_COLOR_MAPPER[cloudProvider].fails)];
       newChartConfig.centerText = this.prepareTitle('0', 'Submissions');

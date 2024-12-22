@@ -1,7 +1,7 @@
-import { navigationConfig } from '../../navigation/configs/navigation';
+import { navigationConfig } from '../navigation/configs/navigation';
 import { Component } from '@angular/core';
-import { HeaderComponent } from '../../header/components/header/header.component';
-import { NavigationMainComponent } from '../../navigation/components/navigation-main/navigation-main.component';
+import { HeaderComponent } from '../header/header.component';
+import { NavigationMainComponent } from '../navigation/components/navigation-main/navigation-main.component';
 import { RouterOutlet } from '@angular/router';
 
 @Component({

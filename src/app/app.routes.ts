@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { mainRoutes } from './modules/main/main/main.routes';
+import { mainRoutes } from './modules/main/main.routes';
 
 export const routes: Routes = [
   {
@@ -19,7 +19,7 @@ export const routes: Routes = [
   },
   {
     path: 'partner-portal',
-    loadComponent: () => import('./modules/main/main/main.component')
+    loadComponent: () => import('./modules/main/main.component')
       .then(c => c.MainComponent),
     children: mainRoutes
   },

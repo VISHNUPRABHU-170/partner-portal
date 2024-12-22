@@ -14,6 +14,7 @@
       </div>
     </div>
     <div>
+      <app-paginator [length]="totalTickets" [pageIndex]="pageIndex" [pageSizeOptions]="[5]" [hidePageSize]="true" (event)="onPaginatorEvent($event)"></app-paginator>
       <app-table [tableData]="tableData" [columnsDef]="columnsDef"></app-table>
     </div>
   </div>

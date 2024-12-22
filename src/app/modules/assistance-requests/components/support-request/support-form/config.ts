@@ -54,29 +54,13 @@ const selectPriorityLevelControlConfig: FormControlModel = {
 };
 
 const timeLineInputConfig: DatePickerComponentModel = {
-  label: "Feature Deadline"
+  label: "Deadline"
 };
 
 const timeLineControlConfig: FormControlModel = {
   name: "deadLine",
   config: timeLineInputConfig,
   componentType: ComponentType.DATE_PICKER,
-  validators: [FormValidators.REQUIRED]
-};
-
-const tagsSelectionInputConfig: ChipInputComponentModel = {
-  label: 'Select Tags',
-  autoCompleteOptions: [
-    { key: 'aws', value: 'AWS' },
-    { key: 'azure', value: 'AZURE' },
-    { key: 'gcp', value: 'GCP' }
-  ]
-};
-
-const tagsSelectionControlConfig: FormControlModel = {
-  name: 'selectTags',
-  config: tagsSelectionInputConfig,
-  componentType: ComponentType.CHIP_INPUT,
   validators: [FormValidators.REQUIRED]
 };
 
@@ -90,11 +74,11 @@ const requestTypeStepperConfig: StepperModel = {
   formControls: [selectPriorityLevelControlConfig, timeLineControlConfig]
 };
 
-const tagsStepperConfig: StepperModel = {
+const attachmentsStepperConfig: StepperModel = {
   label: 'Attachments',
-  formControls: [tagsSelectionControlConfig]
+  formControls: []
 };
 
 export const stepperConfig: StepperComponentModel = {
-  stepper: [titleStepperConfig, requestTypeStepperConfig, tagsStepperConfig]
+  stepper: [titleStepperConfig, requestTypeStepperConfig, attachmentsStepperConfig]
 };
