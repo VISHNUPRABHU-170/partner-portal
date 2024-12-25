@@ -4,11 +4,13 @@ import { ActivatedRoute } from '@angular/router';
 import { backIconConfig, progressBarConfig } from './config';
 import { IconComponent } from '../../../../core/components/icon/icon.component';
 import { FeatureRequestService } from '../../../services/feature-request/feature-request.service';
+import { ProgressBarComponent } from '../../../../core/components/progress-bar/progress-bar.component';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-feature-ticket-view',
   standalone: true,
-  imports: [MatToolbar, IconComponent],
+  imports: [MatToolbar, MatCardModule, IconComponent, ProgressBarComponent],
   templateUrl: './feature-ticket-view.component.html',
   styleUrl: './feature-ticket-view.component.scss'
 })

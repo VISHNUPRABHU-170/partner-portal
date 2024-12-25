@@ -1,8 +1,32 @@
+@if(ticketData) {
 <div class="feature-ticket-view">
   <mat-toolbar>
     <app-icon [data]="backIconConfig"></app-icon>
     <span>{{ticketData?.title}}</span>
   </mat-toolbar>
-  <div class="content">
-  </div>
+  <mat-card appearance="outlined">
+    <mat-card-content>
+        <span>
+          <span class="title">Feature Title: </span>{{ticketData.title}}
+        </span>
+        <span>
+          <span class="title">Feature Description: </span>{{ticketData.description}}
+        </span>
+        <span>
+          <span class="title">Priority: </span>{{ticketData.priority}}
+        </span>
+        <span>
+          <span class="title">Cloud Provider: </span>{{ticketData.cloudProvider}}
+        </span>
+        <span>
+          <span class="title">Deadline: </span>{{ticketData.deadLine}}
+        </span>
+        <span>
+          <span class="title">Tags: </span>{{ticketData.tags}}
+        </span>
+    </mat-card-content>
+  </mat-card>
 </div>
+} @else {
+<app-progress-bar [data]="progressBarConfig"></app-progress-bar>
+}

@@ -13,23 +13,25 @@
     }
   }
 
-  .content {
-    padding: 50px;
-    background-color: #fff7fd;
-  }
-}
+  .mat-mdc-card {
+    background-color: #ffffff;
+    margin: 24px;
+    font-size: 18px;
 
-.placeholder {
-  background-color: #eee;
-  animation: pulse 1s infinite alternate;
-}
+    &-content {
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
+      gap: 24px;
 
-@keyframes pulse {
-  from {
-    opacity: 0.8;
-  }
+      .mat-grid-tile-content {
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
 
-  to {
-    opacity: 1;
+      .title {
+        font-weight: 500;
+      }
+    }
   }
 }
