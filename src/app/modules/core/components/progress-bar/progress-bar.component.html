@@ -1,1 +1,5 @@
-<mat-spinner [diameter]="diameter"></mat-spinner>
+@if(data) {
+<div [class]="data.className">
+  <mat-spinner [diameter]="data.diameter"></mat-spinner>
+</div>
+}

@@ -9,3 +9,8 @@
     </mat-card-content>
   </mat-card>
 </div>
+
+<!--Spinner-->
+@if(showSpinner) {
+<app-progress-bar [data]="progressBarConfig"></app-progress-bar>
+}

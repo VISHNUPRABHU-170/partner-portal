@@ -24,7 +24,8 @@ ROUTE_MAPPER[RouteType.ASSISTANCE_REQUESTS] = [
   '/partner-portal/assistance-requests/support-dashboard',
   '/partner-portal/assistance-requests/support-form',
   '/partner-portal/assistance-requests/feature-request-dashboard',
-  '/partner-portal/assistance-requests/feature-request-form'
+  '/partner-portal/assistance-requests/feature-request-form',
+  '/partner-portal/assistance-requests/feature-ticket-view'
 ];
 
 ROUTE_MAPPER[RouteType.ASSISTANCE_REQUEST_SUPPORT_DASHBOARD] = [
@@ -35,5 +36,6 @@ ROUTE_MAPPER[RouteType.ASSISTANCE_REQUEST_SUPPORT_DASHBOARD] = [
 
 ROUTE_MAPPER[RouteType.ASSISTANCE_REQUEST_FEATURE_REQUEST_DASHBOARD] = [
   '/partner-portal/assistance-requests/feature-request-dashboard',
-  '/partner-portal/assistance-requests/feature-request-form'
+  '/partner-portal/assistance-requests/feature-request-form',
+  '/partner-portal/assistance-requests/feature-ticket-view'
 ];

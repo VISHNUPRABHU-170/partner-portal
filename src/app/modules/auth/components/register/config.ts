@@ -2,6 +2,7 @@ import { ButtonComponentModel } from "../../../core/components/button/button.com
 import { ComponentType, FormBuilderComponentModel, FormControlModel, FormGroupValidatorModel, FormValidators } from "../../../core/components/form-builder/form-builder.component.model";
 import { InputComponentModel, InputType } from "../../../core/components/input/input.component.model";
 import { LinkComponentModel } from "../../../core/components/link/link.component.model";
+import { ProgressBarComponentModel } from "../../../core/components/progress-bar/progress-bar.component.model";
 
 const userNameInputConfig: InputComponentModel = {
   label: "Enter User Name",
@@ -13,7 +14,7 @@ const userNameFormControlConfig: FormControlModel = {
   config: userNameInputConfig,
   componentType: ComponentType.INPUT,
   validators: [FormValidators.REQUIRED]
-}
+};
 
 const passwordInputConfig: InputComponentModel = {
   label: "Enter Password",
@@ -25,7 +26,7 @@ const passwordFormControlConfig: FormControlModel = {
   config: passwordInputConfig,
   componentType: ComponentType.INPUT,
   validators: [FormValidators.REQUIRED, FormValidators.PASSWORD]
-}
+};
 
 const confirmPasswordInputConfig: InputComponentModel = {
   label: "Confirm Password",
@@ -37,7 +38,7 @@ const confirmPasswordFormControlConfig: FormControlModel = {
   config: confirmPasswordInputConfig,
   componentType: ComponentType.INPUT,
   validators: [FormValidators.REQUIRED, FormValidators.PASSWORD]
-}
+};
 
 const registerButtonConfig: ButtonComponentModel = {
   label: 'Register',
@@ -55,10 +56,15 @@ const formGroupValidatorConfig: FormGroupValidatorModel = {
     control1: 'password',
     control2: 'confirmPassword'
   }
-}
+};
 
 export const registerFormConfig: FormBuilderComponentModel = {
   formGroup: [userNameFormControlConfig, passwordFormControlConfig, confirmPasswordFormControlConfig],
   formFooter: [registerButtonConfig],
   validators: formGroupValidatorConfig
+};
+
+export const progressBarConfig: ProgressBarComponentModel = {
+  diameter: 60,
+  className: "spinner-center"
 };

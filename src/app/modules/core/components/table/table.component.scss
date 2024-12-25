@@ -7,6 +7,10 @@ table {
     text-align: center;
   }
 
+  td.mat-mdc-cell {
+    cursor: pointer;
+  }
+
   th {
     background-color: #FBF7FF;
     color: #2C0E47;

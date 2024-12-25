@@ -1,24 +1,34 @@
+import { ProgressBarComponent } from './../../../core/components/progress-bar/progress-bar.component';
 import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { LinkComponent } from '../../../core/components/link/link.component';
-import { logInLinkConfig, registerFormConfig } from './config';
+import { logInLinkConfig, progressBarConfig, registerFormConfig } from './config';
 import { FormBuilderComponent } from '../../../core/components/form-builder/form-builder.component';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [MatCardModule, FormBuilderComponent, LinkComponent],
+  imports: [MatCardModule, FormBuilderComponent, LinkComponent, ProgressBarComponent],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
 export class RegisterComponent {
   registerFormConfig = registerFormConfig;
   logInLinkConfig = logInLinkConfig;
+  progressBarConfig = progressBarConfig;
+  showSpinner!: boolean;
 
   constructor (private authService: AuthService) { }
 
+  ngOnInit(): void {
+    this.authService.spinnerBehaviorSubject.subscribe((status: boolean) => {
+      this.showSpinner = status;
+    });
+  }
+
   onRegister(data: any) {
+    this.authService.spinnerBehaviorSubject.next(true);
     this.authService.onRegister(data);
   }
 }

@@ -1,5 +1,5 @@
 import { TitleCasePipe } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, output } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
 
@@ -13,4 +13,9 @@ import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
 export class TableComponent {
   @Input() tableData: any;
   @Input() columnsDef!: string[];
+  tableEvent = output<any>();
+
+  onRowClick(rowData: any) {
+    this.tableEvent.emit(rowData);
+  }
 }

@@ -10,11 +10,11 @@ export class NavigationService {
 
   constructor (private router: Router) {
     this.router.events.subscribe((data: any) => {
-      this.routeChange.next(data.url);
+      this.routeChange.next(data?.url?.split('?')[0]);
     });
   }
 
-  navigate(routerLink: string) {
-    this.router.navigate([routerLink]);
+  navigate(routerLink: string, queryParams?: any) {
+    this.router.navigate([routerLink], {queryParams});
   }
 }

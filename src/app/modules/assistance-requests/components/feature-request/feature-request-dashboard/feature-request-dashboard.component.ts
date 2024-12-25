@@ -83,8 +83,12 @@ export class FeatureRequestDashboardComponent implements OnInit {
     this.navigationService.navigate(data.routerLink);
   }
 
+  onTableEvent(data: any) {
+    const queryParams = { id: data._id };
+    this.navigationService.navigate('/partner-portal/assistance-requests/feature-ticket-view', queryParams);
+  }
+
   onPaginatorEvent(eve: PageEvent) {
-    console.log(eve);
     this.tableData = [];
     this.pageIndex = eve.pageIndex;
     this.featureRequestService.getTickets({ page: this.pageIndex, limit: 5 });

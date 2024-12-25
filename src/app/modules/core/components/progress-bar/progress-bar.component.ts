@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ProgressBarComponentModel } from './progress-bar.component.model';
 
 @Component({
   selector: 'app-progress-bar',
@@ -9,5 +10,5 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   styleUrl: './progress-bar.component.scss'
 })
 export class ProgressBarComponent {
-  @Input() diameter!: number;
+  @Input() data!: ProgressBarComponentModel;
 }

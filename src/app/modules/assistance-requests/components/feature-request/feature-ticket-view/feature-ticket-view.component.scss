@@ -1,0 +1,35 @@
+.feature-ticket-view {
+  width: 100%;
+
+  .mat-toolbar {
+    color: #2C0E47;
+    background-color: #00000029;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 5px;
+
+    app-icon {
+      margin-top: 5px;
+    }
+  }
+
+  .content {
+    padding: 50px;
+    background-color: #fff7fd;
+  }
+}
+
+.placeholder {
+  background-color: #eee;
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    opacity: 0.8;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

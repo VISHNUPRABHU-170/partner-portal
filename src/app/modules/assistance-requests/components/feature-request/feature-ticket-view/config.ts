@@ -1,0 +1,12 @@
+import { IconComponentModel } from "../../../../core/components/icon/icon.component.model";
+import { ProgressBarComponentModel } from "../../../../core/components/progress-bar/progress-bar.component.model";
+
+export const backIconConfig: IconComponentModel = {
+  name: 'arrow_back',
+  routerLink: '/partner-portal/assistance-requests/feature-request-dashboard'
+};
+
+export const progressBarConfig: ProgressBarComponentModel = {
+  diameter: 60,
+  className: "spinner-center"
+};

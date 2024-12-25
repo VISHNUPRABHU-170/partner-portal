@@ -25,5 +25,10 @@ export const assistanceRequestRoutes: Route[] = [
     path: 'feature-request-dashboard',
     loadComponent: () => import('../components/feature-request/feature-request-dashboard/feature-request-dashboard.component')
       .then(c => c.FeatureRequestDashboardComponent)
+  },
+  {
+    path: 'feature-ticket-view',
+    loadComponent: () => import('../components/feature-request/feature-ticket-view/feature-ticket-view.component')
+      .then(c => c.FeatureTicketViewComponent)
   }
 ];
