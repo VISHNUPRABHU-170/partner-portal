@@ -14,22 +14,27 @@
   }
 
   .mat-mdc-card {
-    background-color: #ffffff;
+    // background-color: #00000029;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin: 24px;
     font-size: 18px;
+    padding: 24px;
+    letter-spacing: .7px;
 
     &-content {
       display: flex;
       flex-direction: column;
-      padding: 24px;
-      gap: 24px;
+      gap: 32px;
 
-      .mat-grid-tile-content {
-        align-items: flex-start;
-        justify-content: flex-start;
+      .content {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
       }
 
       .title {
+        color: #2C0E47;
         font-weight: 500;
       }
     }

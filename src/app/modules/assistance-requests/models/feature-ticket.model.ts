@@ -3,6 +3,7 @@ export interface FeatureTicketModel {
   description: string;
   cloudProvider: CloudProviders;
   priority: string;
+  createdAt: string;
   deadLine: string;
   tags: string;
 }

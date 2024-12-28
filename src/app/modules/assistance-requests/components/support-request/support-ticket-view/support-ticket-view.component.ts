@@ -7,11 +7,12 @@ import { ProgressBarComponent } from '../../../../core/components/progress-bar/p
 import { backIconConfig, previewLinkConfig, progressBarConfig } from './config';
 import { ActivatedRoute } from '@angular/router';
 import { SupportTicketModel } from '../../../models/support-ticket.model';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-support-ticket-view',
   standalone: true,
-  imports: [MatToolbar, MatCardModule, IconComponent, ProgressBarComponent],
+  imports: [MatToolbar, MatCardModule, IconComponent, ProgressBarComponent, DatePipe],
   templateUrl: './support-ticket-view.component.html',
   styleUrl: './support-ticket-view.component.scss'
 })
@@ -21,7 +22,6 @@ export class SupportTicketViewComponent {
   previewLinkConfig = previewLinkConfig;
 
   ticketData!: SupportTicketModel;
-  url: any;
 
   constructor (
     private route: ActivatedRoute,
@@ -41,6 +41,6 @@ export class SupportTicketViewComponent {
     });
   }
 
-  onPreview() {}
+  onPreview() { }
 
 }

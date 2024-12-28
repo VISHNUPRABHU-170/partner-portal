@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { PieChartComponentModel } from './pie-chart.component.model';
 import { HighchartsChartModule } from 'highcharts-angular';

@@ -6,20 +6,23 @@
   </mat-toolbar>
   <mat-card appearance="outlined">
     <mat-card-content>
-      <span>
+      <span class="content">
         <span class="title">Feature Title: </span>{{ticketData.title}}
       </span>
-      <span>
+      <span class="content">
         <span class="title">Feature Description: </span>{{ticketData.description}}
       </span>
-      <span>
+      <span class="content">
+        <span class="title">Status: </span>{{ticketData.status}}
+      </span>
+      <span class="content">
         <span class="title">Priority: </span>{{ticketData.priority}}
       </span>
-      <span>
-        <span class="title">Deadline: </span>{{ticketData.deadLine}}
+      <span class="content">
+        <span class="title">Created At: </span>{{ticketData.createdAt | date}}
       </span>
-      <span>
-        <span class="title">Status: </span>{{ticketData.status}}
+      <span class="content">
+        <span class="title">Deadline: </span>{{ticketData.deadLine | date}}
       </span>
       <!-- <app-link [data]="previewLinkConfig" (event)="onPreview()"></app-link> -->
     </mat-card-content>

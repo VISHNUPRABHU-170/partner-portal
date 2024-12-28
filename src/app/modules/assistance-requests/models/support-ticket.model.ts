@@ -2,6 +2,7 @@ export interface SupportTicketModel {
   title: string;
   description: string;
   priority: string;
+  createdAt: string;
   deadLine: string;
   fileUpload: string;
   status: string;

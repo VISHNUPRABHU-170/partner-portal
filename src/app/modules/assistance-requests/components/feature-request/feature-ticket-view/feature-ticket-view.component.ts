@@ -7,11 +7,12 @@ import { FeatureRequestService } from '../../../services/feature-request/feature
 import { ProgressBarComponent } from '../../../../core/components/progress-bar/progress-bar.component';
 import { MatCardModule } from '@angular/material/card';
 import { FeatureTicketModel } from '../../../models/feature-ticket.model';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-feature-ticket-view',
   standalone: true,
-  imports: [MatToolbar, MatCardModule, IconComponent, ProgressBarComponent],
+  imports: [MatToolbar, MatCardModule, IconComponent, ProgressBarComponent, DatePipe],
   templateUrl: './feature-ticket-view.component.html',
   styleUrl: './feature-ticket-view.component.scss'
 })
