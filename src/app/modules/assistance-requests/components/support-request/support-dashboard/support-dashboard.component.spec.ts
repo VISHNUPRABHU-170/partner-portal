@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SupportDashboardComponent } from './support-dashboard.component';
 
 describe('SupportDashboardComponent', () => {

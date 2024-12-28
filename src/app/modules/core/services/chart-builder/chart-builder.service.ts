@@ -1,5 +1,5 @@
 import { CenterTextModel, ChartSeriesModel, ChartType, PieChartComponentModel } from '../../components/pie-chart/pie-chart.component.model';
-import { chart, SeriesOptionsType } from 'highcharts';
+import { SeriesOptionsType } from 'highcharts';
 
 export class ChartBuilderService {
   constructor () { }

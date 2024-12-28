@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ChipListComponent } from './chip-list.component';
 
 describe('ChipListComponent', () => {

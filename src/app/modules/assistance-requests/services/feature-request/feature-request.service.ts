@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, DestroyRef } from '@angular/core';
 import { FeatureTicketModel } from '../../models/feature-ticket.model';
 import { RestApiService } from '../../../core/services/rest-api/rest-api.service';
 import { BehaviorSubject } from 'rxjs';
@@ -14,33 +14,36 @@ export class FeatureRequestService {
 
   constructor (
     private restApiService: RestApiService,
-    private toasterService: ToasterService
+    private toasterService: ToasterService,
+    private destroyRef: DestroyRef
   ) { }
 
   getTicketStatus() {
-    this.restApiService.get(this.endPoint + '/ticketStatus').subscribe(
+    const Subscription = this.restApiService.get(this.endPoint + '/ticketStatus').subscribe(
       {
         next: (response: any) => {
           this.ticketStatusBehaviorSubject.next(response.data);
         },
-        error: (error: any) => {
-
-        }
+        error: (error: any) => {}
       }
     );
+    this.destroyRef.onDestroy(() => {
+      Subscription?.unsubscribe();
+    });
   }
 
   getTickets(params: any) {
-    this.restApiService.get(this.endPoint + '/tickets', params).subscribe(
+    const Subscription = this.restApiService.get(this.endPoint + '/tickets', params).subscribe(
       {
         next: (response: any) => {
           this.ticketsBehaviorSubject.next(response.data as FeatureTicketModel[]);
         },
-        error: (error: any) => {
-
-        }
+        error: (error: any) => {}
       }
-    );;
+    );
+    this.destroyRef.onDestroy(() => {
+      Subscription?.unsubscribe();
+    });
   }
 
   getTicket(id: string) {
@@ -48,13 +51,16 @@ export class FeatureRequestService {
   }
 
   createTicket(data: FeatureTicketModel) {
-    this.restApiService.post(this.endPoint, data).subscribe({
+    const Subscription = this.restApiService.post(this.endPoint, data).subscribe({
       next: (response: any) => {
         this.toasterService.show(response.message, response.success);
       },
       error: (error: any) => {
         this.toasterService.show(error.message, error.success);
       }
+    });
+    this.destroyRef.onDestroy(() => {
+      Subscription?.unsubscribe();
     });
   }
 

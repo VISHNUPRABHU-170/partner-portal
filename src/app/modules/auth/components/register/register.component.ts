@@ -1,5 +1,5 @@
 import { ProgressBarComponent } from './../../../core/components/progress-bar/progress-bar.component';
-import { Component } from '@angular/core';
+import { Component, DestroyRef } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { LinkComponent } from '../../../core/components/link/link.component';
 import { logInLinkConfig, progressBarConfig, registerFormConfig } from './config';
@@ -19,11 +19,17 @@ export class RegisterComponent {
   progressBarConfig = progressBarConfig;
   showSpinner!: boolean;
 
-  constructor (private authService: AuthService) { }
+  constructor (
+    private authService: AuthService,
+    private destroyRef: DestroyRef
+  ) { }
 
   ngOnInit(): void {
-    this.authService.spinnerBehaviorSubject.subscribe((status: boolean) => {
+    const Subscription = this.authService.spinnerBehaviorSubject.subscribe((status: boolean) => {
       this.showSpinner = status;
+    });
+    this.destroyRef.onDestroy(() => {
+      Subscription?.unsubscribe();
     });
   }
 

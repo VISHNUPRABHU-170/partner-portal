@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SupportTicketViewComponent } from './support-ticket-view.component';
 
 describe('SupportTicketViewComponent', () => {

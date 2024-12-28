@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, DestroyRef } from '@angular/core';
 import { NavigationLinkComponentModel, ROUTE_MAPPER } from './navigation-link.component.model';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
@@ -15,14 +15,17 @@ import { NavigationService } from '../../../core/services/navigation/navigation.
 export class NavigationLinkComponent implements OnInit {
   @Input() data!: NavigationLinkComponentModel;
 
-  constructor (private navigationService: NavigationService) { }
+  constructor (
+    private navigationService: NavigationService,
+    private destroyRef: DestroyRef
+  ) { }
 
   ngOnInit(): void {
     this.subscribeToNavigation();
   }
 
   subscribeToNavigation() {
-    this.navigationService.routeChange.subscribe((url: string) => {
+    const Subscription = this.navigationService.routeChange.subscribe((url: string) => {
       if (url) {
         if (ROUTE_MAPPER[this.data.routerLink]?.includes(url)) {
           this.data.active = true;
@@ -30,6 +33,9 @@ export class NavigationLinkComponent implements OnInit {
           this.data.active = false;
         }
       }
+    });
+    this.destroyRef.onDestroy(() => {
+      Subscription?.unsubscribe();
     });
   }
 

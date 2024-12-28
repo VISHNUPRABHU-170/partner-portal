@@ -2,7 +2,7 @@ import { Component, Input, output, ViewChild } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatStepper, MatStepperModule } from '@angular/material/stepper';
 import { StepperComponentModel, StepperModel } from './stepper.component.model';
-import { FormBuilderComponentModel, FormControlModel } from '../form-builder/form-builder.component.model';
+import { FormBuilderComponentModel } from '../form-builder/form-builder.component.model';
 import { FormBuilderService } from '../../services/form-builder/form-builder.service';
 import { DynamicFormControlDirective } from '../../directives/dynamic-form-control/dynamic-form-control.directive';
 import { MatButtonModule } from '@angular/material/button';

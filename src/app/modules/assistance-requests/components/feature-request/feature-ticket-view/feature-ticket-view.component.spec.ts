@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { FeatureTicketViewComponent } from './feature-ticket-view.component';
 
 describe('FeatureTicketViewComponent', () => {

@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { FeatureRequestService } from './feature-request.service';
 
 describe('FeatureRequestService', () => {

@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { NavigationSubComponent } from './navigation-sub.component';
 
 describe('NavigationSubComponent', () => {

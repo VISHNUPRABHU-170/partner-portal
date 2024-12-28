@@ -1,20 +1,28 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class NavigationService {
+export class NavigationService implements OnDestroy {
+  private subscription: Subscription
+
   routeChange = new BehaviorSubject<string>('partner-portal');
 
-  constructor (private router: Router) {
-    this.router.events.subscribe((data: any) => {
+  constructor (
+    private router: Router
+  ) {
+    this.subscription = this.router.events.subscribe((data: any) => {
       this.routeChange.next(data?.url?.split('?')[0]);
     });
   }
 
   navigate(routerLink: string, queryParams?: any) {
-    this.router.navigate([routerLink], {queryParams});
+    this.router.navigate([routerLink], { queryParams });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe();
   }
 }

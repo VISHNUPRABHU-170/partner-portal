@@ -1,6 +1,6 @@
 import { TICKET_STATUS_COLOR_MAPPER, TicketStatus } from './../models/support-ticket.model';
 import { CenterTextModel, ChartSeriesDataModel, PieChartComponentModel } from "../../core/components/pie-chart/pie-chart.component.model";
-import { CLOUD_COLOR_MAPPER, CloudProviders, FeatureTicketModel } from "../models/feature-ticket.model";
+import { CLOUD_COLOR_MAPPER, CloudProviders } from "../models/feature-ticket.model";
 
 export class ChartUtils {
 

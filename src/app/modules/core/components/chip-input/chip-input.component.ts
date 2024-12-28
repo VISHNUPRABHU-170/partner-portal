@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { MatAutocompleteModule, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
-import { MatChipInputEvent, MatChipsModule } from '@angular/material/chips';
+import { MatChipsModule } from '@angular/material/chips';
 import { IconComponent } from '../icon/icon.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ChipInputComponentModel } from './chip-input.component.model';

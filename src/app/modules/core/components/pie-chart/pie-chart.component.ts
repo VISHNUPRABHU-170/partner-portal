@@ -1,7 +1,7 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { PieChartComponentModel } from './pie-chart.component.model';
-import { HighchartsChartComponent, HighchartsChartModule } from 'highcharts-angular';
+import { HighchartsChartModule } from 'highcharts-angular';
 import { ChartBuilderService } from '../../services/chart-builder/chart-builder.service';
 import Highcharts from 'highcharts';
 

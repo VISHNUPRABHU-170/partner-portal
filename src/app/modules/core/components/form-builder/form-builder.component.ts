@@ -1,7 +1,7 @@
 import { Component, Input, output } from '@angular/core';
 import { FormBuilderComponentModel } from './form-builder.component.model';
 import { FormBuilderService } from '../../services/form-builder/form-builder.service';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { DynamicFormControlDirective } from '../../directives/dynamic-form-control/dynamic-form-control.directive';
 import { ButtonComponent } from '../button/button.component';
 

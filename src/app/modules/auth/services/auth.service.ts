@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { DestroyRef, Injectable } from '@angular/core';
 import { NavigationService } from './../../core/services/navigation/navigation.service';
 import { StorageService } from '../../core/services/storage/storage.service';
 import { RestApiService } from './../../core/services/rest-api/rest-api.service';
@@ -17,11 +17,12 @@ export class AuthService {
     private restApiService: RestApiService,
     private storageService: StorageService,
     private navigationService: NavigationService,
-    private toasterService: ToasterService
+    private toasterService: ToasterService,
+    private destroyRef: DestroyRef
   ) { }
 
   onLogin(data: any) {
-    this.restApiService.post(this.authLoginURL, data).subscribe({
+    const Subscription  = this.restApiService.post(this.authLoginURL, data).subscribe({
       next: (response: any) => {
         this.spinnerBehaviorSubject.next(false);
         if (response.success === true) {
@@ -35,10 +36,13 @@ export class AuthService {
         this.toasterService.show(error.message, error.success);
       }
     });
+    this.destroyRef.onDestroy(() => {
+      Subscription?.unsubscribe();
+    });
   }
 
   onRegister(data: any) {
-    this.restApiService.post(this.authRegisterURL, data).subscribe({
+    const Subscription = this.restApiService.post(this.authRegisterURL, data).subscribe({
       next: (response: any) => {
         this.spinnerBehaviorSubject.next(false);
         if (response.success == true) {
@@ -50,6 +54,9 @@ export class AuthService {
         this.spinnerBehaviorSubject.next(false);
         this.toasterService.show(error.message, error.success);
       }
+    });
+    this.destroyRef.onDestroy(() => {
+      Subscription?.unsubscribe();
     });
   }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, DestroyRef } from '@angular/core';
 import { MatToolbar } from '@angular/material/toolbar';
 import { ActivatedRoute } from '@angular/router';
 import { backIconConfig, progressBarConfig } from './config';
@@ -23,15 +23,19 @@ export class FeatureTicketViewComponent {
 
   constructor (
     private route: ActivatedRoute,
-    private featureRequestService: FeatureRequestService
+    private featureRequestService: FeatureRequestService,
+    private destroyRef: DestroyRef
   ) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.queryParamMap.get('id');
-    this.featureRequestService.getTicket(id!).subscribe({
+    const Subscription = this.featureRequestService.getTicket(id!).subscribe({
       next: (response) => {
         this.ticketData = response.data;
       }
+    });
+    this.destroyRef.onDestroy(() => {
+      Subscription?.unsubscribe();
     });
   }
 }

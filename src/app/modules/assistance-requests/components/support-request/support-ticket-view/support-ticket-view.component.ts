@@ -1,5 +1,5 @@
 import { SupportRequestService } from './../../../services/support-request/support-request.service';
-import { Component } from '@angular/core';
+import { Component, DestroyRef } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbar } from '@angular/material/toolbar';
 import { IconComponent } from '../../../../core/components/icon/icon.component';
@@ -25,15 +25,19 @@ export class SupportTicketViewComponent {
 
   constructor (
     private route: ActivatedRoute,
-    private supportRequestService: SupportRequestService
+    private supportRequestService: SupportRequestService,
+    private destroyRef: DestroyRef
   ) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.queryParamMap.get('id');
-    this.supportRequestService.getTicket(id!).subscribe({
+    const Subscription = this.supportRequestService.getTicket(id!).subscribe({
       next: (response) => {
         this.ticketData = response.data;
       }
+    });
+    this.destroyRef.onDestroy(() => {
+      Subscription?.unsubscribe();
     });
   }
 
