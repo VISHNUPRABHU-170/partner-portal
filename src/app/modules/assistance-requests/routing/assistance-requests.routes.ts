@@ -30,5 +30,10 @@ export const assistanceRequestRoutes: Route[] = [
     path: 'feature-ticket-view',
     loadComponent: () => import('../components/feature-request/feature-ticket-view/feature-ticket-view.component')
       .then(c => c.FeatureTicketViewComponent)
+  },
+  {
+    path: 'support-ticket-view',
+    loadComponent: () => import('../components/support-request/support-ticket-view/support-ticket-view.component')
+      .then(c => c.SupportTicketViewComponent)
   }
 ];

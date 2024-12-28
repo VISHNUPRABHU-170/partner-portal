@@ -6,6 +6,7 @@ import { IconComponent } from '../../../../core/components/icon/icon.component';
 import { FeatureRequestService } from '../../../services/feature-request/feature-request.service';
 import { ProgressBarComponent } from '../../../../core/components/progress-bar/progress-bar.component';
 import { MatCardModule } from '@angular/material/card';
+import { FeatureTicketModel } from '../../../models/feature-ticket.model';
 
 @Component({
   selector: 'app-feature-ticket-view',
@@ -18,7 +19,7 @@ export class FeatureTicketViewComponent {
   backIconConfig = backIconConfig;
   progressBarConfig = progressBarConfig;
 
-  ticketData: any;
+  ticketData!: FeatureTicketModel;
 
   constructor (
     private route: ActivatedRoute,

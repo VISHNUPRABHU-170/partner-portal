@@ -85,7 +85,7 @@ export class SupportDashboardComponent {
 
   onTableEvent(data: any) {
     const queryParams = { id: data._id };
-    // this.navigationService.navigate('/partner-portal/assistance-requests/feature-ticket-view', queryParams);
+    this.navigationService.navigate('/partner-portal/assistance-requests/support-ticket-view', queryParams);
   }
 
   onPaginatorEvent(eve: PageEvent) {

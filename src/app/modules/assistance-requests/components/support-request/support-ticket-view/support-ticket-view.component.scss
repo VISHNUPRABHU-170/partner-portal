@@ -1,0 +1,37 @@
+.support-ticket-view {
+  width: 100%;
+
+  .mat-toolbar {
+    color: #2C0E47;
+    background-color: #00000029;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 5px;
+
+    app-icon {
+      margin-top: 5px;
+    }
+  }
+
+  .mat-mdc-card {
+    background-color: #ffffff;
+    margin: 24px;
+    font-size: 18px;
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
+      gap: 24px;
+
+      .mat-grid-tile-content {
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+
+      .title {
+        font-weight: 500;
+      }
+    }
+  }
+}

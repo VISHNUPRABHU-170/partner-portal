@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, output } from '@angular/core';
 import { LinkComponentModel } from './link.component.model';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-link',
@@ -11,10 +11,15 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class LinkComponent {
   @Input() data!: LinkComponentModel;
+  event = output();
 
   constructor(private router: Router) {}
 
   onClick() {
-    this.router.navigate([this.data.routerLink]);
+    if (this.data.routerLink) {
+      this.router.navigate([this.data.routerLink]);
+    } else {
+      this.event.emit();
+    }
   }
 }
