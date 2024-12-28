@@ -17,6 +17,9 @@ export class FileUploadComponent {
 
   @HostListener('change', ['$event.target.files']) emitFiles(event: FileList) {
     const file = event && event.item(0);
-    this.formControl.setValue(file);
+    if (file) {
+      const fileData = { name: file.name, size: file.size, type: file.type, lastModified: file.lastModified };
+      this.formControl.setValue(JSON.stringify(fileData));
+    }
   }
 }

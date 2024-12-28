@@ -6,5 +6,5 @@ export interface SupportTicketModel {
   cloudProvider: CloudProviders;
   priority: string;
   deadLine: string;
-  fileUpload: File
+  fileUpload: string;
 }
