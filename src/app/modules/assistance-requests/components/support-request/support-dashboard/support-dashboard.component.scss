@@ -8,4 +8,29 @@
     display: flex;
     justify-content: space-between;
   }
+
+  .content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 42px;
+
+    div.chart-container {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+
+      span {
+        font-size: 18px;
+        font-weight: 500;
+      }
+
+      .charts {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 24px;
+      }
+    }
+  }
 }
