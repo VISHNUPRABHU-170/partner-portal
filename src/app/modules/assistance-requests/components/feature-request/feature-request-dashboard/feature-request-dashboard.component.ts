@@ -33,7 +33,7 @@ export class FeatureRequestDashboardComponent implements OnInit {
   othersChartConfig = othersChartConfig;
 
   tableData: FeatureTicketModel[] = [];
-  columnsDef = ['title', 'description', 'cloudProvider', 'priority', 'deadLine', 'tags'];
+  columnsDef = ['title', 'description', 'cloudProvider', 'tags', 'createdAt', 'deadLine', 'priority'];
 
   pageIndex: number = 0;
   totalTickets: number = 0;
