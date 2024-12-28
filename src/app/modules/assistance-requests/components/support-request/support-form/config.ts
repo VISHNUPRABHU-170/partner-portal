@@ -47,7 +47,7 @@ const selectPriorityLevelConfig: SelectComponentModel = {
 };
 
 const selectPriorityLevelControlConfig: FormControlModel = {
-  name: 'selectRequestType',
+  name: 'priority',
   config: selectPriorityLevelConfig,
   componentType: ComponentType.SELECT,
   validators: [FormValidators.REQUIRED]

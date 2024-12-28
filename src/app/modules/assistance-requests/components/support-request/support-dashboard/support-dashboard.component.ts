@@ -22,7 +22,7 @@ export class SupportDashboardComponent {
   createRequestButtonConfig = createRequestButtonConfig;
 
   tableData: SupportTicketModel[] = [];
-  columnsDef = ['title', 'description', 'cloudProvider', 'priority', 'deadLine'];
+  columnsDef = ['title', 'description', 'priority', 'deadLine'];
 
   pageIndex: number = 0;
   totalTickets: number = 0;
