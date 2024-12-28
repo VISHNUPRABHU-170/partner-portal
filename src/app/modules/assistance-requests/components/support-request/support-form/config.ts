@@ -5,8 +5,8 @@ import { StepperComponentModel, StepperModel } from "../../../../core/components
 import { ComponentType, FormControlModel, FormValidators } from '../../../../core/components/form-builder/form-builder.component.model';
 import { SelectComponentModel } from '../../../../core/components/select/select.component.model';
 import { TextareaComponentModel } from '../../../../core/components/textarea/textarea.component.model';
-import { ChipInputComponentModel } from '../../../../core/components/chip-input/chip-input.component.model';
 import { DatePickerComponentModel } from '../../../../core/components/date-picker/date-picker.component.model';
+import { FileUploadComponentModel } from '../../../../core/components/file-upload/file-upload.component.model';
 
 export const backIconConfig: IconComponentModel = {
   name: 'arrow_back',
@@ -64,19 +64,31 @@ const timeLineControlConfig: FormControlModel = {
   validators: [FormValidators.REQUIRED]
 };
 
+const fileUploadConfig: FileUploadComponentModel = {
+  label: 'Click on "Browse Files" to attach references',
+  buttonLabel: 'Browse Files'
+}
+
+const fileUploadControlConfig: FormControlModel = {
+  name: "fileUpload",
+  config: fileUploadConfig,
+  componentType: ComponentType.FILE_UPLOAD,
+  validators: []
+};
+
 const titleStepperConfig: StepperModel = {
   label: 'Issue Details',
   formControls: [titleControlConfig, descriptionControlConfig]
 };
 
 const requestTypeStepperConfig: StepperModel = {
-  label: "Timeline",
+  label: "Issue Timeline",
   formControls: [selectPriorityLevelControlConfig, timeLineControlConfig]
 };
 
 const attachmentsStepperConfig: StepperModel = {
   label: 'Attachments',
-  formControls: []
+  formControls: [fileUploadControlConfig]
 };
 
 export const stepperConfig: StepperComponentModel = {

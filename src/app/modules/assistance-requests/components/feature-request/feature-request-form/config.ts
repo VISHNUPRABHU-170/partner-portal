@@ -96,14 +96,14 @@ const tagsSelectionControlConfig: FormControlModel = {
   validators: [FormValidators.REQUIRED]
 };
 
-const requestTypeStepperConfig: StepperModel = {
-  label: "Request Details",
-  formControls: [selectPriorityLevelControlConfig, timeLineControlConfig]
-};
-
 const titleStepperConfig: StepperModel = {
   label: 'Feature Details',
   formControls: [titleControlConfig, descriptionControlConfig]
+};
+
+const requestTypeStepperConfig: StepperModel = {
+  label: "Feature Timeline",
+  formControls: [selectPriorityLevelControlConfig, timeLineControlConfig]
 };
 
 const tagsStepperConfig: StepperModel = {

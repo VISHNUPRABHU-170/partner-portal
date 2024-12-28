@@ -4,6 +4,6 @@
     <span>Create Request</span>
   </mat-toolbar>
   <div class="content">
-    <app-stepper [data]="stepperConfig"></app-stepper>
+    <app-stepper [data]="stepperConfig" (event)="onSubmit($event)"></app-stepper>
   </div>
 </div>
