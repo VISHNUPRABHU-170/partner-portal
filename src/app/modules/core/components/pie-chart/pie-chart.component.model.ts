@@ -3,6 +3,7 @@ export interface PieChartComponentModel {
   chartType: ChartType;
   series: ChartSeriesModel;
   centerText?: CenterTextModel;
+  showInLegend?: boolean;
 }
 
 export interface CenterTextModel {

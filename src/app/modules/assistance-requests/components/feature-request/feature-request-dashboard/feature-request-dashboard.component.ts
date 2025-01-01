@@ -12,7 +12,7 @@ import { NavigationService } from '../../../../core/services/navigation/navigati
 import { ButtonComponentModel } from '../../../../core/components/button/button.component.model';
 import { PieChartComponent } from '../../../../core/components/pie-chart/pie-chart.component';
 import { FeatureRequestService } from '../../../services/feature-request/feature-request.service';
-import { CloudProviders, FeatureTicketModel } from '../../../models/feature-ticket.model';
+import { CLOUD_COLOR_MAPPER, CloudProviders, FeatureTicketModel } from '../../../models/feature-ticket.model';
 import { ChartUtils } from '../../../utils/chart.utils';
 import { TableComponent } from '../../../../core/components/table/table.component';
 import { PaginatorComponent } from '../../../../core/components/paginator/paginator.component';
@@ -73,10 +73,24 @@ export class FeatureRequestDashboardComponent implements OnInit {
   }
 
   updateChartConfig(ticketStatus: any) {
-    this.awsChartConfig = this.chartUtils.updateChartConfig(ticketStatus.awsTickets, ticketStatus.totalTickets, CloudProviders.AWS, this.awsChartConfig);
-    this.azureChartConfig = this.chartUtils.updateChartConfig(ticketStatus.azureTickets, ticketStatus.totalTickets, CloudProviders.AZURE, this.azureChartConfig);
-    this.gcpChartConfig = this.chartUtils.updateChartConfig(ticketStatus.gcpTickets, ticketStatus.totalTickets, CloudProviders.GCP, this.gcpChartConfig);
-    this.othersChartConfig = this.chartUtils.updateChartConfig(ticketStatus.othersTickets, ticketStatus.totalTickets, CloudProviders.OTHERS, this.othersChartConfig);
+    const providers = [
+      { key: 'aws', name: CloudProviders.AWS, config: 'awsChartConfig' },
+      { key: 'azure', name: CloudProviders.AZURE, config: 'azureChartConfig' },
+      { key: 'gcp', name: CloudProviders.GCP, config: 'gcpChartConfig' },
+      { key: 'others', name: CloudProviders.OTHERS, config: 'othersChartConfig' },
+    ];
+
+    type ConfigKeys = 'awsChartConfig' | 'azureChartConfig' | 'gcpChartConfig' | 'othersChartConfig';
+
+    providers.forEach(provider => {
+      const tickets = ticketStatus[`${provider.key}Tickets`];
+      const chartData = [
+        { value: tickets, color: CLOUD_COLOR_MAPPER[provider.name].success },
+        { value: ticketStatus.totalTickets - tickets, color: CLOUD_COLOR_MAPPER[provider.name].fails },
+      ];
+      const centerText = { value: tickets ?? 0, label: 'Submissions' };
+      this[provider.config as ConfigKeys] = this.chartUtils.updateChartConfig(chartData, centerText, this[provider.config as ConfigKeys]);
+    });
   }
 
   onCreateRequest(data: ButtonComponentModel) {

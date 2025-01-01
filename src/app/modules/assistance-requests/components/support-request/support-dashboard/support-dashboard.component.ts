@@ -15,7 +15,7 @@ import { ButtonComponentModel } from '../../../../core/components/button/button.
 import { PieChartComponent } from '../../../../core/components/pie-chart/pie-chart.component';
 import { PaginatorComponent } from "../../../../core/components/paginator/paginator.component";
 import { TableComponent } from "../../../../core/components/table/table.component";
-import { SupportTicketModel, TicketStatus } from '../../../models/support-ticket.model';
+import { SupportTicketModel, TICKET_STATUS_COLOR_MAPPER, TicketStatus } from '../../../models/support-ticket.model';
 import { ChartUtils } from '../../../utils/chart.utils';
 
 @Component({
@@ -73,10 +73,20 @@ export class SupportDashboardComponent {
   }
 
   updateChartConfig(ticketStatus: any) {
-    this.toDoTicketChartConfig = this.chartUtils.updateSupportChartConfig(ticketStatus[TicketStatus.TODO], TicketStatus.TODO, this.toDoTicketChartConfig);
-    this.inProgressTicketChartConfig = this.chartUtils.updateSupportChartConfig(ticketStatus[TicketStatus.INPROGRESS], TicketStatus.INPROGRESS, this.inProgressTicketChartConfig);
-    this.resolvedTicketChartConfig = this.chartUtils.updateSupportChartConfig(ticketStatus[TicketStatus.COMPLETED], TicketStatus.COMPLETED, this.resolvedTicketChartConfig);
-    this.totalTicketChartConfig = this.chartUtils.updateSupportChartConfig(ticketStatus[TicketStatus.TICKETS], TicketStatus.TICKETS, this.totalTicketChartConfig);
+    const ticketStatuses = [
+      { status: TicketStatus.TODO, config: 'toDoTicketChartConfig' },
+      { status: TicketStatus.INPROGRESS, config: 'inProgressTicketChartConfig' },
+      { status: TicketStatus.COMPLETED, config: 'resolvedTicketChartConfig' },
+      { status: TicketStatus.TICKETS, config: 'totalTicketChartConfig' },
+    ];
+
+    type ConfigKeys = 'toDoTicketChartConfig' | 'inProgressTicketChartConfig' | 'resolvedTicketChartConfig' | 'totalTicketChartConfig';
+
+    ticketStatuses.forEach(({ status, config }) => {
+      const chartData = [{ value: ticketStatus[status], color: TICKET_STATUS_COLOR_MAPPER[status] }];
+      const centerTextData = { value: ticketStatus[status] ?? 0, label: 'Tickets' };
+      this[config as ConfigKeys] = this.chartUtils.updateChartConfig(chartData, centerTextData, this[config as ConfigKeys]);
+    });
   }
 
   onCreateRequest(data: ButtonComponentModel) {

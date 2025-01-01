@@ -18,10 +18,13 @@ export class ChartBuilderService {
         enabled: false,
       },
       legend: {
-        enabled: false,
-      },
-      accessibility: {
-        enabled: false,
+        enabled: true,
+        align: 'center',
+        verticalAlign: 'bottom',
+        layout: 'horizontal',
+        itemStyle: {
+          fontSize: '12px'
+        }
       },
       plotOptions: {
         pie: {
@@ -29,7 +32,7 @@ export class ChartBuilderService {
           allowPointSelect: true,
           cursor: 'pointer',
           dataLabels: {
-            enabled: true,
+            enabled: false,
             distance: -30,
             format: '{point.name}',
             style: {
@@ -42,9 +45,8 @@ export class ChartBuilderService {
     };
     this.prepareCharType(baseConfig, config.chartType);
     this.prepareChartSeries(baseConfig, config.series);
-    if (config.centerText) {
-      this.prepareCenterText(baseConfig, config.centerText);
-    }
+    if (config.showInLegend && baseConfig.plotOptions?.pie) baseConfig.plotOptions.pie['showInLegend'] = true;
+    if (config.centerText) this.prepareCenterText(baseConfig, config.centerText);
     return baseConfig;
   }
 
