@@ -17,7 +17,8 @@ export const toDoTicketChartConfig: PieChartComponentModel = {
   centerText: {
     title: '0',
     subTitle: 'Tickets'
-  }
+  },
+  className: 'sub'
 };
 
 export const inProgressTicketChartConfig: PieChartComponentModel = {
@@ -31,7 +32,8 @@ export const inProgressTicketChartConfig: PieChartComponentModel = {
   centerText: {
     title: '0',
     subTitle: 'Tickets'
-  }
+  },
+  className: 'sub'
 };
 
 export const resolvedTicketChartConfig: PieChartComponentModel = {
@@ -45,7 +47,8 @@ export const resolvedTicketChartConfig: PieChartComponentModel = {
   centerText: {
     title: '0',
     subTitle: 'Tickets'
-  }
+  },
+  className: 'sub'
 };
 
 export const totalTicketChartConfig: PieChartComponentModel = {
@@ -59,5 +62,6 @@ export const totalTicketChartConfig: PieChartComponentModel = {
   centerText: {
     title: '0',
     subTitle: 'Tickets'
-  }
+  },
+  className: 'sub'
 };

@@ -1,8 +1,24 @@
 <div class="app-dashboard">
   <div class="section1">
-    <app-pie-chart [chartConfig]="supportChartConfig1"></app-pie-chart>
+    <mat-card appearance="outlined">
+      <mat-card-header>Feature Ticket</mat-card-header>
+      <mat-card-content>
+        <app-pie-chart [chartConfig]="featureChartConfig1"></app-pie-chart>
+        <app-bar-chart [chartConfig]="featureChartConfig2"></app-bar-chart>
+      </mat-card-content>
+    </mat-card>
+    <mat-card appearance="outlined">
+      <mat-card-header>Support Ticket</mat-card-header>
+      <mat-card-content>
+        <app-pie-chart [chartConfig]="supportChartConfig1"></app-pie-chart>
+        <app-bar-chart [chartConfig]="supportChartConfig2"></app-bar-chart>
+      </mat-card-content>
+    </mat-card>
   </div>
   <div class="section2">
-
+    <mat-tab-group animationDuration="0ms">
+      <mat-tab label="Feature Ticket">Feature Ticket</mat-tab>
+      <mat-tab label="Support Ticket"> Support Ticket</mat-tab>
+    </mat-tab-group>
   </div>
 </div>

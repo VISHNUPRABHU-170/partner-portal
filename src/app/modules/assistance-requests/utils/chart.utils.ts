@@ -1,7 +1,6 @@
 import { CenterTextModel, ChartSeriesDataModel, PieChartComponentModel } from "../../core/components/pie-chart/pie-chart.component.model";
 
 export class ChartUtils {
-
   updateChartConfig(chartData: any, centerText: any, chartConfig: PieChartComponentModel): PieChartComponentModel {
     const newChartConfig = { ...chartConfig };
     newChartConfig.series.data = this.prepareSeriesData(chartData);
@@ -16,5 +15,4 @@ export class ChartUtils {
   private prepareSeries(name: string = '', value: number, color: string): ChartSeriesDataModel { return { name, value, color }; };
 
   private prepareTitle(title: string, subTitle: string): CenterTextModel { return { title, subTitle }; };
-
 }

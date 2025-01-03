@@ -1,52 +1,32 @@
+import { BarChartComponentModel } from '../../components/bar-chart/bar-chart.component.model';
 import { CenterTextModel, ChartSeriesModel, ChartType, PieChartComponentModel } from '../../components/pie-chart/pie-chart.component.model';
-import { SeriesOptionsType } from 'highcharts';
+import { SeriesOptionsType, XAxisOptions } from 'highcharts';
+import { BAR_CHART_BASE_CONFIG, PIE_CHART_BASE_CONFIG } from '../../constants/chart';
 
 export class ChartBuilderService {
   constructor () { }
 
-  prepareChartConfig(config: PieChartComponentModel): Highcharts.Options {
-    const baseConfig: Highcharts.Options = {
-      chart: {
-        type: 'pie',
-        width: 270,
-        height: 270,
-      },
-      title: {
-        text: undefined,
-      },
-      credits: {
-        enabled: false,
-      },
-      legend: {
-        enabled: true,
-        align: 'center',
-        verticalAlign: 'bottom',
-        layout: 'horizontal',
-        itemStyle: {
-          fontSize: '12px'
-        }
-      },
-      plotOptions: {
-        pie: {
-          size: '100%',
-          allowPointSelect: true,
-          cursor: 'pointer',
-          dataLabels: {
-            enabled: false,
-            distance: -30,
-            format: '{point.name}',
-            style: {
-              fontSize: '12px',
-            },
-          },
-        },
-      },
-      series: [],
-    };
+  preparePieChartConfig(config: PieChartComponentModel): Highcharts.Options {
+    const baseConfig = { ...PIE_CHART_BASE_CONFIG };
     this.prepareCharType(baseConfig, config.chartType);
     this.prepareChartSeries(baseConfig, config.series);
-    if (config.showInLegend && baseConfig.plotOptions?.pie) baseConfig.plotOptions.pie['showInLegend'] = true;
+    if (config.showInLegend) baseConfig.plotOptions!.pie!['showInLegend'] = true;
     if (config.centerText) this.prepareCenterText(baseConfig, config.centerText);
+    if (config.width) baseConfig.chart!.width = config.width;
+    if (config.height) baseConfig.chart!.height = config.height;
+    return baseConfig;
+  }
+
+  prepareBarChartConfig(config: BarChartComponentModel) {
+    const baseConfig = structuredClone(BAR_CHART_BASE_CONFIG);
+    baseConfig.series = config.data.map((value, index) => ({
+      name: config.series[index],
+      color: config.colors[index],
+      data: [value]
+    } as SeriesOptionsType));
+    (baseConfig.xAxis as XAxisOptions).categories = config.series;
+    if (config.width) baseConfig.chart!.width = config.width;
+    if (config.height) baseConfig.chart!.height = config.height;
     return baseConfig;
   }
 
@@ -117,6 +97,4 @@ export class ChartBuilderService {
       },
     } as Highcharts.ChartOptions;
   }
-
-
 }

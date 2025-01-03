@@ -2,8 +2,11 @@ export interface PieChartComponentModel {
   title: string;
   chartType: ChartType;
   series: ChartSeriesModel;
+  width?: string;
+  height?: string;
   centerText?: CenterTextModel;
   showInLegend?: boolean;
+  className?: string;
 }
 
 export interface CenterTextModel {

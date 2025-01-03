@@ -17,7 +17,8 @@ export const awsChartConfig: PieChartComponentModel = {
   centerText: {
     title: '0',
     subTitle: 'Submissions'
-  }
+  },
+  className: 'sub'
 };
 
 export const azureChartConfig: PieChartComponentModel = {
@@ -31,7 +32,8 @@ export const azureChartConfig: PieChartComponentModel = {
   centerText: {
     title: '0',
     subTitle: 'Submissions'
-  }
+  },
+  className: 'sub'
 };
 
 export const gcpChartConfig: PieChartComponentModel = {
@@ -45,7 +47,8 @@ export const gcpChartConfig: PieChartComponentModel = {
   centerText: {
     title: '0',
     subTitle: 'Submissions'
-  }
+  },
+  className: 'sub'
 };
 
 export const othersChartConfig: PieChartComponentModel = {
@@ -59,5 +62,6 @@ export const othersChartConfig: PieChartComponentModel = {
   centerText: {
     title: '0',
     subTitle: 'Submissions'
-  }
+  },
+  className: 'sub'
 };
