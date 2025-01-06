@@ -1,0 +1,16 @@
+.mdc-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  background-color: #ffffff;
+  color: #2C0E47;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+
+  .mat-mdc-card-content {
+    display: flex;
+  }
+}

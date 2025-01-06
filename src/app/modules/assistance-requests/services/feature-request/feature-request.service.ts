@@ -10,6 +10,7 @@ import { ToasterService } from '../../../core/services/toaster/toaster.service';
 export class FeatureRequestService {
   endPoint = 'feature';
   ticketStatusBehaviorSubject = new BehaviorSubject<any>([]);
+  ticketPriorityStatusBehaviorSubject = new BehaviorSubject<any>([]);
   ticketsBehaviorSubject = new BehaviorSubject<FeatureTicketModel[]>([]);
 
   constructor (
@@ -25,6 +26,20 @@ export class FeatureRequestService {
           this.ticketStatusBehaviorSubject.next(response.data);
         },
         error: (error: any) => {}
+      }
+    );
+    this.destroyRef.onDestroy(() => {
+      Subscription?.unsubscribe();
+    });
+  }
+
+  getTicketPriorityStatus() {
+    const Subscription = this.restApiService.get(this.endPoint + '/priorityStatus').subscribe(
+      {
+        next: (response: any) => {
+          this.ticketPriorityStatusBehaviorSubject.next(response.data);
+        },
+        error: (error: any) => { }
       }
     );
     this.destroyRef.onDestroy(() => {

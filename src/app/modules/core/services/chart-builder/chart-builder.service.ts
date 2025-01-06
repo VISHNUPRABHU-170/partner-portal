@@ -7,7 +7,7 @@ export class ChartBuilderService {
   constructor () { }
 
   preparePieChartConfig(config: PieChartComponentModel): Highcharts.Options {
-    const baseConfig = { ...PIE_CHART_BASE_CONFIG };
+    const baseConfig = structuredClone(PIE_CHART_BASE_CONFIG);
     this.prepareCharType(baseConfig, config.chartType);
     this.prepareChartSeries(baseConfig, config.series);
     if (config.showInLegend) baseConfig.plotOptions!.pie!['showInLegend'] = true;
