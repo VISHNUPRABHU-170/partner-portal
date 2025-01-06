@@ -33,9 +33,9 @@ export class FeatureTicketTabComponent {
 
   updateChartConfig(ticketStatus: any) {
     const ticketStatuses = [
-      { config: 'highPriorityChartConfig', label: 'High', value: ticketStatus.high, color: '#EB6253' },
-      { config: 'mediumPriorityChartConfig', label: 'Medium', value: ticketStatus.medium, color: '#FAD27D' },
-      { config: 'lowPriorityChartConfig', label: 'Low', value: ticketStatus.low, color: '#5FD198' },
+      { config: 'highPriorityChartConfig', label: 'High', value: ticketStatus.high ?? 0, color: '#EB6253' },
+      { config: 'mediumPriorityChartConfig', label: 'Medium', value: ticketStatus.medium ?? 0, color: '#FAD27D' },
+      { config: 'lowPriorityChartConfig', label: 'Low', value: ticketStatus.low ?? 0, color: '#5FD198' },
     ];
 
     type ConfigKeys = 'highPriorityChartConfig' | 'mediumPriorityChartConfig' | 'lowPriorityChartConfig';

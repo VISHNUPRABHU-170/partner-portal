@@ -10,7 +10,7 @@ import { ToasterService } from '../../../core/services/toaster/toaster.service';
 export class SupportRequestService {
   endPoint = 'support';
   ticketStatusBehaviorSubject = new BehaviorSubject<any>([]);
-  ticketPriorityStatusBehaviorSubject = new BehaviorSubject<any>([]);
+  ticketPriorityStatusBehaviorSubject = new BehaviorSubject<any>(null);
   ticketsBehaviorSubject = new BehaviorSubject<SupportTicketModel[]>([]);
 
   constructor (
