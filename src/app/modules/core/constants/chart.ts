@@ -10,6 +10,9 @@ export const PIE_CHART_BASE_CONFIG: Highcharts.Options = {
   credits: {
     enabled: false,
   },
+  accessibility: {
+    enabled: false
+  },
   legend: {
     enabled: true,
     align: 'center',
@@ -40,13 +43,16 @@ export const PIE_CHART_BASE_CONFIG: Highcharts.Options = {
 export const BAR_CHART_BASE_CONFIG: Highcharts.Options = {
   chart: {
     type: 'column',
-    width: '350',
+    width: '350'
   },
   title: {
-    text: undefined,
+    text: undefined
   },
   credits: {
-    enabled: false,
+    enabled: false
+  },
+  accessibility: {
+    enabled: false
   },
   xAxis: {
     labels: {
@@ -70,8 +76,8 @@ export const BAR_CHART_BASE_CONFIG: Highcharts.Options = {
       dataLabels: {
         enabled: false,
         style: {
-          fontSize: '12px',
-        },
+          fontSize: '12px'
+        }
       },
       pointPadding: 0.25,
       groupPadding: 0.1

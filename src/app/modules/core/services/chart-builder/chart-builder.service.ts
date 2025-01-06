@@ -24,7 +24,7 @@ export class ChartBuilderService {
       color: config.colors[index],
       data: [value]
     } as SeriesOptionsType));
-    (baseConfig.xAxis as XAxisOptions).categories = config.series;
+    (baseConfig.xAxis as XAxisOptions).categories = [''];
     if (config.width) baseConfig.chart!.width = config.width;
     if (config.height) baseConfig.chart!.height = config.height;
     return baseConfig;
