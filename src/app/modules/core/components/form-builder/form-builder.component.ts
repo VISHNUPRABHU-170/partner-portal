@@ -16,6 +16,7 @@ export class FormBuilderComponent {
   @Input() data!: FormBuilderComponentModel;
   event = output<any>();
   formGroup = new FormGroup([]);
+  onInputKeyPress = this.onClick.bind(this);
 
   constructor (private formBuilder: FormBuilderService) { }
 
@@ -23,7 +24,7 @@ export class FormBuilderComponent {
     this.formGroup = this.formBuilder.createFormGroup(this.formGroup, this.data);
   }
 
-  onClick(data: any) {
+  onClick(): void {
     if (this.formGroup.valid) {
       this.event.emit(this.formGroup.value);
     } else {
