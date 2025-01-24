@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, output } from '@angular/core';
 import { IconComponentModel } from './icon.component.model';
 import { MatIconModule } from '@angular/material/icon';
 import { NavigationService } from '../../services/navigation/navigation.service';
@@ -12,6 +12,7 @@ import { NavigationService } from '../../services/navigation/navigation.service'
 })
 export class IconComponent {
   @Input() data!: IconComponentModel;
+  event = output();
 
   constructor(private navigationService: NavigationService) {}
 
@@ -19,5 +20,6 @@ export class IconComponent {
     if (this.data.routerLink) {
       this.navigationService.navigate(this.data.routerLink);
     }
+    this.event.emit();
   }
 }
