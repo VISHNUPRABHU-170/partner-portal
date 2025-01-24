@@ -1,0 +1,4 @@
+<div class="snack-bar-container" [class]="SNACKBAR_CONTENT_TYPE_MAPPER[data.contentType]">
+  <span>{{ data.content }}</span>
+  <mat-icon class="snack-bar-icon" (click)="onClose()">close</mat-icon>
+</div>

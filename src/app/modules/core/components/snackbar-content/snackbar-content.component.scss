@@ -1,0 +1,19 @@
+.snack-bar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  background-color: #ffffff;
+
+  &.success {
+    color: #2C0E47 !important;
+  }
+
+  &.warning {
+    color: #f47100 !important;
+  }
+
+  &.error {
+    color: #B00020 !important;
+  }
+}

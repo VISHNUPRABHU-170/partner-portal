@@ -72,10 +72,10 @@ export class SupportRequestService {
   createTicket(data: SupportTicketModel) {
     const Subscription = this.restApiService.post(this.endPoint, data).subscribe({
       next: (response: any) => {
-        this.toasterService.show(response.message, response.success);
+        this.toasterService.showSuccess(response.message);
       },
       error: (error: any) => {
-        this.toasterService.show(error.message, error.success);
+        this.toasterService.showError(error.message);
       }
     });
     this.destroyRef.onDestroy(() => {

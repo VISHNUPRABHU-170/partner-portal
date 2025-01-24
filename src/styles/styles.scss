@@ -25,3 +25,15 @@ html {
 .mat-icon {
   cursor: pointer;
 }
+
+.mat-mdc-snack-bar-container {
+
+  .mdc-snackbar__label {
+    font-size: 16px !important;
+  }
+
+  .mat-mdc-snackbar-surface {
+    padding: 3px;
+    background-color: #ffffff !important;
+  }
+}
