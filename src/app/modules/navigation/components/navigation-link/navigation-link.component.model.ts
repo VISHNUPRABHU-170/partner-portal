@@ -14,10 +14,7 @@ export enum RouteType {
 
 export const ROUTE_MAPPER: Record<string, string[]> = {};
 
-ROUTE_MAPPER[RouteType.DASHBOARD] = [
-  '/partner-portal',
-  '/partner-portal/dashboard',
-];
+ROUTE_MAPPER[RouteType.DASHBOARD] = ['/partner-portal', '/partner-portal/dashboard'];
 
 ROUTE_MAPPER[RouteType.ASSISTANCE_REQUESTS] = [
   '/partner-portal/assistance-requests',

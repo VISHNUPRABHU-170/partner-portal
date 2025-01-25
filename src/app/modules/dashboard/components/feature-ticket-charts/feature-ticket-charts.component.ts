@@ -31,49 +31,38 @@ export class FeatureTicketChartsComponent implements OnInit {
   }
 
   subscribeToFeatureTicketStatus() {
-    this.featureRequestService.ticketStatusBehaviorSubject.subscribe(
-      (ticketStatus: any) => {
-        const chartData = [
-          {
-            name: 'AWS',
-            value: ticketStatus.awsTickets,
-            color: CLOUD_COLOR_MAPPER[CloudProviders.AWS].fails,
-          },
-          {
-            name: 'AZURE',
-            value: ticketStatus.azureTickets,
-            color: CLOUD_COLOR_MAPPER[CloudProviders.AZURE].fails,
-          },
-          {
-            name: 'GCP',
-            value: ticketStatus.gcpTickets,
-            color: CLOUD_COLOR_MAPPER[CloudProviders.GCP].fails,
-          },
-          {
-            name: 'OTHERS',
-            value: ticketStatus.othersTickets,
-            color: CLOUD_COLOR_MAPPER[CloudProviders.OTHERS].fails,
-          },
-        ];
-        this.pieChartConfig = this.chartUtils.updateChartConfig(
-          chartData,
-          null,
-          this.pieChartConfig
-        );
-        this.barChartConfig.data = [
-          ticketStatus.awsTickets,
-          ticketStatus.azureTickets,
-          ticketStatus.gcpTickets,
-          ticketStatus.othersTickets,
-        ];
-        this.barChartConfig.colors = [
-          CLOUD_COLOR_MAPPER[CloudProviders.AWS].fails,
-          CLOUD_COLOR_MAPPER[CloudProviders.AZURE].fails,
-          CLOUD_COLOR_MAPPER[CloudProviders.GCP].fails,
-          CLOUD_COLOR_MAPPER[CloudProviders.OTHERS].fails,
-        ];
-        this.barChartConfig = structuredClone(this.barChartConfig);
-      }
-    );
+    this.featureRequestService.ticketStatusBehaviorSubject.subscribe((ticketStatus: any) => {
+      const chartData = [
+        {
+          name: 'AWS',
+          value: ticketStatus.awsTickets,
+          color: CLOUD_COLOR_MAPPER[CloudProviders.AWS].fails,
+        },
+        {
+          name: 'AZURE',
+          value: ticketStatus.azureTickets,
+          color: CLOUD_COLOR_MAPPER[CloudProviders.AZURE].fails,
+        },
+        {
+          name: 'GCP',
+          value: ticketStatus.gcpTickets,
+          color: CLOUD_COLOR_MAPPER[CloudProviders.GCP].fails,
+        },
+        {
+          name: 'OTHERS',
+          value: ticketStatus.othersTickets,
+          color: CLOUD_COLOR_MAPPER[CloudProviders.OTHERS].fails,
+        },
+      ];
+      this.pieChartConfig = this.chartUtils.updateChartConfig(chartData, null, this.pieChartConfig);
+      this.barChartConfig.data = [ticketStatus.awsTickets, ticketStatus.azureTickets, ticketStatus.gcpTickets, ticketStatus.othersTickets];
+      this.barChartConfig.colors = [
+        CLOUD_COLOR_MAPPER[CloudProviders.AWS].fails,
+        CLOUD_COLOR_MAPPER[CloudProviders.AZURE].fails,
+        CLOUD_COLOR_MAPPER[CloudProviders.GCP].fails,
+        CLOUD_COLOR_MAPPER[CloudProviders.OTHERS].fails,
+      ];
+      this.barChartConfig = structuredClone(this.barChartConfig);
+    });
   }
 }

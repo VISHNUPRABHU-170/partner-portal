@@ -5,10 +5,7 @@ import {
   FormControlModel,
   FormValidators,
 } from '../../../core/components/form-builder/form-builder.component.model';
-import {
-  InputComponentModel,
-  InputType,
-} from '../../../core/components/input/input.component.model';
+import { InputComponentModel, InputType } from '../../../core/components/input/input.component.model';
 import { LinkComponentModel } from '../../../core/components/link/link.component.model';
 import { ProgressBarComponentModel } from '../../../core/components/progress-bar/progress-bar.component.model';
 

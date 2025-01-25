@@ -22,43 +22,39 @@ export class AuthService {
   ) {}
 
   onLogin(data: any): void {
-    const Subscription = this.restApiService
-      .post(this.authLoginURL, data)
-      .subscribe({
-        next: (response: any) => {
-          this.spinnerBehaviorSubject.next(false);
-          if (response.success === true) {
-            this.storageService.setSessionItem('token', response.token);
-            this.navigationService.navigate('partner-portal');
-          }
-          this.toasterService.showSuccess(response.message);
-        },
-        error: (error: any) => {
-          this.spinnerBehaviorSubject.next(false);
-          this.toasterService.showError(error.message);
-        },
-      });
+    const Subscription = this.restApiService.post(this.authLoginURL, data).subscribe({
+      next: (response: any) => {
+        this.spinnerBehaviorSubject.next(false);
+        if (response.success === true) {
+          this.storageService.setSessionItem('token', response.token);
+          this.navigationService.navigate('partner-portal');
+        }
+        this.toasterService.showSuccess(response.message);
+      },
+      error: (error: any) => {
+        this.spinnerBehaviorSubject.next(false);
+        this.toasterService.showError(error.message);
+      },
+    });
     this.destroyRef.onDestroy(() => {
       Subscription?.unsubscribe();
     });
   }
 
   onRegister(data: any): void {
-    const Subscription = this.restApiService
-      .post(this.authRegisterURL, data)
-      .subscribe({
-        next: (response: any) => {
-          this.spinnerBehaviorSubject.next(false);
-          if (response.success == true) {
-            this.navigationService.navigate('login');
-          }
-          this.toasterService.showSuccess(response.message);
-        },
-        error: (error: any) => {
-          this.spinnerBehaviorSubject.next(false);
-          this.toasterService.showError(error.message);
-        },
-      });
+    const Subscription = this.restApiService.post(this.authRegisterURL, data).subscribe({
+      next: (response: any) => {
+        this.spinnerBehaviorSubject.next(false);
+        if (response.success == true) {
+          this.navigationService.navigate('login');
+        }
+        this.toasterService.showSuccess(response.message);
+      },
+      error: (error: any) => {
+        this.spinnerBehaviorSubject.next(false);
+        this.toasterService.showError(error.message);
+      },
+    });
     this.destroyRef.onDestroy(() => {
       Subscription?.unsubscribe();
     });

@@ -1,8 +1,4 @@
-import {
-  CenterTextModel,
-  ChartSeriesDataModel,
-  PieChartComponentModel,
-} from '../../core/components/pie-chart/pie-chart.component.model';
+import { CenterTextModel, ChartSeriesDataModel, PieChartComponentModel } from '../../core/components/pie-chart/pie-chart.component.model';
 
 export class ChartUtils {
   updateChartConfig(
@@ -28,11 +24,7 @@ export class ChartUtils {
     );
   }
 
-  private prepareSeries(
-    name = '',
-    value: number,
-    color: string
-  ): ChartSeriesDataModel {
+  private prepareSeries(name = '', value: number, color: string): ChartSeriesDataModel {
     return { name, value, color };
   }
 

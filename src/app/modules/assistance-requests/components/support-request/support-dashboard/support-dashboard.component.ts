@@ -15,11 +15,7 @@ import { ButtonComponentModel } from '../../../../core/components/button/button.
 import { PieChartComponent } from '../../../../core/components/pie-chart/pie-chart.component';
 import { PaginatorComponent } from '../../../../core/components/paginator/paginator.component';
 import { TableComponent } from '../../../../core/components/table/table.component';
-import {
-  SupportTicketModel,
-  TICKET_STATUS_COLOR_MAPPER,
-  TicketStatus,
-} from '../../../models/support-ticket.model';
+import { SupportTicketModel, TICKET_STATUS_COLOR_MAPPER, TicketStatus } from '../../../models/support-ticket.model';
 import { ChartUtils } from '../../../utils/chart.utils';
 
 @Component({
@@ -123,11 +119,7 @@ export class SupportDashboardComponent implements OnInit {
         value: ticketStatus[status] ?? 0,
         label: 'Tickets',
       };
-      this[config as ConfigKeys] = this.chartUtils.updateChartConfig(
-        chartData,
-        centerTextData,
-        this[config as ConfigKeys]
-      );
+      this[config as ConfigKeys] = this.chartUtils.updateChartConfig(chartData, centerTextData, this[config as ConfigKeys]);
     });
   }
 

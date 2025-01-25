@@ -1,12 +1,6 @@
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Component, DestroyRef, OnInit } from '@angular/core';
-import {
-  awsChartConfig,
-  azureChartConfig,
-  createRequestButtonConfig,
-  gcpChartConfig,
-  othersChartConfig,
-} from './config';
+import { awsChartConfig, azureChartConfig, createRequestButtonConfig, gcpChartConfig, othersChartConfig } from './config';
 import { ButtonComponent } from '../../../../core/components/button/button.component';
 import { NavigationService } from '../../../../core/services/navigation/navigation.service';
 import { ButtonComponentModel } from '../../../../core/components/button/button.component.model';

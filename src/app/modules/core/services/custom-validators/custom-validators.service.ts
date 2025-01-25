@@ -10,9 +10,7 @@ export class CustomValidatorsService {
     return (control: AbstractControl): ValidationErrors | null => {
       const value = control.value;
       if (!value) return null;
-      const errorMessages = PASSWORD_VALIDATION_RULES.filter(
-        rule => !rule.regex.test(value)
-      ).map(rule => rule.errorMessage);
+      const errorMessages = PASSWORD_VALIDATION_RULES.filter(rule => !rule.regex.test(value)).map(rule => rule.errorMessage);
       return errorMessages.length ? { message: errorMessages } : null;
     };
   }
@@ -22,10 +20,8 @@ export class CustomValidatorsService {
       const control1 = control.get(field1);
       const control2 = control.get(field2);
       if (control1?.value !== control2?.value) {
-        if (!control1?.errors)
-          control1?.setErrors({ message: ['Password Mismatch'] });
-        if (!control2?.errors)
-          control2?.setErrors({ message: ['Password Mismatch'] });
+        if (!control1?.errors) control1?.setErrors({ message: ['Password Mismatch'] });
+        if (!control2?.errors) control2?.setErrors({ message: ['Password Mismatch'] });
         return { fieldMismatch: true };
       } else {
         if (

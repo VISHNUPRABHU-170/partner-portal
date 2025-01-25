@@ -1,15 +1,8 @@
 import { InputType } from './../../../../core/components/input/input.component.model';
 import { IconComponentModel } from '../../../../core/components/icon/icon.component.model';
 import { InputComponentModel } from '../../../../core/components/input/input.component.model';
-import {
-  StepperComponentModel,
-  StepperModel,
-} from '../../../../core/components/stepper/stepper.component.model';
-import {
-  ComponentType,
-  FormControlModel,
-  FormValidators,
-} from '../../../../core/components/form-builder/form-builder.component.model';
+import { StepperComponentModel, StepperModel } from '../../../../core/components/stepper/stepper.component.model';
+import { ComponentType, FormControlModel, FormValidators } from '../../../../core/components/form-builder/form-builder.component.model';
 import { SelectComponentModel } from '../../../../core/components/select/select.component.model';
 import { TextareaComponentModel } from '../../../../core/components/textarea/textarea.component.model';
 import { ChipInputComponentModel } from '../../../../core/components/chip-input/chip-input.component.model';

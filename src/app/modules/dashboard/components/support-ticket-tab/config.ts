@@ -1,7 +1,4 @@
-import {
-  ChartType,
-  PieChartComponentModel,
-} from '../../../core/components/pie-chart/pie-chart.component.model';
+import { ChartType, PieChartComponentModel } from '../../../core/components/pie-chart/pie-chart.component.model';
 
 export const highPriorityChartConfig: PieChartComponentModel = {
   title: 'Priority',

@@ -20,50 +20,42 @@ export class FeatureRequestService {
   ) {}
 
   getTicketStatus() {
-    const Subscription = this.restApiService
-      .get(this.endPoint + '/ticketStatus')
-      .subscribe({
-        next: (response: any) => {
-          this.ticketStatusBehaviorSubject.next(response.data);
-        },
-        error: (error: any) => {
-          console.log(error);
-        },
-      });
+    const Subscription = this.restApiService.get(this.endPoint + '/ticketStatus').subscribe({
+      next: (response: any) => {
+        this.ticketStatusBehaviorSubject.next(response.data);
+      },
+      error: (error: any) => {
+        console.log(error);
+      },
+    });
     this.destroyRef.onDestroy(() => {
       Subscription?.unsubscribe();
     });
   }
 
   getTicketPriorityStatus() {
-    const Subscription = this.restApiService
-      .get(this.endPoint + '/priorityStatus')
-      .subscribe({
-        next: (response: any) => {
-          this.ticketPriorityStatusBehaviorSubject.next(response.data);
-        },
-        error: (error: any) => {
-          console.log(error);
-        },
-      });
+    const Subscription = this.restApiService.get(this.endPoint + '/priorityStatus').subscribe({
+      next: (response: any) => {
+        this.ticketPriorityStatusBehaviorSubject.next(response.data);
+      },
+      error: (error: any) => {
+        console.log(error);
+      },
+    });
     this.destroyRef.onDestroy(() => {
       Subscription?.unsubscribe();
     });
   }
 
   getTickets(params: any) {
-    const Subscription = this.restApiService
-      .get(this.endPoint + '/tickets', params)
-      .subscribe({
-        next: (response: any) => {
-          this.ticketsBehaviorSubject.next(
-            response.data as FeatureTicketModel[]
-          );
-        },
-        error: (error: any) => {
-          console.log(error);
-        },
-      });
+    const Subscription = this.restApiService.get(this.endPoint + '/tickets', params).subscribe({
+      next: (response: any) => {
+        this.ticketsBehaviorSubject.next(response.data as FeatureTicketModel[]);
+      },
+      error: (error: any) => {
+        console.log(error);
+      },
+    });
     this.destroyRef.onDestroy(() => {
       Subscription?.unsubscribe();
     });
@@ -74,16 +66,14 @@ export class FeatureRequestService {
   }
 
   createTicket(data: FeatureTicketModel) {
-    const Subscription = this.restApiService
-      .post(this.endPoint, data)
-      .subscribe({
-        next: (response: any) => {
-          this.toasterService.showSuccess(response.message);
-        },
-        error: (error: any) => {
-          this.toasterService.showError(error.message);
-        },
-      });
+    const Subscription = this.restApiService.post(this.endPoint, data).subscribe({
+      next: (response: any) => {
+        this.toasterService.showSuccess(response.message);
+      },
+      error: (error: any) => {
+        this.toasterService.showError(error.message);
+      },
+    });
     this.destroyRef.onDestroy(() => {
       Subscription?.unsubscribe();
     });

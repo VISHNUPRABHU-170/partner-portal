@@ -22,10 +22,7 @@ export class FormBuilderService {
    * @param config - The configuration for the form group and its controls.
    * @returns FormGroup - The generated FormGroup.
    */
-  createFormGroup(
-    formGroup: FormGroup,
-    config: FormBuilderComponentModel
-  ): FormGroup {
+  createFormGroup(formGroup: FormGroup, config: FormBuilderComponentModel): FormGroup {
     config.formGroup.forEach((controlConfig: FormControlModel) => {
       formGroup.addControl(
         controlConfig.name,
@@ -60,10 +57,7 @@ export class FormBuilderService {
    * @param validators - The list of validator types and values.
    * @returns Array of Angular validators.
    */
-  private mapFormGroupValidators(
-    validators: FormValidators,
-    config: any
-  ): any[] {
+  private mapFormGroupValidators(validators: FormValidators, config: any): any[] {
     const formValidators = [];
 
     if (validators.includes(FormValidators.MATCH_FIELD)) {

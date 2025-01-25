@@ -55,12 +55,7 @@ export enum ComponentType {
 }
 
 export type dynamicComponentType = Type<
-  | InputComponent
-  | SelectComponent
-  | TextareaComponent
-  | ChipInputComponent
-  | DatePickerComponent
-  | FileUploadComponent
+  InputComponent | SelectComponent | TextareaComponent | ChipInputComponent | DatePickerComponent | FileUploadComponent
 >;
 
 export const COMPONENT_TYPE_MAPPER: Record<string, dynamicComponentType> = {};

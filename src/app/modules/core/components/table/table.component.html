@@ -9,10 +9,7 @@
   }
 
   <tr mat-header-row *matHeaderRowDef="columnsDef"></tr>
-  <tr
-    mat-row
-    (click)="onRowClick(row)"
-    *matRowDef="let row; columns: columnsDef"></tr>
+  <tr mat-row (click)="onRowClick(row)" *matRowDef="let row; columns: columnsDef"></tr>
 </table>
 
 @if (!tableData?.length) {

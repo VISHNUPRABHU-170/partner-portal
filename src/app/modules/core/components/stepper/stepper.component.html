@@ -3,10 +3,7 @@
     <mat-step [stepControl]="formGroup" [label]="stepper.label">
       <div class="stepper-content">
         @for (controlConfig of stepper.formControls; track controlConfig) {
-          <ng-container
-            dynamicFormControl
-            [data]="controlConfig"
-            [formGroup]="formGroup"></ng-container>
+          <ng-container dynamicFormControl [data]="controlConfig" [formGroup]="formGroup"></ng-container>
         }
         <div class="button-container">
           @if (i) {

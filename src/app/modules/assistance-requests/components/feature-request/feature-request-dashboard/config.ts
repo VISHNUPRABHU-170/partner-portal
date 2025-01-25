@@ -1,8 +1,5 @@
 import { ButtonComponentModel } from '../../../../core/components/button/button.component.model';
-import {
-  ChartType,
-  PieChartComponentModel,
-} from '../../../../core/components/pie-chart/pie-chart.component.model';
+import { ChartType, PieChartComponentModel } from '../../../../core/components/pie-chart/pie-chart.component.model';
 
 export const createRequestButtonConfig: ButtonComponentModel = {
   label: 'Create a Request',
