@@ -35,8 +35,8 @@ export class FeatureRequestDashboardComponent implements OnInit {
   tableData: FeatureTicketModel[] = [];
   columnsDef = ['title', 'description', 'cloudProvider', 'tags', 'createdAt', 'deadLine', 'priority'];
 
-  pageIndex: number = 0;
-  totalTickets: number = 0;
+  pageIndex = 0;
+  totalTickets = 0;
 
   chartUtils = new ChartUtils();
 

@@ -1,5 +1,5 @@
 import { PieChartComponent } from './../../../core/components/pie-chart/pie-chart.component';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { pieChartConfig, barChartConfig } from './config';
 import { MatCardModule } from '@angular/material/card';
 import { BarChartComponent } from '../../../core/components/bar-chart/bar-chart.component';
@@ -14,7 +14,7 @@ import { CLOUD_COLOR_MAPPER, CloudProviders } from '../../../assistance-requests
   templateUrl: './feature-ticket-charts.component.html',
   styleUrl: './feature-ticket-charts.component.scss'
 })
-export class FeatureTicketChartsComponent {
+export class FeatureTicketChartsComponent implements OnInit {
   pieChartConfig = pieChartConfig;
   barChartConfig = barChartConfig;
 

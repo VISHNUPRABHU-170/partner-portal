@@ -9,7 +9,7 @@ export enum SnackBarContentType {
   ERROR = 'ERROR'
 }
 
-export const SNACKBAR_CONTENT_TYPE_MAPPER: { [key: string]: string} = {};
+export const SNACKBAR_CONTENT_TYPE_MAPPER: Record<string, string> = {};
 
 SNACKBAR_CONTENT_TYPE_MAPPER[SnackBarContentType.SUCCESS] = 'success';
 SNACKBAR_CONTENT_TYPE_MAPPER[SnackBarContentType.WARNING] = 'warning';

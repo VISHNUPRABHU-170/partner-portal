@@ -35,7 +35,7 @@ const logInButtonConfig: ButtonComponentModel = {
 
 export const registerLinkConfig: LinkComponentModel = {
   label: 'Register',
-  routerLink: 'register'
+  routerLink: '/register'
 };
 
 export const loginFormConfig: FormBuilderComponentModel = {

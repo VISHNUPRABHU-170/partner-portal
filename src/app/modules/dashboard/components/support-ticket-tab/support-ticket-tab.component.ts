@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { highPriorityChartConfig, lowPriorityChartConfig, mediumPriorityChartConfig } from './config';
 import { ChartUtils } from '../../../assistance-requests/utils/chart.utils';
 import { PieChartComponent } from '../../../core/components/pie-chart/pie-chart.component';
@@ -11,7 +11,7 @@ import { SupportRequestService } from '../../../assistance-requests/services/sup
   templateUrl: './support-ticket-tab.component.html',
   styleUrl: './support-ticket-tab.component.scss'
 })
-export class SupportTicketTabComponent {
+export class SupportTicketTabComponent implements OnInit {
   highPriorityChartConfig = highPriorityChartConfig;
   mediumPriorityChartConfig = mediumPriorityChartConfig;
   lowPriorityChartConfig = lowPriorityChartConfig;

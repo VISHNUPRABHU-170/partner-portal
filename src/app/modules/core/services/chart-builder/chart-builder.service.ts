@@ -4,7 +4,6 @@ import { SeriesOptionsType, XAxisOptions } from 'highcharts';
 import { BAR_CHART_BASE_CONFIG, PIE_CHART_BASE_CONFIG } from '../../constants/chart';
 
 export class ChartBuilderService {
-  constructor () { }
 
   preparePieChartConfig(config: PieChartComponentModel): Highcharts.Options {
     const baseConfig = structuredClone(PIE_CHART_BASE_CONFIG);

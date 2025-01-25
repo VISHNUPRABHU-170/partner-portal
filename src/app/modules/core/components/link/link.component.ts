@@ -1,11 +1,11 @@
 import { Component, Input, output } from '@angular/core';
 import { LinkComponentModel } from './link.component.model';
-import { Router } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-link',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './link.component.html',
   styleUrl: './link.component.scss'
 })
@@ -13,12 +13,9 @@ export class LinkComponent {
   @Input() data!: LinkComponentModel;
   event = output();
 
-  constructor(private router: Router) {}
-
   onClick() {
-    if (this.data.routerLink) {
-      this.router.navigate([this.data.routerLink]);
-    } else {
+    console.log(this.data.routerLink);
+    if (!this.data.routerLink) {
       this.event.emit();
     }
   }

@@ -1,5 +1,5 @@
 import { ProgressBarComponent } from './../../../core/components/progress-bar/progress-bar.component';
-import { Component, DestroyRef } from '@angular/core';
+import { Component, DestroyRef, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { LinkComponent } from '../../../core/components/link/link.component';
 import { logInLinkConfig, progressBarConfig, registerFormConfig } from './config';
@@ -13,7 +13,7 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
   registerFormConfig = registerFormConfig;
   logInLinkConfig = logInLinkConfig;
   progressBarConfig = progressBarConfig;

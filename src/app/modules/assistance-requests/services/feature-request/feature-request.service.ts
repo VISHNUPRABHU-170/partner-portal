@@ -25,7 +25,9 @@ export class FeatureRequestService {
         next: (response: any) => {
           this.ticketStatusBehaviorSubject.next(response.data);
         },
-        error: (error: any) => {}
+        error: (error: any) => {
+          console.log(error);
+        }
       }
     );
     this.destroyRef.onDestroy(() => {
@@ -39,7 +41,9 @@ export class FeatureRequestService {
         next: (response: any) => {
           this.ticketPriorityStatusBehaviorSubject.next(response.data);
         },
-        error: (error: any) => { }
+        error: (error: any) => {
+          console.log(error);
+        }
       }
     );
     this.destroyRef.onDestroy(() => {
@@ -53,7 +57,9 @@ export class FeatureRequestService {
         next: (response: any) => {
           this.ticketsBehaviorSubject.next(response.data as FeatureTicketModel[]);
         },
-        error: (error: any) => {}
+        error: (error: any) => {
+          console.log(error);
+        }
       }
     );
     this.destroyRef.onDestroy(() => {

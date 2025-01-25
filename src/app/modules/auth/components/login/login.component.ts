@@ -1,5 +1,5 @@
 import { MatCardModule } from '@angular/material/card';
-import { Component, DestroyRef } from '@angular/core';
+import { Component, DestroyRef, OnInit } from '@angular/core';
 import { LinkComponent } from '../../../core/components/link/link.component';
 import { loginFormConfig, progressBarConfig, registerLinkConfig } from './config';
 import { FormBuilderComponent } from '../../../core/components/form-builder/form-builder.component';
@@ -13,7 +13,7 @@ import { ProgressBarComponent } from "../../../core/components/progress-bar/prog
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   loginFormConfig = loginFormConfig;
   registerLinkConfig = registerLinkConfig;
   progressBarConfig = progressBarConfig;

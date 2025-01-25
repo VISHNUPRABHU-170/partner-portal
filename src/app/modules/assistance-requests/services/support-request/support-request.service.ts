@@ -26,7 +26,7 @@ export class SupportRequestService {
           this.ticketStatusBehaviorSubject.next(response.data);
         },
         error: (error: any) => {
-
+          console.log(error);
         }
       }
     );
@@ -41,7 +41,9 @@ export class SupportRequestService {
         next: (response: any) => {
           this.ticketPriorityStatusBehaviorSubject.next(response.data);
         },
-        error: (error: any) => { }
+        error: (error: any) => {
+          console.log(error);
+        }
       }
     );
     this.destroyRef.onDestroy(() => {
@@ -56,7 +58,7 @@ export class SupportRequestService {
           this.ticketsBehaviorSubject.next(response.data as SupportTicketModel[]);
         },
         error: (error: any) => {
-
+          console.log(error);
         }
       }
     );

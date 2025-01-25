@@ -1,5 +1,5 @@
 import { SupportRequestService } from './../../../services/support-request/support-request.service';
-import { Component, DestroyRef } from '@angular/core';
+import { Component, DestroyRef, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbar } from '@angular/material/toolbar';
 import { IconComponent } from '../../../../core/components/icon/icon.component';
@@ -16,7 +16,7 @@ import { DatePipe } from '@angular/common';
   templateUrl: './support-ticket-view.component.html',
   styleUrl: './support-ticket-view.component.scss'
 })
-export class SupportTicketViewComponent {
+export class SupportTicketViewComponent implements OnInit {
   backIconConfig = backIconConfig;
   progressBarConfig = progressBarConfig;
   previewLinkConfig = previewLinkConfig;
@@ -41,6 +41,8 @@ export class SupportTicketViewComponent {
     });
   }
 
-  onPreview() { }
+  onPreview() {
+    // TODO
+  }
 
 }

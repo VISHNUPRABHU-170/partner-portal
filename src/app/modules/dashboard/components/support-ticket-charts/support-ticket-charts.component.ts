@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { barChartConfig, pieChartConfig } from './config';
 import { MatCardModule } from '@angular/material/card';
 import { PieChartComponent } from '../../../core/components/pie-chart/pie-chart.component';
@@ -14,7 +14,7 @@ import { ChartUtils } from '../../../assistance-requests/utils/chart.utils';
   templateUrl: './support-ticket-charts.component.html',
   styleUrl: './support-ticket-charts.component.scss'
 })
-export class SupportTicketChartsComponent {
+export class SupportTicketChartsComponent implements OnInit {
   pieChartConfig = pieChartConfig;
   barChartConfig = barChartConfig;
 

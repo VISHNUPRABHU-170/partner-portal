@@ -1,4 +1,4 @@
-import { Component, DestroyRef } from '@angular/core';
+import { Component, DestroyRef, OnInit } from '@angular/core';
 import { MatToolbar } from '@angular/material/toolbar';
 import { ActivatedRoute } from '@angular/router';
 import { backIconConfig, progressBarConfig } from './config';
@@ -16,7 +16,7 @@ import { DatePipe } from '@angular/common';
   templateUrl: './feature-ticket-view.component.html',
   styleUrl: './feature-ticket-view.component.scss'
 })
-export class FeatureTicketViewComponent {
+export class FeatureTicketViewComponent implements OnInit {
   backIconConfig = backIconConfig;
   progressBarConfig = progressBarConfig;
 

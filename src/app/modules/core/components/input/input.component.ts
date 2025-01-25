@@ -14,13 +14,13 @@ export class InputComponent {
   @Input() data!: InputComponentModel;
   @Input() formGroup!: FormGroup;
   @Input() formControl!: FormControl;
-  onEnterPress = output();
+  enterKeyPress = output();
 
   INPUT_TYPE_MAPPER = INPUT_TYPE_MAPPER;
 
   onKeyPress(event: KeyboardEvent): void {
     if (event.key === 'Enter') {
-      this.onEnterPress.emit();
+      this.enterKeyPress.emit();
     }
   }
 }
