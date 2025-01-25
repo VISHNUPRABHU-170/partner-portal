@@ -65,11 +65,7 @@ const formGroupValidatorConfig: FormGroupValidatorModel = {
 };
 
 export const registerFormConfig: FormBuilderComponentModel = {
-  formGroup: [
-    userNameFormControlConfig,
-    passwordFormControlConfig,
-    confirmPasswordFormControlConfig,
-  ],
+  formGroup: [userNameFormControlConfig, passwordFormControlConfig, confirmPasswordFormControlConfig],
   formFooter: [registerButtonConfig],
   validators: formGroupValidatorConfig,
 };

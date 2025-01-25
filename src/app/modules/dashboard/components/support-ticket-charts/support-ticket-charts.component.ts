@@ -4,10 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { PieChartComponent } from '../../../core/components/pie-chart/pie-chart.component';
 import { BarChartComponent } from '../../../core/components/bar-chart/bar-chart.component';
 import { SupportRequestService } from '../../../assistance-requests/services/support-request/support-request.service';
-import {
-  TICKET_STATUS_COLOR_MAPPER,
-  TicketStatus,
-} from '../../../assistance-requests/models/support-ticket.model';
+import { TICKET_STATUS_COLOR_MAPPER, TicketStatus } from '../../../assistance-requests/models/support-ticket.model';
 import { ChartUtils } from '../../../assistance-requests/utils/chart.utils';
 
 @Component({

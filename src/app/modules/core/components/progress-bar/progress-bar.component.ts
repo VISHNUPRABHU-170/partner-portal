@@ -10,5 +10,6 @@ import { ProgressBarComponentModel } from './progress-bar.component.model';
   styleUrl: './progress-bar.component.scss',
 })
 export class ProgressBarComponent {
+  // Input property to accept progress bar config from the parent component.
   @Input() data!: ProgressBarComponentModel;
 }

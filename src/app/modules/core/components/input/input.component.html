@@ -1,11 +1,13 @@
-<mat-form-field [formGroup]="formGroup" [hideRequiredMarker]="true">
-  <mat-label>{{ data.label }}</mat-label>
-  <input matInput [type]="INPUT_TYPE_MAPPER[data.type]" [formControl]="formControl" (keypress)="onKeyPress($event)" />
-  <mat-error>
-    @if (formControl.hasError('required')) {
-      Field Required
-    } @else if (formControl.hasError('message')) {
-      {{ formControl.getError('message')[0] }}
-    }
-  </mat-error>
-</mat-form-field>
+@if (data && formGroup && formControl) {
+  <mat-form-field [formGroup]="formGroup" [hideRequiredMarker]="true">
+    <mat-label>{{ data.label }}</mat-label>
+    <input matInput [type]="INPUT_TYPE_MAPPER[data.type]" [formControl]="formControl" (keypress)="onKeyPress($event)" />
+    <mat-error>
+      @if (formControl.hasError('required')) {
+        Field Required
+      } @else if (formControl.hasError('message')) {
+        {{ formControl.getError('message')[0] }}
+      }
+    </mat-error>
+  </mat-form-field>
+}

@@ -14,15 +14,20 @@ import Highcharts from 'highcharts';
   styleUrl: './pie-chart.component.scss',
 })
 export class PieChartComponent implements OnChanges {
+  // Input property to accept chart configuration from the parent component
   @Input() chartConfig!: PieChartComponentModel;
 
+  // Reference to the Highcharts library for chart rendering
   Highcharts = Highcharts;
 
+  // Holds the chart configuration options generated for Highcharts
   chartData!: Highcharts.Options;
-  chartInstance: Highcharts.Chart | undefined;
 
   constructor(private chartBuilderService: ChartBuilderService) {}
 
+  /**
+   * Lifecycle hook to update the chart configuration based on the new input.
+   */
   ngOnChanges(): void {
     this.chartData = {
       ...this.chartBuilderService.preparePieChartConfig(this.chartConfig),

@@ -10,5 +10,6 @@ import { MatChipsModule } from '@angular/material/chips';
   styleUrl: './chip.component.scss',
 })
 export class ChipComponent {
+  // Input property to accept chip config from the parent component.
   @Input() data!: ChipComponentModel;
 }

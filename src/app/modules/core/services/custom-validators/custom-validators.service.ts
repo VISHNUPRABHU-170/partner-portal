@@ -24,16 +24,10 @@ export class CustomValidatorsService {
         if (!control2?.errors) control2?.setErrors({ message: ['Password Mismatch'] });
         return { fieldMismatch: true };
       } else {
-        if (
-          control1?.errors?.['message']?.length === 1 &&
-          control1.errors['message'].includes('Password Mismatch')
-        ) {
+        if (control1?.errors?.['message']?.length === 1 && control1.errors['message'].includes('Password Mismatch')) {
           control1?.setErrors(null);
         }
-        if (
-          control2?.errors?.['message']?.length === 1 &&
-          control2.errors['message'].includes('Password Mismatch')
-        ) {
+        if (control2?.errors?.['message']?.length === 1 && control2.errors['message'].includes('Password Mismatch')) {
           control2.setErrors(null);
         }
         return null;

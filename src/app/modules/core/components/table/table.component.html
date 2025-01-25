@@ -1,19 +1,21 @@
-<table mat-table [dataSource]="tableData">
-  @for (cell of columnsDef; track cell) {
-    <ng-container [matColumnDef]="cell">
-      <th mat-header-cell *matHeaderCellDef>{{ cell | titlecase }}</th>
-      <td mat-cell *matCellDef="let element; let i = index">
-        {{ element[cell] }}
-      </td>
-    </ng-container>
+@if (tableData) {
+  <table mat-table [dataSource]="tableData">
+    @for (cell of columnsDef; track cell) {
+      <ng-container [matColumnDef]="cell">
+        <th mat-header-cell *matHeaderCellDef>{{ cell | titlecase }}</th>
+        <td mat-cell *matCellDef="let element; let i = index">
+          {{ element[cell] }}
+        </td>
+      </ng-container>
+    }
+
+    <tr mat-header-row *matHeaderRowDef="columnsDef"></tr>
+    <tr mat-row (click)="onRowClick(row)" *matRowDef="let row; columns: columnsDef"></tr>
+  </table>
+
+  @if (!tableData?.length) {
+    <div class="progress-bar-container">
+      <app-progress-bar [data]="{ diameter: 50 }"></app-progress-bar>
+    </div>
   }
-
-  <tr mat-header-row *matHeaderRowDef="columnsDef"></tr>
-  <tr mat-row (click)="onRowClick(row)" *matRowDef="let row; columns: columnsDef"></tr>
-</table>
-
-@if (!tableData?.length) {
-  <div class="progress-bar-container">
-    <app-progress-bar [data]="{ diameter: 50 }"></app-progress-bar>
-  </div>
 }

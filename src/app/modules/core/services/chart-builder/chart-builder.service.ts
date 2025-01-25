@@ -1,25 +1,15 @@
 import { BarChartComponentModel } from '../../components/bar-chart/bar-chart.component.model';
-import {
-  CenterTextModel,
-  ChartSeriesModel,
-  ChartType,
-  PieChartComponentModel,
-} from '../../components/pie-chart/pie-chart.component.model';
+import { CenterTextModel, ChartSeriesModel, ChartType, PieChartComponentModel } from '../../components/pie-chart/pie-chart.component.model';
 import { SeriesOptionsType, XAxisOptions } from 'highcharts';
-import {
-  BAR_CHART_BASE_CONFIG,
-  PIE_CHART_BASE_CONFIG,
-} from '../../constants/chart';
+import { BAR_CHART_BASE_CONFIG, PIE_CHART_BASE_CONFIG } from '../../constants/chart';
 
 export class ChartBuilderService {
   preparePieChartConfig(config: PieChartComponentModel): Highcharts.Options {
     const baseConfig = structuredClone(PIE_CHART_BASE_CONFIG);
     this.prepareCharType(baseConfig, config.chartType);
     this.prepareChartSeries(baseConfig, config.series);
-    if (config.showInLegend)
-      baseConfig.plotOptions!.pie!['showInLegend'] = true;
-    if (config.centerText)
-      this.prepareCenterText(baseConfig, config.centerText);
+    if (config.showInLegend) baseConfig.plotOptions!.pie!['showInLegend'] = true;
+    if (config.centerText) this.prepareCenterText(baseConfig, config.centerText);
     if (config.width) baseConfig.chart!.width = config.width;
     if (config.height) baseConfig.chart!.height = config.height;
     return baseConfig;
@@ -48,10 +38,7 @@ export class ChartBuilderService {
     }
   }
 
-  prepareChartSeries(
-    config: Highcharts.Options,
-    seriesData: ChartSeriesModel
-  ): void {
+  prepareChartSeries(config: Highcharts.Options, seriesData: ChartSeriesModel): void {
     const series = {
       type: seriesData.type,
       name: seriesData.name,
@@ -67,10 +54,7 @@ export class ChartBuilderService {
     config.series = [series as SeriesOptionsType];
   }
 
-  prepareCenterText(
-    config: Highcharts.Options,
-    centerText: CenterTextModel
-  ): void {
+  prepareCenterText(config: Highcharts.Options, centerText: CenterTextModel): void {
     config.chart = {
       ...config.chart,
       events: {
@@ -81,16 +65,10 @@ export class ChartBuilderService {
           if (!chart.customElements) {
             chart.customElements = [];
           }
-          chart.customElements.forEach((el: Highcharts.SVGElement) =>
-            el.destroy()
-          );
+          chart.customElements.forEach((el: Highcharts.SVGElement) => el.destroy());
           chart.customElements = [];
           const mainText = chart.renderer
-            .text(
-              centerText.title,
-              chart.plotLeft + chart.plotWidth / 2,
-              chart.plotTop + chart.plotHeight / 2
-            )
+            .text(centerText.title, chart.plotLeft + chart.plotWidth / 2, chart.plotTop + chart.plotHeight / 2)
             .css({
               fontSize: '28px',
               fontWeight: 'bold',
@@ -105,11 +83,7 @@ export class ChartBuilderService {
           });
           chart.customElements.push(mainText);
           const subtitle = chart.renderer
-            .text(
-              centerText.subTitle,
-              chart.plotLeft + chart.plotWidth / 2,
-              chart.plotTop + chart.plotHeight / 2 + 25
-            )
+            .text(centerText.subTitle, chart.plotLeft + chart.plotWidth / 2, chart.plotTop + chart.plotHeight / 2 + 25)
             .css({
               fontSize: '16px',
               color: '#000000',

@@ -11,10 +11,19 @@ import { FileUploadComponentModel } from './file-upload.component.model';
   styleUrl: './file-upload.component.scss',
 })
 export class FileUploadComponent {
+  // Input property to accept file upload config from the parent component.
   @Input() data!: FileUploadComponentModel;
+
+  // Input property for the parent form group, enabling reactive form integration.
   @Input() formGroup!: FormGroup;
+
+  // Input property for the form control associated with this component.
   @Input() formControl!: FormControl;
 
+  /**
+   * Event listener to handle file input change events.
+   * This method is triggered when the user selects a file. It emits the file data to the form control.
+   */
   @HostListener('change', ['$event.target.files']) emitFiles(event: FileList) {
     const file = event && event.item(0);
     if (file) {

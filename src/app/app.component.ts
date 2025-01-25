@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NavigationService } from './modules/core/services/navigation/navigation.service';
 import { AuthService } from './modules/auth/services/auth.service';
 import { environments } from './environments/environment';
 import { RestApiService } from './modules/core/services/rest-api/rest-api.service';
@@ -15,7 +14,6 @@ import { endPoints } from './modules/core/constants/endPoints';
 })
 export class AppComponent implements OnInit {
   constructor(
-    private service: NavigationService,
     private authService: AuthService,
     private restApiService: RestApiService
   ) {}

@@ -1,7 +1,6 @@
 import { Component, Input, output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { ButtonComponentModel } from './button.component.model';
-import { NavigationService } from '../../services/navigation/navigation.service';
 
 @Component({
   selector: 'app-button',
@@ -11,12 +10,17 @@ import { NavigationService } from '../../services/navigation/navigation.service'
   styleUrl: './button.component.scss',
 })
 export class ButtonComponent {
+  // Input property to accept button config from the parent component.
   @Input() data!: ButtonComponentModel;
+
+  // Output property to emit click events to the parent component.
   event = output<ButtonComponentModel>();
 
-  constructor(private navigationService: NavigationService) {}
-
-  onClick() {
+  /**
+   * Handles the button click event.
+   * Emits the `data` as an event for the parent component to handle.
+   */
+  onClick(): void {
     this.event.emit(this.data);
   }
 }

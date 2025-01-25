@@ -5,10 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { BarChartComponent } from '../../../core/components/bar-chart/bar-chart.component';
 import { ChartUtils } from '../../../assistance-requests/utils/chart.utils';
 import { FeatureRequestService } from '../../../assistance-requests/services/feature-request/feature-request.service';
-import {
-  CLOUD_COLOR_MAPPER,
-  CloudProviders,
-} from '../../../assistance-requests/models/feature-ticket.model';
+import { CLOUD_COLOR_MAPPER, CloudProviders } from '../../../assistance-requests/models/feature-ticket.model';
 
 @Component({
   selector: 'app-feature-ticket-charts',

@@ -12,13 +12,7 @@ import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-feature-ticket-view',
   standalone: true,
-  imports: [
-    MatToolbar,
-    MatCardModule,
-    IconComponent,
-    ProgressBarComponent,
-    DatePipe,
-  ],
+  imports: [MatToolbar, MatCardModule, IconComponent, ProgressBarComponent, DatePipe],
   templateUrl: './feature-ticket-view.component.html',
   styleUrl: './feature-ticket-view.component.scss',
 })

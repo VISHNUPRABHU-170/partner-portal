@@ -8,13 +8,7 @@ import { SupportTicketTabComponent } from '../support-ticket-tab/support-ticket-
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [
-    MatTabsModule,
-    FeatureTicketChartsComponent,
-    SupportTicketChartsComponent,
-    FeatureTicketTabComponent,
-    SupportTicketTabComponent,
-  ],
+  imports: [MatTabsModule, FeatureTicketChartsComponent, SupportTicketChartsComponent, FeatureTicketTabComponent, SupportTicketTabComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
 })

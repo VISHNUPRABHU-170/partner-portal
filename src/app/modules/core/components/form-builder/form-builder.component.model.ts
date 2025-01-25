@@ -28,12 +28,7 @@ export interface FormGroupValidatorModel {
 
 export interface FormControlModel {
   name: string;
-  config:
-    | InputComponentModel
-    | SelectComponentModel
-    | ChipInputComponentModel
-    | DatePickerComponentModel
-    | FileUploadComponentModel;
+  config: InputComponentModel | SelectComponentModel | ChipInputComponentModel | DatePickerComponentModel | FileUploadComponentModel;
   componentType: ComponentType;
   validators: FormValidators[];
   value?: string;
