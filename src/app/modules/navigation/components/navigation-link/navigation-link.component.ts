@@ -1,14 +1,15 @@
 import { Component, Input, OnInit, DestroyRef } from '@angular/core';
 import { NavigationLinkComponentModel, ROUTE_MAPPER } from './navigation-link.component.model';
-import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { NavigationService } from '../../../core/services/navigation/navigation.service';
+import { IconComponent } from "../../../core/components/icon/icon.component";
+import { IconComponentModel } from '../../../core/components/icon/icon.component.model';
 
 @Component({
   selector: 'app-navigation-link',
   standalone: true,
-  imports: [MatIconModule, CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, IconComponent],
   templateUrl: './navigation-link.component.html',
   styleUrl: './navigation-link.component.scss'
 })
@@ -37,6 +38,11 @@ export class NavigationLinkComponent implements OnInit {
     this.destroyRef.onDestroy(() => {
       Subscription?.unsubscribe();
     });
+  }
+
+  prepareIconConfig(name: string): IconComponentModel {
+    const iconConfig: IconComponentModel = { name };
+    return iconConfig;
   }
 
   onClick() {

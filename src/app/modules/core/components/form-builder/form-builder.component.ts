@@ -1,4 +1,4 @@
-import { Component, Input, output } from '@angular/core';
+import { Component, Input, output, OnInit } from '@angular/core';
 import { FormBuilderComponentModel } from './form-builder.component.model';
 import { FormBuilderService } from '../../services/form-builder/form-builder.service';
 import { FormGroup } from '@angular/forms';
@@ -12,7 +12,7 @@ import { ButtonComponent } from '../button/button.component';
   templateUrl: './form-builder.component.html',
   styleUrl: './form-builder.component.scss'
 })
-export class FormBuilderComponent {
+export class FormBuilderComponent implements OnInit {
   @Input() data!: FormBuilderComponentModel;
   event = output<any>();
   formGroup = new FormGroup([]);

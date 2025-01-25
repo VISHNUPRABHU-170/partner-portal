@@ -1,4 +1,4 @@
-import { Directive, Input, ViewContainerRef } from '@angular/core';
+import { Directive, Input, OnChanges, ViewContainerRef } from '@angular/core';
 import { COMPONENT_TYPE_MAPPER, FormControlModel } from '../../components/form-builder/form-builder.component.model';
 import { FormControl, FormGroup } from '@angular/forms';
 import { InputComponent } from '../../components/input/input.component';
@@ -7,7 +7,7 @@ import { InputComponent } from '../../components/input/input.component';
   selector: '[dynamicFormControl]',
   standalone: true
 })
-export class DynamicFormControlDirective {
+export class DynamicFormControlDirective implements OnChanges {
   @Input() data!: FormControlModel;
   @Input() formGroup!: FormGroup;
   @Input() onEnter!: () => void;
@@ -27,7 +27,7 @@ export class DynamicFormControlDirective {
 
     // Check if the component is an InputComponent
     if (componentRef.instance instanceof InputComponent) {
-      componentRef.instance.onEnterPress.subscribe(() => this.onEnter());
+      componentRef.instance.enterKeyPress.subscribe(() => this.onEnter());
     }
   }
 

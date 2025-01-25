@@ -12,7 +12,7 @@ export class ChartUtils {
     return chartData.map(data => this.prepareSeries(data.name, data.value, data.color));
   }
 
-  private prepareSeries(name: string = '', value: number, color: string): ChartSeriesDataModel { return { name, value, color }; };
+  private prepareSeries(name = '', value: number, color: string): ChartSeriesDataModel { return { name, value, color }; };
 
   private prepareTitle(title: string, subTitle: string): CenterTextModel { return { title, subTitle }; };
 }

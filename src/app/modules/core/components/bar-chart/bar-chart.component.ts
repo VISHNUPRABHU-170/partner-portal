@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { ChartBuilderService } from '../../services/chart-builder/chart-builder.service';
 import Highcharts from 'highcharts';
@@ -13,7 +13,7 @@ import { MatCardModule } from '@angular/material/card';
   templateUrl: './bar-chart.component.html',
   styleUrl: './bar-chart.component.scss'
 })
-export class BarChartComponent {
+export class BarChartComponent implements OnChanges {
   @Input() chartConfig!: BarChartComponentModel;
 
   Highcharts = Highcharts;

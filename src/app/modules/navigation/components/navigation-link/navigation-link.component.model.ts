@@ -12,7 +12,7 @@ export enum RouteType {
   ASSISTANCE_REQUEST_FEATURE_REQUEST_DASHBOARD = '/partner-portal/assistance-requests/feature-request-dashboard',
 }
 
-export const ROUTE_MAPPER: { [key in string]: string[] } = {};
+export const ROUTE_MAPPER: Record<string, string[]> = {};
 
 ROUTE_MAPPER[RouteType.DASHBOARD] = [
   '/partner-portal',

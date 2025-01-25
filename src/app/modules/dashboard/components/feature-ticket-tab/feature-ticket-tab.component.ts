@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { highPriorityChartConfig, lowPriorityChartConfig, mediumPriorityChartConfig } from './config';
 import { PieChartComponent } from '../../../core/components/pie-chart/pie-chart.component';
 import { ChartUtils } from '../../../assistance-requests/utils/chart.utils';
@@ -11,7 +11,7 @@ import { FeatureRequestService } from '../../../assistance-requests/services/fea
   templateUrl: './feature-ticket-tab.component.html',
   styleUrl: './feature-ticket-tab.component.scss'
 })
-export class FeatureTicketTabComponent {
+export class FeatureTicketTabComponent implements OnInit {
   highPriorityChartConfig = highPriorityChartConfig;
   mediumPriorityChartConfig = mediumPriorityChartConfig;
   lowPriorityChartConfig = lowPriorityChartConfig;

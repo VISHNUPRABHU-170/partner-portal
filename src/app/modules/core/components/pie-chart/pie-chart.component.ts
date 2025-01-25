@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { PieChartComponentModel } from './pie-chart.component.model';
 import { HighchartsChartModule } from 'highcharts-angular';
@@ -13,7 +13,7 @@ import Highcharts from 'highcharts';
   templateUrl: './pie-chart.component.html',
   styleUrl: './pie-chart.component.scss'
 })
-export class PieChartComponent {
+export class PieChartComponent implements OnChanges {
   @Input() chartConfig!: PieChartComponentModel;
 
   Highcharts = Highcharts;

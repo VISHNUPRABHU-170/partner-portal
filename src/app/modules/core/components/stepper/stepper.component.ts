@@ -1,4 +1,4 @@
-import { Component, Input, output, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, output, ViewChild } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatStepper, MatStepperModule } from '@angular/material/stepper';
 import { StepperComponentModel, StepperModel } from './stepper.component.model';
@@ -14,7 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './stepper.component.html',
   styleUrl: './stepper.component.scss'
 })
-export class StepperComponent {
+export class StepperComponent implements OnInit {
   @Input() data!: StepperComponentModel;
   event = output<any>();
 
@@ -25,7 +25,7 @@ export class StepperComponent {
   constructor (private formBuilder: FormBuilderService) { }
 
   ngOnInit(): void {
-    let config: FormBuilderComponentModel = {
+    const config: FormBuilderComponentModel = {
       formGroup: [],
       formFooter: []
     };

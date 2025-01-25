@@ -10,7 +10,7 @@ export enum InputType {
   PASSWORD = 'PASSWORD'
 }
 
-export const INPUT_TYPE_MAPPER: { [key: string]: string; } = {};
+export const INPUT_TYPE_MAPPER: Record<string, string> = {};
 
 INPUT_TYPE_MAPPER[InputType.TEXT] = 'text';
 INPUT_TYPE_MAPPER[InputType.EMAIL] = 'email';

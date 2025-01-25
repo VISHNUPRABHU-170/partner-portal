@@ -1,3 +1,11 @@
 @if(data) {
-  <span class="app-link" (click)="onClick()">{{data.label}}</span>
+  <a
+    class="app-link"
+    (click)="onClick()"
+    (keydown.enter)="onClick()"
+    (keydown.space)="onClick()"
+    [routerLink]="data.routerLink"
+  >
+    {{data.label}}
+  </a>
 }

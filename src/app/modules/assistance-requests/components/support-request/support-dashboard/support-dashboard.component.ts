@@ -1,4 +1,4 @@
-import { Component, DestroyRef } from '@angular/core';
+import { Component, DestroyRef, OnInit } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { PageEvent } from '@angular/material/paginator';
 import { SupportRequestService } from './../../../services/support-request/support-request.service';
@@ -25,7 +25,7 @@ import { ChartUtils } from '../../../utils/chart.utils';
   templateUrl: './support-dashboard.component.html',
   styleUrl: './support-dashboard.component.scss'
 })
-export class SupportDashboardComponent {
+export class SupportDashboardComponent implements OnInit {
   createRequestButtonConfig = createRequestButtonConfig;
   toDoTicketChartConfig = toDoTicketChartConfig;
   inProgressTicketChartConfig = inProgressTicketChartConfig;
@@ -35,8 +35,8 @@ export class SupportDashboardComponent {
   tableData: SupportTicketModel[] = [];
   columnsDef = ['title', 'description', 'createdAt', 'deadLine', 'priority', 'status'];
 
-  pageIndex: number = 0;
-  totalTickets: number = 0;
+  pageIndex = 0;
+  totalTickets = 0;
 
   chartUtils = new ChartUtils();
 

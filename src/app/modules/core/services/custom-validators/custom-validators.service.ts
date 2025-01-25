@@ -7,8 +7,6 @@ import { PASSWORD_VALIDATION_RULES } from '../../constants/validation-constants'
 })
 export class CustomValidatorsService {
 
-  constructor() { }
-
   password(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
       const value = control.value;

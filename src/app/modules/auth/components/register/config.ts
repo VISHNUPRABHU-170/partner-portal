@@ -47,7 +47,7 @@ const registerButtonConfig: ButtonComponentModel = {
 
 export const logInLinkConfig: LinkComponentModel = {
   label: 'Login',
-  routerLink: 'login'
+  routerLink: '/login'
 };
 
 const formGroupValidatorConfig: FormGroupValidatorModel = {
