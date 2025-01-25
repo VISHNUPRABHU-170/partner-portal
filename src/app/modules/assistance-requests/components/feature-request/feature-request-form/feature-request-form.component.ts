@@ -12,13 +12,13 @@ import { FeatureRequestService } from '../../../services/feature-request/feature
   standalone: true,
   imports: [MatToolbarModule, IconComponent, MatCardModule, StepperComponent],
   templateUrl: './feature-request-form.component.html',
-  styleUrl: './feature-request-form.component.scss'
+  styleUrl: './feature-request-form.component.scss',
 })
 export class FeatureRequestFormComponent {
   backIconConfig = backIconConfig;
   stepperConfig = stepperConfig;
 
-  constructor (private featureTicketService: FeatureRequestService) { }
+  constructor(private featureTicketService: FeatureRequestService) {}
 
   onSubmit(data: FeatureTicketModel) {
     this.featureTicketService.createTicket(data);

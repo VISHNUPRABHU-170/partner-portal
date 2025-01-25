@@ -6,7 +6,7 @@ import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
   standalone: true,
   imports: [MatPaginatorModule],
   templateUrl: './paginator.component.html',
-  styleUrl: './paginator.component.scss'
+  styleUrl: './paginator.component.scss',
 })
 export class PaginatorComponent {
   @Input() length!: number;

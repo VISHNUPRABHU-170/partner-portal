@@ -1,3 +1,3 @@
-import { InputComponentModel } from "../input/input.component.model";
+import { InputComponentModel } from '../input/input.component.model';
 
-export type TextareaComponentModel = InputComponentModel
+export type TextareaComponentModel = InputComponentModel;

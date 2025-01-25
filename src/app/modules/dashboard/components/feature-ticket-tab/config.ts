@@ -1,4 +1,4 @@
-import { ChartType, PieChartComponentModel } from "../../../core/components/pie-chart/pie-chart.component.model";
+import { ChartType, PieChartComponentModel } from '../../../core/components/pie-chart/pie-chart.component.model';
 
 export const highPriorityChartConfig: PieChartComponentModel = {
   title: 'Priority',
@@ -10,11 +10,11 @@ export const highPriorityChartConfig: PieChartComponentModel = {
   },
   centerText: {
     title: '0',
-    subTitle: 'High'
+    subTitle: 'High',
   },
   width: '200',
   height: '200',
-  className: 'tab-chart'
+  className: 'tab-chart',
 };
 
 export const mediumPriorityChartConfig: PieChartComponentModel = {
@@ -27,11 +27,11 @@ export const mediumPriorityChartConfig: PieChartComponentModel = {
   },
   centerText: {
     title: '0',
-    subTitle: 'Medium'
+    subTitle: 'Medium',
   },
   width: '200',
   height: '200',
-  className: 'tab-chart'
+  className: 'tab-chart',
 };
 
 export const lowPriorityChartConfig: PieChartComponentModel = {
@@ -44,9 +44,9 @@ export const lowPriorityChartConfig: PieChartComponentModel = {
   },
   centerText: {
     title: '0',
-    subTitle: 'Low'
+    subTitle: 'Low',
   },
   width: '200',
   height: '200',
-  className: 'tab-chart'
+  className: 'tab-chart',
 };

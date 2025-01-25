@@ -14,10 +14,7 @@ export enum RouteType {
 
 export const ROUTE_MAPPER: Record<string, string[]> = {};
 
-ROUTE_MAPPER[RouteType.DASHBOARD] = [
-  '/partner-portal',
-  '/partner-portal/dashboard'
-];
+ROUTE_MAPPER[RouteType.DASHBOARD] = ['/partner-portal', '/partner-portal/dashboard'];
 
 ROUTE_MAPPER[RouteType.ASSISTANCE_REQUESTS] = [
   '/partner-portal/assistance-requests',
@@ -26,7 +23,7 @@ ROUTE_MAPPER[RouteType.ASSISTANCE_REQUESTS] = [
   '/partner-portal/assistance-requests/feature-request-dashboard',
   '/partner-portal/assistance-requests/feature-request-form',
   '/partner-portal/assistance-requests/feature-ticket-view',
-  '/partner-portal/assistance-requests/support-ticket-view'
+  '/partner-portal/assistance-requests/support-ticket-view',
 ];
 
 ROUTE_MAPPER[RouteType.ASSISTANCE_REQUEST_SUPPORT_DASHBOARD] = [
@@ -39,5 +36,5 @@ ROUTE_MAPPER[RouteType.ASSISTANCE_REQUEST_SUPPORT_DASHBOARD] = [
 ROUTE_MAPPER[RouteType.ASSISTANCE_REQUEST_FEATURE_REQUEST_DASHBOARD] = [
   '/partner-portal/assistance-requests/feature-request-dashboard',
   '/partner-portal/assistance-requests/feature-request-form',
-  '/partner-portal/assistance-requests/feature-ticket-view'
+  '/partner-portal/assistance-requests/feature-ticket-view',
 ];

@@ -1,9 +1,9 @@
 <div class="navigation-main">
   <ul>
-    @for(navLink of data.navLinks; track navLink) {
+    @for (navLink of data.navLinks; track navLink) {
       <li>
         <app-navigation-link [data]="navLink.navLink"></app-navigation-link>
-        @if(navLink.subNavLink && navLink.navLink.active) {
+        @if (navLink.subNavLink && navLink.navLink.active) {
           <app-navigation-sub [data]="navLink.subNavLink"></app-navigation-sub>
         }
       </li>

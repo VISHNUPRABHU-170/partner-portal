@@ -1,13 +1,13 @@
 export interface InputComponentModel {
   label: string;
   type: InputType;
-  className?: string
+  className?: string;
 }
 
 export enum InputType {
   TEXT = 'TEXT',
   EMAIL = 'EMAIL',
-  PASSWORD = 'PASSWORD'
+  PASSWORD = 'PASSWORD',
 }
 
 export const INPUT_TYPE_MAPPER: Record<string, string> = {};

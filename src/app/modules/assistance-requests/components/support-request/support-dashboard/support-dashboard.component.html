@@ -1,31 +1,26 @@
 <div class="support-dashboard">
   <mat-toolbar>
     <span>Support Request</span>
-    <app-button [data]="createRequestButtonConfig" (event)="onCreateRequest($event)"></app-button>
+    <app-button
+      [data]="createRequestButtonConfig"
+      (event)="onCreateRequest($event)"></app-button>
   </mat-toolbar>
   <div class="content">
     <div class="chart-container">
       <span>Overall Summary - Support Request</span>
       <div class="charts">
         <app-pie-chart [chartConfig]="toDoTicketChartConfig"></app-pie-chart>
-        <app-pie-chart [chartConfig]="inProgressTicketChartConfig"></app-pie-chart>
-        <app-pie-chart [chartConfig]="resolvedTicketChartConfig"></app-pie-chart>
+        <app-pie-chart
+          [chartConfig]="inProgressTicketChartConfig"></app-pie-chart>
+        <app-pie-chart
+          [chartConfig]="resolvedTicketChartConfig"></app-pie-chart>
         <app-pie-chart [chartConfig]="totalTicketChartConfig"></app-pie-chart>
       </div>
     </div>
     <div>
-      <app-paginator
-        [length]="totalTickets"
-        [pageIndex]="pageIndex"
-        [pageSizeOptions]="[5]"
-        [hidePageSize]="true"
-        (event)="onPaginatorEvent($event)">
+      <app-paginator [length]="totalTickets" [pageIndex]="pageIndex" [pageSizeOptions]="[5]" [hidePageSize]="true" (event)="onPaginatorEvent($event)">
       </app-paginator>
-      <app-table
-        [tableData]="tableData"
-        [columnsDef]="columnsDef"
-        (tableEvent)="onTableEvent($event)">
-      </app-table>
+      <app-table [tableData]="tableData" [columnsDef]="columnsDef" (tableEvent)="onTableEvent($event)"> </app-table>
     </div>
   </div>
 </div>

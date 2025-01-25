@@ -1,13 +1,13 @@
 <mat-form-field [formGroup]="formGroup" [hideRequiredMarker]="true">
-  <mat-label>{{data.label}}</mat-label>
-  <input matInput [matDatepicker]="picker" [formControl]="formControl">
+  <mat-label>{{ data.label }}</mat-label>
+  <input matInput [matDatepicker]="picker" [formControl]="formControl" />
   <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
   <mat-error>
-    @if(formControl.hasError('required')) {
-    Field Required
-    } @else if(formControl.hasError('message')) {
-    {{formControl.getError('message')[0]}}
+    @if (formControl.hasError('required')) {
+      Field Required
+    } @else if (formControl.hasError('message')) {
+      {{ formControl.getError('message')[0] }}
     }
   </mat-error>
 </mat-form-field>

@@ -8,7 +8,7 @@ import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
   standalone: true,
   imports: [MatTableModule, TitleCasePipe, ProgressBarComponent],
   templateUrl: './table.component.html',
-  styleUrl: './table.component.scss'
+  styleUrl: './table.component.scss',
 })
 export class TableComponent {
   @Input() tableData: any;

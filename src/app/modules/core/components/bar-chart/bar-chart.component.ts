@@ -11,7 +11,7 @@ import { MatCardModule } from '@angular/material/card';
   imports: [HighchartsChartModule, MatCardModule],
   providers: [ChartBuilderService],
   templateUrl: './bar-chart.component.html',
-  styleUrl: './bar-chart.component.scss'
+  styleUrl: './bar-chart.component.scss',
 })
 export class BarChartComponent implements OnChanges {
   @Input() chartConfig!: BarChartComponentModel;
@@ -21,11 +21,11 @@ export class BarChartComponent implements OnChanges {
   chartData!: Highcharts.Options;
   chartInstance: Highcharts.Chart | undefined;
 
-  constructor (private chartBuilderService: ChartBuilderService) {}
+  constructor(private chartBuilderService: ChartBuilderService) {}
 
   ngOnChanges(): void {
     this.chartData = {
-      ...this.chartBuilderService.prepareBarChartConfig(this.chartConfig)
+      ...this.chartBuilderService.prepareBarChartConfig(this.chartConfig),
     } as Highcharts.Options;
   }
 }

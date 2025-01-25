@@ -6,6 +6,6 @@ import { RouterOutlet } from '@angular/router';
   standalone: true,
   imports: [RouterOutlet],
   templateUrl: './assistance-requests.component.html',
-  styleUrl: './assistance-requests.component.scss'
+  styleUrl: './assistance-requests.component.scss',
 })
 export class AssistanceRequestsComponent {}

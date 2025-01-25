@@ -7,9 +7,8 @@ describe('LinkComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LinkComponent]
-    })
-    .compileComponents();
+      imports: [LinkComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(LinkComponent);
     component = fixture.componentInstance;

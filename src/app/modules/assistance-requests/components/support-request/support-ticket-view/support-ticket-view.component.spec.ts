@@ -7,9 +7,8 @@ describe('SupportTicketViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SupportTicketViewComponent]
-    })
-    .compileComponents();
+      imports: [SupportTicketViewComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SupportTicketViewComponent);
     component = fixture.componentInstance;

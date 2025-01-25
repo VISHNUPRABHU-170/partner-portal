@@ -1,11 +1,16 @@
-import { ButtonComponentModel } from "../../../core/components/button/button.component.model";
-import { ComponentType, FormBuilderComponentModel, FormControlModel, FormValidators } from "../../../core/components/form-builder/form-builder.component.model";
-import { InputComponentModel, InputType } from "../../../core/components/input/input.component.model";
-import { LinkComponentModel } from "../../../core/components/link/link.component.model";
-import { ProgressBarComponentModel } from "../../../core/components/progress-bar/progress-bar.component.model";
+import { ButtonComponentModel } from '../../../core/components/button/button.component.model';
+import {
+  ComponentType,
+  FormBuilderComponentModel,
+  FormControlModel,
+  FormValidators,
+} from '../../../core/components/form-builder/form-builder.component.model';
+import { InputComponentModel, InputType } from '../../../core/components/input/input.component.model';
+import { LinkComponentModel } from '../../../core/components/link/link.component.model';
+import { ProgressBarComponentModel } from '../../../core/components/progress-bar/progress-bar.component.model';
 
 const userNameInputConfig: InputComponentModel = {
-  label: "Enter User Name",
+  label: 'Enter User Name',
   type: InputType.TEXT,
 };
 
@@ -13,37 +18,37 @@ const userNameFormControlConfig: FormControlModel = {
   name: 'userName',
   config: userNameInputConfig,
   componentType: ComponentType.INPUT,
-  validators: [FormValidators.REQUIRED]
+  validators: [FormValidators.REQUIRED],
 };
 
 const passwordInputConfig: InputComponentModel = {
-  label: "Enter Password",
-  type: InputType.PASSWORD
+  label: 'Enter Password',
+  type: InputType.PASSWORD,
 };
 
 const passwordFormControlConfig: FormControlModel = {
   name: 'password',
   config: passwordInputConfig,
   componentType: ComponentType.INPUT,
-  validators: [FormValidators.REQUIRED]
+  validators: [FormValidators.REQUIRED],
 };
 
 const logInButtonConfig: ButtonComponentModel = {
   label: 'Login',
-  routerLink: 'partner-portal'
+  routerLink: 'partner-portal',
 };
 
 export const registerLinkConfig: LinkComponentModel = {
   label: 'Register',
-  routerLink: '/register'
+  routerLink: '/register',
 };
 
 export const loginFormConfig: FormBuilderComponentModel = {
   formGroup: [userNameFormControlConfig, passwordFormControlConfig],
-  formFooter: [logInButtonConfig]
+  formFooter: [logInButtonConfig],
 };
 
 export const progressBarConfig: ProgressBarComponentModel = {
   diameter: 60,
-  className: "spinner-center"
+  className: 'spinner-center',
 };

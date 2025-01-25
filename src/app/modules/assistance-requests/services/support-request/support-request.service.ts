@@ -5,7 +5,7 @@ import { RestApiService } from '../../../core/services/rest-api/rest-api.service
 import { ToasterService } from '../../../core/services/toaster/toaster.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SupportRequestService {
   endPoint = 'support';
@@ -13,55 +13,49 @@ export class SupportRequestService {
   ticketPriorityStatusBehaviorSubject = new BehaviorSubject<any>(null);
   ticketsBehaviorSubject = new BehaviorSubject<SupportTicketModel[]>([]);
 
-  constructor (
+  constructor(
     private restApiService: RestApiService,
     private toasterService: ToasterService,
     private destroyRef: DestroyRef
-  ) { }
+  ) {}
 
   getTicketStatus() {
-    const Subscription = this.restApiService.get(this.endPoint + '/ticketStatus').subscribe(
-      {
-        next: (response: any) => {
-          this.ticketStatusBehaviorSubject.next(response.data);
-        },
-        error: (error: any) => {
-          console.log(error);
-        }
-      }
-    );
+    const Subscription = this.restApiService.get(this.endPoint + '/ticketStatus').subscribe({
+      next: (response: any) => {
+        this.ticketStatusBehaviorSubject.next(response.data);
+      },
+      error: (error: any) => {
+        console.log(error);
+      },
+    });
     this.destroyRef.onDestroy(() => {
       Subscription?.unsubscribe();
     });
   }
 
   getTicketPriorityStatus() {
-    const Subscription = this.restApiService.get(this.endPoint + '/priorityStatus').subscribe(
-      {
-        next: (response: any) => {
-          this.ticketPriorityStatusBehaviorSubject.next(response.data);
-        },
-        error: (error: any) => {
-          console.log(error);
-        }
-      }
-    );
+    const Subscription = this.restApiService.get(this.endPoint + '/priorityStatus').subscribe({
+      next: (response: any) => {
+        this.ticketPriorityStatusBehaviorSubject.next(response.data);
+      },
+      error: (error: any) => {
+        console.log(error);
+      },
+    });
     this.destroyRef.onDestroy(() => {
       Subscription?.unsubscribe();
     });
   }
 
   getTickets(params: any) {
-    const Subscription = this.restApiService.get(this.endPoint + '/tickets', params).subscribe(
-      {
-        next: (response: any) => {
-          this.ticketsBehaviorSubject.next(response.data as SupportTicketModel[]);
-        },
-        error: (error: any) => {
-          console.log(error);
-        }
-      }
-    );
+    const Subscription = this.restApiService.get(this.endPoint + '/tickets', params).subscribe({
+      next: (response: any) => {
+        this.ticketsBehaviorSubject.next(response.data as SupportTicketModel[]);
+      },
+      error: (error: any) => {
+        console.log(error);
+      },
+    });
     this.destroyRef.onDestroy(() => {
       Subscription?.unsubscribe();
     });
@@ -78,7 +72,7 @@ export class SupportRequestService {
       },
       error: (error: any) => {
         this.toasterService.showError(error.message);
-      }
+      },
     });
     this.destroyRef.onDestroy(() => {
       Subscription?.unsubscribe();

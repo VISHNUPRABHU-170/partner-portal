@@ -10,9 +10,14 @@ import { provideNativeDateAdapter } from '@angular/material/core';
   selector: 'app-date-picker',
   standalone: true,
   providers: [provideNativeDateAdapter()],
-  imports: [MatFormFieldModule, MatInputModule, MatDatepickerModule, ReactiveFormsModule],
+  imports: [
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    ReactiveFormsModule,
+  ],
   templateUrl: './date-picker.component.html',
-  styleUrl: './date-picker.component.scss'
+  styleUrl: './date-picker.component.scss',
 })
 export class DatePickerComponent {
   @Input() data!: DatePickerComponentModel;

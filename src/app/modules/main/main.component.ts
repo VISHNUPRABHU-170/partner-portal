@@ -9,7 +9,7 @@ import { RouterOutlet } from '@angular/router';
   standalone: true,
   imports: [HeaderComponent, NavigationMainComponent, RouterOutlet],
   templateUrl: './main.component.html',
-  styleUrl: './main.component.scss'
+  styleUrl: './main.component.scss',
 })
 export class MainComponent {
   navigationConfig = navigationConfig;

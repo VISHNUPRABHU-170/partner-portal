@@ -1,9 +1,9 @@
-import { ButtonComponentModel } from "../../../../core/components/button/button.component.model";
-import { ChartType, PieChartComponentModel } from "../../../../core/components/pie-chart/pie-chart.component.model";
+import { ButtonComponentModel } from '../../../../core/components/button/button.component.model';
+import { ChartType, PieChartComponentModel } from '../../../../core/components/pie-chart/pie-chart.component.model';
 
 export const createRequestButtonConfig: ButtonComponentModel = {
   label: 'Create a Request',
-  routerLink: '/partner-portal/assistance-requests/feature-request-form'
+  routerLink: '/partner-portal/assistance-requests/feature-request-form',
 };
 
 export const awsChartConfig: PieChartComponentModel = {
@@ -16,9 +16,9 @@ export const awsChartConfig: PieChartComponentModel = {
   },
   centerText: {
     title: '0',
-    subTitle: 'Submissions'
+    subTitle: 'Submissions',
   },
-  className: 'sub'
+  className: 'sub',
 };
 
 export const azureChartConfig: PieChartComponentModel = {
@@ -31,9 +31,9 @@ export const azureChartConfig: PieChartComponentModel = {
   },
   centerText: {
     title: '0',
-    subTitle: 'Submissions'
+    subTitle: 'Submissions',
   },
-  className: 'sub'
+  className: 'sub',
 };
 
 export const gcpChartConfig: PieChartComponentModel = {
@@ -46,9 +46,9 @@ export const gcpChartConfig: PieChartComponentModel = {
   },
   centerText: {
     title: '0',
-    subTitle: 'Submissions'
+    subTitle: 'Submissions',
   },
-  className: 'sub'
+  className: 'sub',
 };
 
 export const othersChartConfig: PieChartComponentModel = {
@@ -61,7 +61,7 @@ export const othersChartConfig: PieChartComponentModel = {
   },
   centerText: {
     title: '0',
-    subTitle: 'Submissions'
+    subTitle: 'Submissions',
   },
-  className: 'sub'
+  className: 'sub',
 };

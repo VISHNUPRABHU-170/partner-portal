@@ -2,15 +2,15 @@
   <mat-card appearance="outlined">
     <mat-card-header>REGISTER</mat-card-header>
     <mat-card-content>
-        <app-form-builder [data]="registerFormConfig" (event)="onRegister($event)"></app-form-builder>
-        <div>
-          <span>Already have an account? <app-link [data]="logInLinkConfig"></app-link></span>
-        </div>
+      <app-form-builder [data]="registerFormConfig" (event)="onRegister($event)"></app-form-builder>
+      <div>
+        <span>Already have an account? <app-link [data]="logInLinkConfig"></app-link></span>
+      </div>
     </mat-card-content>
   </mat-card>
 </div>
 
 <!--Spinner-->
-@if(showSpinner) {
-<app-progress-bar [data]="progressBarConfig"></app-progress-bar>
+@if (showSpinner) {
+  <app-progress-bar [data]="progressBarConfig"></app-progress-bar>
 }

@@ -8,7 +8,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
   standalone: true,
   imports: [MatInputModule, ReactiveFormsModule],
   templateUrl: './textarea.component.html',
-  styleUrl: './textarea.component.scss'
+  styleUrl: './textarea.component.scss',
 })
 export class TextareaComponent {
   @Input() data!: TextareaComponentModel;

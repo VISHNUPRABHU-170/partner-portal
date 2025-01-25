@@ -8,7 +8,7 @@ import { NavigationService } from '../../services/navigation/navigation.service'
   standalone: true,
   imports: [MatIconModule],
   templateUrl: './icon.component.html',
-  styleUrl: './icon.component.scss'
+  styleUrl: './icon.component.scss',
 })
 export class IconComponent {
   @Input() data!: IconComponentModel;

@@ -12,9 +12,15 @@ import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-feature-ticket-view',
   standalone: true,
-  imports: [MatToolbar, MatCardModule, IconComponent, ProgressBarComponent, DatePipe],
+  imports: [
+    MatToolbar,
+    MatCardModule,
+    IconComponent,
+    ProgressBarComponent,
+    DatePipe,
+  ],
   templateUrl: './feature-ticket-view.component.html',
-  styleUrl: './feature-ticket-view.component.scss'
+  styleUrl: './feature-ticket-view.component.scss',
 })
 export class FeatureTicketViewComponent implements OnInit {
   backIconConfig = backIconConfig;
@@ -22,18 +28,18 @@ export class FeatureTicketViewComponent implements OnInit {
 
   ticketData!: FeatureTicketModel;
 
-  constructor (
+  constructor(
     private route: ActivatedRoute,
     private featureRequestService: FeatureRequestService,
     private destroyRef: DestroyRef
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     const id = this.route.snapshot.queryParamMap.get('id');
     const Subscription = this.featureRequestService.getTicket(id!).subscribe({
-      next: (response) => {
+      next: response => {
         this.ticketData = response.data;
-      }
+      },
     });
     this.destroyRef.onDestroy(() => {
       Subscription?.unsubscribe();

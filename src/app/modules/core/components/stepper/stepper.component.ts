@@ -10,9 +10,14 @@ import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-stepper',
   standalone: true,
-  imports: [MatStepperModule, ReactiveFormsModule, DynamicFormControlDirective, MatButtonModule],
+  imports: [
+    MatStepperModule,
+    ReactiveFormsModule,
+    DynamicFormControlDirective,
+    MatButtonModule,
+  ],
   templateUrl: './stepper.component.html',
-  styleUrl: './stepper.component.scss'
+  styleUrl: './stepper.component.scss',
 })
 export class StepperComponent implements OnInit {
   @Input() data!: StepperComponentModel;
@@ -22,12 +27,12 @@ export class StepperComponent implements OnInit {
 
   formGroup = new FormGroup([]);
 
-  constructor (private formBuilder: FormBuilderService) { }
+  constructor(private formBuilder: FormBuilderService) {}
 
   ngOnInit(): void {
     const config: FormBuilderComponentModel = {
       formGroup: [],
-      formFooter: []
+      formFooter: [],
     };
     this.data.stepper.forEach((stepper: StepperModel) => {
       config.formGroup = [...config.formGroup, ...stepper.formControls];

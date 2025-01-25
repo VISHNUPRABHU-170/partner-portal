@@ -10,7 +10,7 @@ import { ButtonComponent } from '../button/button.component';
   standalone: true,
   imports: [DynamicFormControlDirective, ButtonComponent],
   templateUrl: './form-builder.component.html',
-  styleUrl: './form-builder.component.scss'
+  styleUrl: './form-builder.component.scss',
 })
 export class FormBuilderComponent implements OnInit {
   @Input() data!: FormBuilderComponentModel;
@@ -18,10 +18,13 @@ export class FormBuilderComponent implements OnInit {
   formGroup = new FormGroup([]);
   onInputKeyPress = this.onClick.bind(this);
 
-  constructor (private formBuilder: FormBuilderService) { }
+  constructor(private formBuilder: FormBuilderService) {}
 
   ngOnInit(): void {
-    this.formGroup = this.formBuilder.createFormGroup(this.formGroup, this.data);
+    this.formGroup = this.formBuilder.createFormGroup(
+      this.formGroup,
+      this.data
+    );
   }
 
   onClick(): void {

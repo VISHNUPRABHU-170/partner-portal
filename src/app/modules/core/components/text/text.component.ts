@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './text.component.html',
-  styleUrl: './text.component.scss'
+  styleUrl: './text.component.scss',
 })
-export class TextComponent {
-
-}
+export class TextComponent {}

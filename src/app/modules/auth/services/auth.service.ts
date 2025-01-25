@@ -6,23 +6,23 @@ import { ToasterService } from '../../core/services/toaster/toaster.service';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   authLoginURL!: string;
   authRegisterURL!: string;
   spinnerBehaviorSubject = new BehaviorSubject(false);
 
-  constructor (
+  constructor(
     private restApiService: RestApiService,
     private storageService: StorageService,
     private navigationService: NavigationService,
     private toasterService: ToasterService,
     private destroyRef: DestroyRef
-  ) { }
+  ) {}
 
   onLogin(data: any): void {
-    const Subscription  = this.restApiService.post(this.authLoginURL, data).subscribe({
+    const Subscription = this.restApiService.post(this.authLoginURL, data).subscribe({
       next: (response: any) => {
         this.spinnerBehaviorSubject.next(false);
         if (response.success === true) {
@@ -34,7 +34,7 @@ export class AuthService {
       error: (error: any) => {
         this.spinnerBehaviorSubject.next(false);
         this.toasterService.showError(error.message);
-      }
+      },
     });
     this.destroyRef.onDestroy(() => {
       Subscription?.unsubscribe();
@@ -53,7 +53,7 @@ export class AuthService {
       error: (error: any) => {
         this.spinnerBehaviorSubject.next(false);
         this.toasterService.showError(error.message);
-      }
+      },
     });
     this.destroyRef.onDestroy(() => {
       Subscription?.unsubscribe();

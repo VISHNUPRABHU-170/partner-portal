@@ -7,23 +7,29 @@ import {
   resolvedTicketChartConfig,
   totalTicketChartConfig,
   inProgressTicketChartConfig,
-  toDoTicketChartConfig
+  toDoTicketChartConfig,
 } from './config';
 import { ButtonComponent } from '../../../../core/components/button/button.component';
 import { NavigationService } from '../../../../core/services/navigation/navigation.service';
 import { ButtonComponentModel } from '../../../../core/components/button/button.component.model';
 import { PieChartComponent } from '../../../../core/components/pie-chart/pie-chart.component';
-import { PaginatorComponent } from "../../../../core/components/paginator/paginator.component";
-import { TableComponent } from "../../../../core/components/table/table.component";
+import { PaginatorComponent } from '../../../../core/components/paginator/paginator.component';
+import { TableComponent } from '../../../../core/components/table/table.component';
 import { SupportTicketModel, TICKET_STATUS_COLOR_MAPPER, TicketStatus } from '../../../models/support-ticket.model';
 import { ChartUtils } from '../../../utils/chart.utils';
 
 @Component({
   selector: 'app-support-dashboard',
   standalone: true,
-  imports: [MatToolbarModule, ButtonComponent, PieChartComponent, PaginatorComponent, TableComponent],
+  imports: [
+    MatToolbarModule,
+    ButtonComponent,
+    PieChartComponent,
+    PaginatorComponent,
+    TableComponent,
+  ],
   templateUrl: './support-dashboard.component.html',
-  styleUrl: './support-dashboard.component.scss'
+  styleUrl: './support-dashboard.component.scss',
 })
 export class SupportDashboardComponent implements OnInit {
   createRequestButtonConfig = createRequestButtonConfig;
@@ -33,18 +39,25 @@ export class SupportDashboardComponent implements OnInit {
   totalTicketChartConfig = totalTicketChartConfig;
 
   tableData: SupportTicketModel[] = [];
-  columnsDef = ['title', 'description', 'createdAt', 'deadLine', 'priority', 'status'];
+  columnsDef = [
+    'title',
+    'description',
+    'createdAt',
+    'deadLine',
+    'priority',
+    'status',
+  ];
 
   pageIndex = 0;
   totalTickets = 0;
 
   chartUtils = new ChartUtils();
 
-  constructor (
+  constructor(
     private navigationService: NavigationService,
     private supportRequestService: SupportRequestService,
     private destroyRef: DestroyRef
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.supportRequestService.getTicketStatus();
@@ -54,19 +67,25 @@ export class SupportDashboardComponent implements OnInit {
   }
 
   subscribeToFeatureTicketStatus() {
-    const Subscription = this.supportRequestService.ticketStatusBehaviorSubject.subscribe((response: any) => {
-      this.updateChartConfig(response);
-    });
+    const Subscription =
+      this.supportRequestService.ticketStatusBehaviorSubject.subscribe(
+        (response: any) => {
+          this.updateChartConfig(response);
+        }
+      );
     this.destroyRef.onDestroy(() => {
       Subscription?.unsubscribe();
     });
   }
 
   subscribeToFeatureTickets() {
-    const Subscription = this.supportRequestService.ticketsBehaviorSubject.subscribe((data: any) => {
-      this.tableData = data?.tickets;
-      this.totalTickets = data?.totalTickets;
-    });
+    const Subscription =
+      this.supportRequestService.ticketsBehaviorSubject.subscribe(
+        (data: any) => {
+          this.tableData = data?.tickets;
+          this.totalTickets = data?.totalTickets;
+        }
+      );
     this.destroyRef.onDestroy(() => {
       Subscription?.unsubscribe();
     });
@@ -75,16 +94,31 @@ export class SupportDashboardComponent implements OnInit {
   updateChartConfig(ticketStatus: any) {
     const ticketStatuses = [
       { status: TicketStatus.TODO, config: 'toDoTicketChartConfig' },
-      { status: TicketStatus.INPROGRESS, config: 'inProgressTicketChartConfig' },
+      {
+        status: TicketStatus.INPROGRESS,
+        config: 'inProgressTicketChartConfig',
+      },
       { status: TicketStatus.COMPLETED, config: 'resolvedTicketChartConfig' },
       { status: TicketStatus.TICKETS, config: 'totalTicketChartConfig' },
     ];
 
-    type ConfigKeys = 'toDoTicketChartConfig' | 'inProgressTicketChartConfig' | 'resolvedTicketChartConfig' | 'totalTicketChartConfig';
+    type ConfigKeys =
+      | 'toDoTicketChartConfig'
+      | 'inProgressTicketChartConfig'
+      | 'resolvedTicketChartConfig'
+      | 'totalTicketChartConfig';
 
     ticketStatuses.forEach(({ status, config }) => {
-      const chartData = [{ value: ticketStatus[status], color: TICKET_STATUS_COLOR_MAPPER[status] }];
-      const centerTextData = { value: ticketStatus[status] ?? 0, label: 'Tickets' };
+      const chartData = [
+        {
+          value: ticketStatus[status],
+          color: TICKET_STATUS_COLOR_MAPPER[status],
+        },
+      ];
+      const centerTextData = {
+        value: ticketStatus[status] ?? 0,
+        label: 'Tickets',
+      };
       this[config as ConfigKeys] = this.chartUtils.updateChartConfig(chartData, centerTextData, this[config as ConfigKeys]);
     });
   }
@@ -95,7 +129,10 @@ export class SupportDashboardComponent implements OnInit {
 
   onTableEvent(data: any) {
     const queryParams = { id: data._id };
-    this.navigationService.navigate('/partner-portal/assistance-requests/support-ticket-view', queryParams);
+    this.navigationService.navigate(
+      '/partner-portal/assistance-requests/support-ticket-view',
+      queryParams
+    );
   }
 
   onPaginatorEvent(eve: PageEvent) {
