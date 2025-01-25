@@ -1,7 +1,7 @@
 import { ButtonComponentModel } from '../button/button.component.model';
-import { Type } from "@angular/core";
-import { InputComponent } from "../input/input.component";
-import { InputComponentModel } from "../input/input.component.model";
+import { Type } from '@angular/core';
+import { InputComponent } from '../input/input.component';
+import { InputComponentModel } from '../input/input.component.model';
 import { SelectComponentModel } from '../select/select.component.model';
 import { SelectComponent } from '../select/select.component';
 import { TextareaComponent } from '../textarea/textarea.component';
@@ -23,12 +23,17 @@ export interface FormGroupValidatorModel {
   config: {
     control1: string;
     control2: string;
-  }
+  };
 }
 
 export interface FormControlModel {
   name: string;
-  config: InputComponentModel | SelectComponentModel | ChipInputComponentModel | DatePickerComponentModel | FileUploadComponentModel;
+  config:
+    | InputComponentModel
+    | SelectComponentModel
+    | ChipInputComponentModel
+    | DatePickerComponentModel
+    | FileUploadComponentModel;
   componentType: ComponentType;
   validators: FormValidators[];
   value?: string;
@@ -37,19 +42,26 @@ export interface FormControlModel {
 export enum FormValidators {
   REQUIRED = 'REQUIRED',
   PASSWORD = 'PASSWORD',
-  MATCH_FIELD = 'MATCH_FIELD'
+  MATCH_FIELD = 'MATCH_FIELD',
 }
 
 export enum ComponentType {
-  INPUT = "INPUT",
-  SELECT = "SELECT",
-  TEXT_AREA = "TEXT_AREA",
-  CHIP_INPUT = "CHIP_INPUT",
-  DATE_PICKER = "DATE_PICKER",
-  FILE_UPLOAD = "FILE_UPLOAD"
+  INPUT = 'INPUT',
+  SELECT = 'SELECT',
+  TEXT_AREA = 'TEXT_AREA',
+  CHIP_INPUT = 'CHIP_INPUT',
+  DATE_PICKER = 'DATE_PICKER',
+  FILE_UPLOAD = 'FILE_UPLOAD',
 }
 
-export type dynamicComponentType = Type<InputComponent | SelectComponent | TextareaComponent | ChipInputComponent | DatePickerComponent | FileUploadComponent>;
+export type dynamicComponentType = Type<
+  | InputComponent
+  | SelectComponent
+  | TextareaComponent
+  | ChipInputComponent
+  | DatePickerComponent
+  | FileUploadComponent
+>;
 
 export const COMPONENT_TYPE_MAPPER: Record<string, dynamicComponentType> = {};
 

@@ -12,17 +12,15 @@ import { SupportTicketModel } from '../../../models/support-ticket.model';
   standalone: true,
   imports: [MatToolbarModule, IconComponent, MatCardModule, StepperComponent],
   templateUrl: './support-form.component.html',
-  styleUrl: './support-form.component.scss'
+  styleUrl: './support-form.component.scss',
 })
 export class SupportFormComponent {
   backIconConfig = backIconConfig;
   stepperConfig = stepperConfig;
 
-  constructor (
-    private supportRequestService: SupportRequestService
-  ) { }
+  constructor(private supportRequestService: SupportRequestService) {}
 
   onSubmit(data: SupportTicketModel) {
-    this.supportRequestService.createTicket(data)
+    this.supportRequestService.createTicket(data);
   }
 }

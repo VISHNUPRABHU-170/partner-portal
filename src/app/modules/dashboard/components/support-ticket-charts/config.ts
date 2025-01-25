@@ -1,5 +1,8 @@
-import { BarChartComponentModel } from "../../../core/components/bar-chart/bar-chart.component.model";
-import { ChartType, PieChartComponentModel } from "../../../core/components/pie-chart/pie-chart.component.model";
+import { BarChartComponentModel } from '../../../core/components/bar-chart/bar-chart.component.model';
+import {
+  ChartType,
+  PieChartComponentModel,
+} from '../../../core/components/pie-chart/pie-chart.component.model';
 
 export const pieChartConfig: PieChartComponentModel = {
   title: '',
@@ -10,9 +13,9 @@ export const pieChartConfig: PieChartComponentModel = {
   series: {
     type: 'pie',
     name: 'Tickets',
-    data: []
+    data: [],
   },
-  className: 'main'
+  className: 'main',
 };
 
 export const barChartConfig: BarChartComponentModel = {
@@ -20,5 +23,5 @@ export const barChartConfig: BarChartComponentModel = {
   series: ['To Do', 'In Progress', 'Completed'],
   data: [],
   colors: [],
-  height: '320'
+  height: '320',
 };

@@ -1,7 +1,9 @@
 <div class="feature-request-dashboard">
   <mat-toolbar>
     <span>Feature Request</span>
-    <app-button [data]="createRequestButtonConfig" (event)="onCreateRequest($event)"></app-button>
+    <app-button
+      [data]="createRequestButtonConfig"
+      (event)="onCreateRequest($event)"></app-button>
   </mat-toolbar>
   <div class="content">
     <div class="chart-container">
@@ -14,8 +16,16 @@
       </div>
     </div>
     <div>
-      <app-paginator [length]="totalTickets" [pageIndex]="pageIndex" [pageSizeOptions]="[5]" [hidePageSize]="true" (event)="onPaginatorEvent($event)"></app-paginator>
-      <app-table [tableData]="tableData" [columnsDef]="columnsDef" (tableEvent)="onTableEvent($event)"></app-table>
+      <app-paginator
+        [length]="totalTickets"
+        [pageIndex]="pageIndex"
+        [pageSizeOptions]="[5]"
+        [hidePageSize]="true"
+        (event)="onPaginatorEvent($event)"></app-paginator>
+      <app-table
+        [tableData]="tableData"
+        [columnsDef]="columnsDef"
+        (tableEvent)="onTableEvent($event)"></app-table>
     </div>
   </div>
 </div>

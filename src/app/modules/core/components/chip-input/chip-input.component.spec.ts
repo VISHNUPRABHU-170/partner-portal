@@ -7,9 +7,8 @@ describe('ChipInputComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ChipInputComponent]
-    })
-    .compileComponents();
+      imports: [ChipInputComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ChipInputComponent);
     component = fixture.componentInstance;

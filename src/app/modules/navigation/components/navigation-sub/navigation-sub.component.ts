@@ -9,7 +9,7 @@ import { MatDividerModule } from '@angular/material/divider';
   standalone: true,
   imports: [NavigationLinkComponent, MatIconModule, MatDividerModule],
   templateUrl: './navigation-sub.component.html',
-  styleUrl: './navigation-sub.component.scss'
+  styleUrl: './navigation-sub.component.scss',
 })
 export class NavigationSubComponent {
   @Input() data!: NavigationSubComponentModel;

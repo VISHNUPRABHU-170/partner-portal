@@ -8,9 +8,8 @@ describe('SupportTicketTabComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SupportTicketTabComponent]
-    })
-    .compileComponents();
+      imports: [SupportTicketTabComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SupportTicketTabComponent);
     component = fixture.componentInstance;

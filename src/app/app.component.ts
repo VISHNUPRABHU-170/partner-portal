@@ -11,14 +11,14 @@ import { endPoints } from './modules/core/constants/endPoints';
   standalone: true,
   imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  constructor (
+  constructor(
     private service: NavigationService,
     private authService: AuthService,
     private restApiService: RestApiService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.authService.authLoginURL = endPoints.authLoginURL;

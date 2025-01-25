@@ -7,7 +7,7 @@ import { MatChipsModule } from '@angular/material/chips';
   standalone: true,
   imports: [MatChipsModule],
   templateUrl: './chip.component.html',
-  styleUrl: './chip.component.scss'
+  styleUrl: './chip.component.scss',
 })
 export class ChipComponent {
   @Input() data!: ChipComponentModel;

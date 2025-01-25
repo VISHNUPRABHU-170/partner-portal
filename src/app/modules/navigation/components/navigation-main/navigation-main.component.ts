@@ -8,7 +8,7 @@ import { NavigationSubComponent } from '../navigation-sub/navigation-sub.compone
   standalone: true,
   imports: [NavigationSubComponent, NavigationLinkComponent],
   templateUrl: './navigation-main.component.html',
-  styleUrl: './navigation-main.component.scss'
+  styleUrl: './navigation-main.component.scss',
 })
 export class NavigationMainComponent {
   @Input() data!: NavigationMainComponentModel;

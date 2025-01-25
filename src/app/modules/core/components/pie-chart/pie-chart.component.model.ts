@@ -28,5 +28,5 @@ export interface ChartSeriesDataModel {
 
 export enum ChartType {
   STANDARD = 'STANDARD',
-  DOUGHNUT = 'DOUGHNUT'
+  DOUGHNUT = 'DOUGHNUT',
 }

@@ -7,9 +7,8 @@ describe('FeatureTicketViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FeatureTicketViewComponent]
-    })
-    .compileComponents();
+      imports: [FeatureTicketViewComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(FeatureTicketViewComponent);
     component = fixture.componentInstance;

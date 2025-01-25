@@ -7,9 +7,8 @@ describe('ChipListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ChipListComponent]
-    })
-    .compileComponents();
+      imports: [ChipListComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ChipListComponent);
     component = fixture.componentInstance;

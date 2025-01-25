@@ -8,9 +8,8 @@ describe('FeatureRequestDashboardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FeatureRequestDashboardComponent]
-    })
-    .compileComponents();
+      imports: [FeatureRequestDashboardComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(FeatureRequestDashboardComponent);
     component = fixture.componentInstance;

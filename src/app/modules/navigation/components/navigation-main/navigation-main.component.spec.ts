@@ -7,9 +7,8 @@ describe('NavigationMainComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NavigationMainComponent]
-    })
-    .compileComponents();
+      imports: [NavigationMainComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(NavigationMainComponent);
     component = fixture.componentInstance;

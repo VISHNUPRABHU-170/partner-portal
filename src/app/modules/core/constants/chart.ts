@@ -11,7 +11,7 @@ export const PIE_CHART_BASE_CONFIG: Highcharts.Options = {
     enabled: false,
   },
   accessibility: {
-    enabled: false
+    enabled: false,
   },
   legend: {
     enabled: true,
@@ -19,8 +19,8 @@ export const PIE_CHART_BASE_CONFIG: Highcharts.Options = {
     verticalAlign: 'bottom',
     layout: 'horizontal',
     itemStyle: {
-      fontSize: '12px'
-    }
+      fontSize: '12px',
+    },
   },
   plotOptions: {
     pie: {
@@ -43,31 +43,31 @@ export const PIE_CHART_BASE_CONFIG: Highcharts.Options = {
 export const BAR_CHART_BASE_CONFIG: Highcharts.Options = {
   chart: {
     type: 'column',
-    width: '350'
+    width: '350',
   },
   title: {
-    text: undefined
+    text: undefined,
   },
   credits: {
-    enabled: false
+    enabled: false,
   },
   accessibility: {
-    enabled: false
+    enabled: false,
   },
   xAxis: {
     labels: {
-      enabled: false
+      enabled: false,
     },
-    categories: []
+    categories: [],
   },
   yAxis: {
     title: {
-      text: ''
+      text: '',
     },
     labels: {
-      enabled: false
+      enabled: false,
     },
-    gridLineWidth: 0
+    gridLineWidth: 0,
   },
   plotOptions: {
     column: {
@@ -76,12 +76,12 @@ export const BAR_CHART_BASE_CONFIG: Highcharts.Options = {
       dataLabels: {
         enabled: false,
         style: {
-          fontSize: '12px'
-        }
+          fontSize: '12px',
+        },
       },
       pointPadding: 0.25,
-      groupPadding: 0.1
-    }
+      groupPadding: 0.1,
+    },
   },
-  series: []
+  series: [],
 };

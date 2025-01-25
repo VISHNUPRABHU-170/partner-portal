@@ -8,7 +8,7 @@ import { NavigationService } from '../../services/navigation/navigation.service'
   standalone: true,
   imports: [MatButtonModule],
   templateUrl: './button.component.html',
-  styleUrl: './button.component.scss'
+  styleUrl: './button.component.scss',
 })
 export class ButtonComponent {
   @Input() data!: ButtonComponentModel;

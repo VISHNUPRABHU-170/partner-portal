@@ -5,7 +5,7 @@ import { SnackbarContentComponent } from '../../components/snackbar-content/snac
 import { SnackbarContentComponentModel } from '../../components/snackbar-content/snackbar-content.component.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ToasterService {
   config: MatSnackBarConfig = {
@@ -13,22 +13,37 @@ export class ToasterService {
     horizontalPosition: 'right',
     verticalPosition: 'top',
     panelClass: 'app-toaster',
-  }
+  };
 
-  constructor (private snackBar: MatSnackBar) { }
+  constructor(private snackBar: MatSnackBar) {}
 
   showSuccess(message: string): void {
-    this.config.data = { content: message, contentType: SnackBarContentType.SUCCESS } as SnackbarContentComponentModel;
-    this.snackBar.openFromComponent(SnackbarContentComponent, { ...this.config });
+    this.config.data = {
+      content: message,
+      contentType: SnackBarContentType.SUCCESS,
+    } as SnackbarContentComponentModel;
+    this.snackBar.openFromComponent(SnackbarContentComponent, {
+      ...this.config,
+    });
   }
 
   showWarning(message: string): void {
-    this.config.data = { content: message, contentType: SnackBarContentType.WARNING } as SnackbarContentComponentModel;
-    this.snackBar.openFromComponent(SnackbarContentComponent, { ...this.config });
+    this.config.data = {
+      content: message,
+      contentType: SnackBarContentType.WARNING,
+    } as SnackbarContentComponentModel;
+    this.snackBar.openFromComponent(SnackbarContentComponent, {
+      ...this.config,
+    });
   }
 
   showError(message: string): void {
-    this.config.data = { content: message, contentType: SnackBarContentType.ERROR } as SnackbarContentComponentModel;
-    this.snackBar.openFromComponent(SnackbarContentComponent, { ...this.config });
+    this.config.data = {
+      content: message,
+      contentType: SnackBarContentType.ERROR,
+    } as SnackbarContentComponentModel;
+    this.snackBar.openFromComponent(SnackbarContentComponent, {
+      ...this.config,
+    });
   }
 }

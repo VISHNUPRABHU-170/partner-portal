@@ -1,4 +1,6 @@
-<div class="snack-bar-container" [class]="SNACKBAR_CONTENT_TYPE_MAPPER[data.contentType]">
+<div
+  class="snack-bar-container"
+  [class]="SNACKBAR_CONTENT_TYPE_MAPPER[data.contentType]">
   <span>{{ data.content }}</span>
-   <app-icon [data]="iconConfig" (event)="onClose()"></app-icon>
+  <app-icon [data]="iconConfig" (event)="onClose()"></app-icon>
 </div>

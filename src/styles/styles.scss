@@ -1,7 +1,6 @@
 @use '@angular/material' as mat;
 @use './m3-theme.scss';
 
-
 @include mat.core();
 
 html,
@@ -11,7 +10,7 @@ body {
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
 
 body::-webkit-scrollbar {
@@ -27,7 +26,6 @@ html {
 }
 
 .mat-mdc-snack-bar-container {
-
   .mdc-snackbar__label {
     font-size: 16px !important;
   }

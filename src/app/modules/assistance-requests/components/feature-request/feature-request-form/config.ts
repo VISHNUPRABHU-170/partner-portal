@@ -1,8 +1,15 @@
 import { InputType } from './../../../../core/components/input/input.component.model';
-import { IconComponentModel } from "../../../../core/components/icon/icon.component.model";
-import { InputComponentModel } from "../../../../core/components/input/input.component.model";
-import { StepperComponentModel, StepperModel } from "../../../../core/components/stepper/stepper.component.model";
-import { ComponentType, FormControlModel, FormValidators } from '../../../../core/components/form-builder/form-builder.component.model';
+import { IconComponentModel } from '../../../../core/components/icon/icon.component.model';
+import { InputComponentModel } from '../../../../core/components/input/input.component.model';
+import {
+  StepperComponentModel,
+  StepperModel,
+} from '../../../../core/components/stepper/stepper.component.model';
+import {
+  ComponentType,
+  FormControlModel,
+  FormValidators,
+} from '../../../../core/components/form-builder/form-builder.component.model';
 import { SelectComponentModel } from '../../../../core/components/select/select.component.model';
 import { TextareaComponentModel } from '../../../../core/components/textarea/textarea.component.model';
 import { ChipInputComponentModel } from '../../../../core/components/chip-input/chip-input.component.model';
@@ -10,74 +17,74 @@ import { DatePickerComponentModel } from '../../../../core/components/date-picke
 
 export const backIconConfig: IconComponentModel = {
   name: 'arrow_back',
-  routerLink: '/partner-portal/assistance-requests/feature-request-dashboard'
+  routerLink: '/partner-portal/assistance-requests/feature-request-dashboard',
 };
 
 const titleInputConfig: InputComponentModel = {
-  label: "Enter Title",
-  type: InputType.TEXT
+  label: 'Enter Title',
+  type: InputType.TEXT,
 };
 
 const titleControlConfig: FormControlModel = {
   name: 'title',
   config: titleInputConfig,
   componentType: ComponentType.INPUT,
-  validators: [FormValidators.REQUIRED]
+  validators: [FormValidators.REQUIRED],
 };
 
 const descriptionInputConfig: TextareaComponentModel = {
-  label: "Enter Description",
-  type: InputType.TEXT
+  label: 'Enter Description',
+  type: InputType.TEXT,
 };
 
 const descriptionControlConfig: FormControlModel = {
   name: 'description',
   config: descriptionInputConfig,
   componentType: ComponentType.TEXT_AREA,
-  validators: [FormValidators.REQUIRED]
+  validators: [FormValidators.REQUIRED],
 };
 
 const selectPriorityLevelConfig: SelectComponentModel = {
-  label: "Priority Level",
+  label: 'Priority Level',
   options: [
     { key: 'high', value: 'High' },
     { key: 'medium', value: 'Medium' },
-    { key: 'low', value: 'Low' }
-  ]
+    { key: 'low', value: 'Low' },
+  ],
 };
 
 const selectPriorityLevelControlConfig: FormControlModel = {
   name: 'priority',
   config: selectPriorityLevelConfig,
   componentType: ComponentType.SELECT,
-  validators: [FormValidators.REQUIRED]
+  validators: [FormValidators.REQUIRED],
 };
 
 const selectCloudProviderConfig: SelectComponentModel = {
-  label: "Select Cloud Provider",
+  label: 'Select Cloud Provider',
   options: [
     { key: 'AWS', value: 'AWS' },
     { key: 'AZURE', value: 'AZURE' },
-    { key: 'GCP', value: 'GCP' }
-  ]
+    { key: 'GCP', value: 'GCP' },
+  ],
 };
 
 const selectCloudProviderControlConfig: FormControlModel = {
   name: 'cloudProvider',
   config: selectCloudProviderConfig,
   componentType: ComponentType.SELECT,
-  validators: [FormValidators.REQUIRED]
+  validators: [FormValidators.REQUIRED],
 };
 
 const timeLineInputConfig: DatePickerComponentModel = {
-  label: "Feature Deadline"
+  label: 'Feature Deadline',
 };
 
 const timeLineControlConfig: FormControlModel = {
-  name: "deadLine",
+  name: 'deadLine',
   config: timeLineInputConfig,
   componentType: ComponentType.DATE_PICKER,
-  validators: [FormValidators.REQUIRED]
+  validators: [FormValidators.REQUIRED],
 };
 
 const tagsSelectionInputConfig: ChipInputComponentModel = {
@@ -85,32 +92,32 @@ const tagsSelectionInputConfig: ChipInputComponentModel = {
   autoCompleteOptions: [
     { key: 'aws', value: 'AWS' },
     { key: 'azure', value: 'AZURE' },
-    { key: 'gcp', value: 'GCP' }
-  ]
+    { key: 'gcp', value: 'GCP' },
+  ],
 };
 
 const tagsSelectionControlConfig: FormControlModel = {
   name: 'tags',
   config: tagsSelectionInputConfig,
   componentType: ComponentType.CHIP_INPUT,
-  validators: [FormValidators.REQUIRED]
+  validators: [FormValidators.REQUIRED],
 };
 
 const titleStepperConfig: StepperModel = {
   label: 'Feature Details',
-  formControls: [titleControlConfig, descriptionControlConfig]
+  formControls: [titleControlConfig, descriptionControlConfig],
 };
 
 const requestTypeStepperConfig: StepperModel = {
-  label: "Feature Timeline",
-  formControls: [selectPriorityLevelControlConfig, timeLineControlConfig]
+  label: 'Feature Timeline',
+  formControls: [selectPriorityLevelControlConfig, timeLineControlConfig],
 };
 
 const tagsStepperConfig: StepperModel = {
   label: 'Attachments',
-  formControls: [selectCloudProviderControlConfig, tagsSelectionControlConfig]
+  formControls: [selectCloudProviderControlConfig, tagsSelectionControlConfig],
 };
 
 export const stepperConfig: StepperComponentModel = {
-  stepper: [titleStepperConfig, requestTypeStepperConfig, tagsStepperConfig]
+  stepper: [titleStepperConfig, requestTypeStepperConfig, tagsStepperConfig],
 };

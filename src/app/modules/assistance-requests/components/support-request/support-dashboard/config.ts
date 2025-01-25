@@ -1,9 +1,12 @@
-import { ButtonComponentModel } from "../../../../core/components/button/button.component.model";
-import { ChartType, PieChartComponentModel } from "../../../../core/components/pie-chart/pie-chart.component.model";
+import { ButtonComponentModel } from '../../../../core/components/button/button.component.model';
+import {
+  ChartType,
+  PieChartComponentModel,
+} from '../../../../core/components/pie-chart/pie-chart.component.model';
 
 export const createRequestButtonConfig: ButtonComponentModel = {
   label: 'Create a Request',
-  routerLink: '/partner-portal/assistance-requests/support-form'
+  routerLink: '/partner-portal/assistance-requests/support-form',
 };
 
 export const toDoTicketChartConfig: PieChartComponentModel = {
@@ -16,9 +19,9 @@ export const toDoTicketChartConfig: PieChartComponentModel = {
   },
   centerText: {
     title: '0',
-    subTitle: 'Tickets'
+    subTitle: 'Tickets',
   },
-  className: 'sub'
+  className: 'sub',
 };
 
 export const inProgressTicketChartConfig: PieChartComponentModel = {
@@ -31,9 +34,9 @@ export const inProgressTicketChartConfig: PieChartComponentModel = {
   },
   centerText: {
     title: '0',
-    subTitle: 'Tickets'
+    subTitle: 'Tickets',
   },
-  className: 'sub'
+  className: 'sub',
 };
 
 export const resolvedTicketChartConfig: PieChartComponentModel = {
@@ -46,9 +49,9 @@ export const resolvedTicketChartConfig: PieChartComponentModel = {
   },
   centerText: {
     title: '0',
-    subTitle: 'Tickets'
+    subTitle: 'Tickets',
   },
-  className: 'sub'
+  className: 'sub',
 };
 
 export const totalTicketChartConfig: PieChartComponentModel = {
@@ -61,7 +64,7 @@ export const totalTicketChartConfig: PieChartComponentModel = {
   },
   centerText: {
     title: '0',
-    subTitle: 'Tickets'
+    subTitle: 'Tickets',
   },
-  className: 'sub'
+  className: 'sub',
 };

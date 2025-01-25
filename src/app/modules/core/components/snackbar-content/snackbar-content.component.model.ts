@@ -6,7 +6,7 @@ export interface SnackbarContentComponentModel {
 export enum SnackBarContentType {
   SUCCESS = 'SUCCESS',
   WARNING = 'WARNING',
-  ERROR = 'ERROR'
+  ERROR = 'ERROR',
 }
 
 export const SNACKBAR_CONTENT_TYPE_MAPPER: Record<string, string> = {};

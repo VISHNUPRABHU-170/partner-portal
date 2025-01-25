@@ -1,4 +1,4 @@
-import { FormControlModel } from "../form-builder/form-builder.component.model";
+import { FormControlModel } from '../form-builder/form-builder.component.model';
 
 export interface StepperComponentModel {
   stepper: StepperModel[];

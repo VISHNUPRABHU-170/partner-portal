@@ -12,9 +12,15 @@ import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-support-ticket-view',
   standalone: true,
-  imports: [MatToolbar, MatCardModule, IconComponent, ProgressBarComponent, DatePipe],
+  imports: [
+    MatToolbar,
+    MatCardModule,
+    IconComponent,
+    ProgressBarComponent,
+    DatePipe,
+  ],
   templateUrl: './support-ticket-view.component.html',
-  styleUrl: './support-ticket-view.component.scss'
+  styleUrl: './support-ticket-view.component.scss',
 })
 export class SupportTicketViewComponent implements OnInit {
   backIconConfig = backIconConfig;
@@ -23,18 +29,18 @@ export class SupportTicketViewComponent implements OnInit {
 
   ticketData!: SupportTicketModel;
 
-  constructor (
+  constructor(
     private route: ActivatedRoute,
     private supportRequestService: SupportRequestService,
     private destroyRef: DestroyRef
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     const id = this.route.snapshot.queryParamMap.get('id');
     const Subscription = this.supportRequestService.getTicket(id!).subscribe({
-      next: (response) => {
+      next: response => {
         this.ticketData = response.data;
-      }
+      },
     });
     this.destroyRef.onDestroy(() => {
       Subscription?.unsubscribe();
@@ -44,5 +50,4 @@ export class SupportTicketViewComponent implements OnInit {
   onPreview() {
     // TODO
   }
-
 }

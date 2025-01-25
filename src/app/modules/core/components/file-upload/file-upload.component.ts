@@ -8,7 +8,7 @@ import { FileUploadComponentModel } from './file-upload.component.model';
   standalone: true,
   imports: [MatButtonModule, ReactiveFormsModule],
   templateUrl: './file-upload.component.html',
-  styleUrl: './file-upload.component.scss'
+  styleUrl: './file-upload.component.scss',
 })
 export class FileUploadComponent {
   @Input() data!: FileUploadComponentModel;
@@ -18,7 +18,12 @@ export class FileUploadComponent {
   @HostListener('change', ['$event.target.files']) emitFiles(event: FileList) {
     const file = event && event.item(0);
     if (file) {
-      const fileData = { name: file.name, size: file.size, type: file.type, lastModified: file.lastModified };
+      const fileData = {
+        name: file.name,
+        size: file.size,
+        type: file.type,
+        lastModified: file.lastModified,
+      };
       this.formControl.setValue(JSON.stringify(fileData));
     }
   }

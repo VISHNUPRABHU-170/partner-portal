@@ -1,7 +1,12 @@
-<a (click)="onClick()" (keydown.enter)="onClick()" (keydown.space)="onClick()" [routerLink]="data.routerLink"
-  [ngClass]="{'active': data.active}" class="nav-link">
-  @if(data.linkIcon) {
-  <app-icon [data]="prepareIconConfig(data.linkIcon)"></app-icon>
+<a
+  (click)="onClick()"
+  (keydown.enter)="onClick()"
+  (keydown.space)="onClick()"
+  [routerLink]="data.routerLink"
+  [ngClass]="{ active: data.active }"
+  class="nav-link">
+  @if (data.linkIcon) {
+    <app-icon [data]="prepareIconConfig(data.linkIcon)"></app-icon>
   }
-  {{data.linkText}}
+  {{ data.linkText }}
 </a>

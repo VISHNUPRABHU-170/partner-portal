@@ -1,6 +1,9 @@
 import { Component, Input, output } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
-import { InputComponentModel, INPUT_TYPE_MAPPER } from './input.component.model';
+import {
+  InputComponentModel,
+  INPUT_TYPE_MAPPER,
+} from './input.component.model';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -8,7 +11,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
   standalone: true,
   imports: [MatInputModule, ReactiveFormsModule],
   templateUrl: './input.component.html',
-  styleUrl: './input.component.scss'
+  styleUrl: './input.component.scss',
 })
 export class InputComponent {
   @Input() data!: InputComponentModel;

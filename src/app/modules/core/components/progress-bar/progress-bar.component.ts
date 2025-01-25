@@ -7,7 +7,7 @@ import { ProgressBarComponentModel } from './progress-bar.component.model';
   standalone: true,
   imports: [MatProgressSpinnerModule],
   templateUrl: './progress-bar.component.html',
-  styleUrl: './progress-bar.component.scss'
+  styleUrl: './progress-bar.component.scss',
 })
 export class ProgressBarComponent {
   @Input() data!: ProgressBarComponentModel;

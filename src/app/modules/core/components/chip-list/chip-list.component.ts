@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './chip-list.component.html',
-  styleUrl: './chip-list.component.scss'
+  styleUrl: './chip-list.component.scss',
 })
-export class ChipListComponent {
-
-}
+export class ChipListComponent {}

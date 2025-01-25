@@ -5,7 +5,12 @@ $app-primary: mat.define-palette($custom-brand-primary);
 $app-accent: mat.define-palette($custom-brand-accent);
 $app-warn: mat.define-palette($custom-brand-warn);
 
-$partner-portal: mat.define-light-theme((color: (primary: $app-primary,
-        accent: $app-accent,
-        warn: $app-warn,
-      )));
+$partner-portal: mat.define-light-theme(
+  (
+    color: (
+      primary: $app-primary,
+      accent: $app-accent,
+      warn: $app-warn,
+    ),
+  )
+);
