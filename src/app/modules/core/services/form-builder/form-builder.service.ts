@@ -1,8 +1,11 @@
 import { CustomValidatorsService } from './../custom-validators/custom-validators.service';
 import { Injectable } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { FormBuilderComponentModel, FormControlModel, FormValidators } from '../../components/form-builder/form-builder.component.model';
 
+/**
+ * Injectable service to create and manage dynamic forms in Angular.
+ */
 @Injectable({
   providedIn: 'root',
 })
@@ -33,7 +36,7 @@ export class FormBuilderService {
    * @param controlConfig - The configuration for the form control.
    * @returns FormControl - The generated FormControl.
    */
-  createFormControl(controlConfig: FormControlModel) {
+  createFormControl(controlConfig: FormControlModel): FormControl {
     return this.formBuilder.control(controlConfig.value, this.mapFormControlValidators(controlConfig.validators));
   }
 

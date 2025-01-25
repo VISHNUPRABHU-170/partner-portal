@@ -8,6 +8,7 @@ import { SnackbarContentComponentModel } from '../../components/snackbar-content
   providedIn: 'root',
 })
 export class ToasterService {
+  // Configuration for the MatSnackBar, which controls the appearance and behavior of the snackbar.
   config: MatSnackBarConfig = {
     duration: 5000,
     horizontalPosition: 'right',
@@ -17,6 +18,10 @@ export class ToasterService {
 
   constructor(private snackBar: MatSnackBar) {}
 
+  /**
+   * Shows a success snackbar with the provided message.
+   * @param message - The message to be displayed in the snackbar.
+   */
   showSuccess(message: string): void {
     this.config.data = {
       content: message,
@@ -27,6 +32,10 @@ export class ToasterService {
     });
   }
 
+  /**
+   * Shows a warning snackbar with the provided message.
+   * @param message - The message to be displayed in the snackbar.
+   */
   showWarning(message: string): void {
     this.config.data = {
       content: message,
@@ -37,6 +46,10 @@ export class ToasterService {
     });
   }
 
+  /**
+   * Shows an error snackbar with the provided message.
+   * @param message - The message to be displayed in the snackbar.
+   */
   showError(message: string): void {
     this.config.data = {
       content: message,
