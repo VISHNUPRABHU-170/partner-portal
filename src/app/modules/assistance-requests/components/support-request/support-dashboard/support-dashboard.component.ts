@@ -37,6 +37,7 @@ export class SupportDashboardComponent implements OnInit {
 
   pageIndex = 0;
   totalTickets = 0;
+  isTableDataLoading = true;
 
   chartUtils = new ChartUtils();
 
@@ -64,8 +65,11 @@ export class SupportDashboardComponent implements OnInit {
 
   subscribeToFeatureTickets() {
     const Subscription = this.supportRequestService.ticketsBehaviorSubject.subscribe((data: any) => {
-      this.tableData = data?.tickets;
-      this.totalTickets = data?.totalTickets;
+      if (data) {
+        this.isTableDataLoading = false;
+        this.tableData = data?.tickets;
+        this.totalTickets = data?.totalTickets;
+      }
     });
     this.destroyRef.onDestroy(() => {
       Subscription?.unsubscribe();
@@ -112,6 +116,7 @@ export class SupportDashboardComponent implements OnInit {
   onPaginatorEvent(eve: PageEvent) {
     this.tableData = [];
     this.pageIndex = eve.pageIndex;
+    this.isTableDataLoading = true;
     this.supportRequestService.getTickets({ page: this.pageIndex, limit: 5 });
   }
 }

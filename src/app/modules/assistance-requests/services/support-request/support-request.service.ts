@@ -11,7 +11,7 @@ export class SupportRequestService {
   endPoint = 'support';
   ticketStatusBehaviorSubject = new BehaviorSubject<any>([]);
   ticketPriorityStatusBehaviorSubject = new BehaviorSubject<any>(null);
-  ticketsBehaviorSubject = new BehaviorSubject<SupportTicketModel[]>([]);
+  ticketsBehaviorSubject = new BehaviorSubject<SupportTicketModel[] | null>(null);
 
   constructor(
     private restApiService: RestApiService,

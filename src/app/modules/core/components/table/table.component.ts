@@ -17,6 +17,9 @@ export class TableComponent {
   // Input property to accept column definitions for the table.
   @Input() columnsDef!: string[];
 
+  // Input property to accept loading status.
+  @Input() loading = true;
+
   // Output property to emit the selected row's data to the parent component.
   tableEvent = output<any>();
 
