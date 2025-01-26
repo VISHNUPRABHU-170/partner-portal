@@ -1,12 +1,11 @@
 import { CustomValidatorsService } from './../custom-validators/custom-validators.service';
 import { Injectable } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {
-  FormBuilderComponentModel,
-  FormControlModel,
-  FormValidators,
-} from '../../components/form-builder/form-builder.component.model';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilderComponentModel, FormControlModel, FormValidators } from '../../components/form-builder/form-builder.component.model';
 
+/**
+ * Injectable service to create and manage dynamic forms in Angular.
+ */
 @Injectable({
   providedIn: 'root',
 })
@@ -24,18 +23,10 @@ export class FormBuilderService {
    */
   createFormGroup(formGroup: FormGroup, config: FormBuilderComponentModel): FormGroup {
     config.formGroup.forEach((controlConfig: FormControlModel) => {
-      formGroup.addControl(
-        controlConfig.name,
-        this.createFormControl(controlConfig)
-      );
+      formGroup.addControl(controlConfig.name, this.createFormControl(controlConfig));
     });
     if (config.validators) {
-      formGroup.addValidators(
-        this.mapFormGroupValidators(
-          config.validators.validatorType,
-          config.validators.config
-        )
-      );
+      formGroup.addValidators(this.mapFormGroupValidators(config.validators.validatorType, config.validators.config));
     }
     return formGroup;
   }
@@ -45,11 +36,8 @@ export class FormBuilderService {
    * @param controlConfig - The configuration for the form control.
    * @returns FormControl - The generated FormControl.
    */
-  createFormControl(controlConfig: FormControlModel) {
-    return this.formBuilder.control(
-      controlConfig.value,
-      this.mapFormControlValidators(controlConfig.validators)
-    );
+  createFormControl(controlConfig: FormControlModel): FormControl {
+    return this.formBuilder.control(controlConfig.value, this.mapFormControlValidators(controlConfig.validators));
   }
 
   /**
@@ -61,12 +49,7 @@ export class FormBuilderService {
     const formValidators = [];
 
     if (validators.includes(FormValidators.MATCH_FIELD)) {
-      formValidators.push(
-        this.customValidatorsService.matchFields(
-          config.control1,
-          config.control2
-        )
-      );
+      formValidators.push(this.customValidatorsService.matchFields(config.control1, config.control2));
     }
 
     return formValidators;

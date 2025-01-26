@@ -2,14 +2,9 @@
   <mat-card appearance="outlined">
     <mat-card-header>LOGIN</mat-card-header>
     <mat-card-content>
-      <app-form-builder
-        [data]="loginFormConfig"
-        (event)="onLogIn($event)"></app-form-builder>
+      <app-form-builder [data]="loginFormConfig" (event)="onLogIn($event)"></app-form-builder>
       <div>
-        <span
-          >Already have an account?
-          <app-link [data]="registerLinkConfig"></app-link
-        ></span>
+        <span>Already have an account? <app-link [data]="registerLinkConfig"></app-link></span>
       </div>
     </mat-card-content>
   </mat-card>

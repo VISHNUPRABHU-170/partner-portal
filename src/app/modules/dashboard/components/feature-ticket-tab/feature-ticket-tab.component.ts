@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  highPriorityChartConfig,
-  lowPriorityChartConfig,
-  mediumPriorityChartConfig,
-} from './config';
+import { highPriorityChartConfig, lowPriorityChartConfig, mediumPriorityChartConfig } from './config';
 import { PieChartComponent } from '../../../core/components/pie-chart/pie-chart.component';
 import { ChartUtils } from '../../../assistance-requests/utils/chart.utils';
 import { FeatureRequestService } from '../../../assistance-requests/services/feature-request/feature-request.service';
@@ -30,11 +26,9 @@ export class FeatureTicketTabComponent implements OnInit {
   }
 
   subscribeToTicketStatus() {
-    this.featureRequestService.ticketPriorityStatusBehaviorSubject.subscribe(
-      (ticketStatus: any) => {
-        this.updateChartConfig(ticketStatus);
-      }
-    );
+    this.featureRequestService.ticketPriorityStatusBehaviorSubject.subscribe((ticketStatus: any) => {
+      this.updateChartConfig(ticketStatus);
+    });
   }
 
   updateChartConfig(ticketStatus: any) {
@@ -59,19 +53,12 @@ export class FeatureTicketTabComponent implements OnInit {
       },
     ];
 
-    type ConfigKeys =
-      | 'highPriorityChartConfig'
-      | 'mediumPriorityChartConfig'
-      | 'lowPriorityChartConfig';
+    type ConfigKeys = 'highPriorityChartConfig' | 'mediumPriorityChartConfig' | 'lowPriorityChartConfig';
 
     ticketStatuses.forEach(({ config, label, value, color }) => {
       const chartData = [{ value: value, color: color }];
       const centerTextData = { value: value, label: label };
-      this[config as ConfigKeys] = this.chartUtils.updateChartConfig(
-        chartData,
-        centerTextData,
-        this[config as ConfigKeys]
-      );
+      this[config as ConfigKeys] = this.chartUtils.updateChartConfig(chartData, centerTextData, this[config as ConfigKeys]);
     });
   }
 }

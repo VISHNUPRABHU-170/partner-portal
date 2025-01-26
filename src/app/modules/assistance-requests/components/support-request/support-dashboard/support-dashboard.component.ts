@@ -21,13 +21,7 @@ import { ChartUtils } from '../../../utils/chart.utils';
 @Component({
   selector: 'app-support-dashboard',
   standalone: true,
-  imports: [
-    MatToolbarModule,
-    ButtonComponent,
-    PieChartComponent,
-    PaginatorComponent,
-    TableComponent,
-  ],
+  imports: [MatToolbarModule, ButtonComponent, PieChartComponent, PaginatorComponent, TableComponent],
   templateUrl: './support-dashboard.component.html',
   styleUrl: './support-dashboard.component.scss',
 })
@@ -39,14 +33,7 @@ export class SupportDashboardComponent implements OnInit {
   totalTicketChartConfig = totalTicketChartConfig;
 
   tableData: SupportTicketModel[] = [];
-  columnsDef = [
-    'title',
-    'description',
-    'createdAt',
-    'deadLine',
-    'priority',
-    'status',
-  ];
+  columnsDef = ['title', 'description', 'createdAt', 'deadLine', 'priority', 'status'];
 
   pageIndex = 0;
   totalTickets = 0;
@@ -67,25 +54,19 @@ export class SupportDashboardComponent implements OnInit {
   }
 
   subscribeToFeatureTicketStatus() {
-    const Subscription =
-      this.supportRequestService.ticketStatusBehaviorSubject.subscribe(
-        (response: any) => {
-          this.updateChartConfig(response);
-        }
-      );
+    const Subscription = this.supportRequestService.ticketStatusBehaviorSubject.subscribe((response: any) => {
+      this.updateChartConfig(response);
+    });
     this.destroyRef.onDestroy(() => {
       Subscription?.unsubscribe();
     });
   }
 
   subscribeToFeatureTickets() {
-    const Subscription =
-      this.supportRequestService.ticketsBehaviorSubject.subscribe(
-        (data: any) => {
-          this.tableData = data?.tickets;
-          this.totalTickets = data?.totalTickets;
-        }
-      );
+    const Subscription = this.supportRequestService.ticketsBehaviorSubject.subscribe((data: any) => {
+      this.tableData = data?.tickets;
+      this.totalTickets = data?.totalTickets;
+    });
     this.destroyRef.onDestroy(() => {
       Subscription?.unsubscribe();
     });
@@ -102,11 +83,7 @@ export class SupportDashboardComponent implements OnInit {
       { status: TicketStatus.TICKETS, config: 'totalTicketChartConfig' },
     ];
 
-    type ConfigKeys =
-      | 'toDoTicketChartConfig'
-      | 'inProgressTicketChartConfig'
-      | 'resolvedTicketChartConfig'
-      | 'totalTicketChartConfig';
+    type ConfigKeys = 'toDoTicketChartConfig' | 'inProgressTicketChartConfig' | 'resolvedTicketChartConfig' | 'totalTicketChartConfig';
 
     ticketStatuses.forEach(({ status, config }) => {
       const chartData = [
@@ -129,10 +106,7 @@ export class SupportDashboardComponent implements OnInit {
 
   onTableEvent(data: any) {
     const queryParams = { id: data._id };
-    this.navigationService.navigate(
-      '/partner-portal/assistance-requests/support-ticket-view',
-      queryParams
-    );
+    this.navigationService.navigate('/partner-portal/assistance-requests/support-ticket-view', queryParams);
   }
 
   onPaginatorEvent(eve: PageEvent) {

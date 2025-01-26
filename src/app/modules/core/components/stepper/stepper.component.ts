@@ -10,25 +10,28 @@ import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-stepper',
   standalone: true,
-  imports: [
-    MatStepperModule,
-    ReactiveFormsModule,
-    DynamicFormControlDirective,
-    MatButtonModule,
-  ],
+  imports: [MatStepperModule, ReactiveFormsModule, DynamicFormControlDirective, MatButtonModule],
   templateUrl: './stepper.component.html',
   styleUrl: './stepper.component.scss',
 })
 export class StepperComponent implements OnInit {
+  // Input property to accept stepper configuration data from the parent component.
   @Input() data!: StepperComponentModel;
+
+  // Output event to emit the form values when the form is successfully submitted.
   event = output<any>();
 
+  // ViewChild to access the MatStepper instance for navigation control.
   @ViewChild('stepper') stepper!: MatStepper;
 
+  // FormGroup to manage the form controls dynamically.
   formGroup = new FormGroup([]);
 
   constructor(private formBuilder: FormBuilderService) {}
 
+  /**
+   * Lifecycle hook initializes the form group with dynamic controls.
+   */
   ngOnInit(): void {
     const config: FormBuilderComponentModel = {
       formGroup: [],
@@ -40,7 +43,11 @@ export class StepperComponent implements OnInit {
     this.formGroup = this.formBuilder.createFormGroup(this.formGroup, config);
   }
 
-  navigateToErrorSection() {
+  /**
+   * Navigates to the section with validation errors to guide the user
+   * to the section needing attention.
+   */
+  navigateToErrorSection(): void {
     this.data.stepper.find((stepper, index) => {
       const hasError = stepper.formControls.some(control => {
         if (this.formGroup.get(control.name)?.errors) {
@@ -53,7 +60,11 @@ export class StepperComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  /**
+   * Handles form submission. Emits the form data if the form is valid.
+   * If invalid, navigates to the error section and marks all controls as touched.
+   */
+  onSubmit(): void {
     if (this.formGroup.valid) {
       this.event.emit(this.formGroup.value);
       this.stepper.reset();

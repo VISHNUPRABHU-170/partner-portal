@@ -2,23 +2,14 @@ import { ProgressBarComponent } from './../../../core/components/progress-bar/pr
 import { Component, DestroyRef, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { LinkComponent } from '../../../core/components/link/link.component';
-import {
-  logInLinkConfig,
-  progressBarConfig,
-  registerFormConfig,
-} from './config';
+import { logInLinkConfig, progressBarConfig, registerFormConfig } from './config';
 import { FormBuilderComponent } from '../../../core/components/form-builder/form-builder.component';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [
-    MatCardModule,
-    FormBuilderComponent,
-    LinkComponent,
-    ProgressBarComponent,
-  ],
+  imports: [MatCardModule, FormBuilderComponent, LinkComponent, ProgressBarComponent],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
 })
@@ -34,11 +25,9 @@ export class RegisterComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const Subscription = this.authService.spinnerBehaviorSubject.subscribe(
-      (status: boolean) => {
-        this.showSpinner = status;
-      }
-    );
+    const Subscription = this.authService.spinnerBehaviorSubject.subscribe((status: boolean) => {
+      this.showSpinner = status;
+    });
     this.destroyRef.onDestroy(() => {
       Subscription?.unsubscribe();
     });

@@ -11,7 +11,12 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './textarea.component.scss',
 })
 export class TextareaComponent {
+  // Input property to accept text area config from the parent component.
   @Input() data!: TextareaComponentModel;
+
+  // Input property for the parent form group, enabling reactive form integration.
   @Input() formGroup!: FormGroup;
+
+  // Input property for the form control associated with this component.
   @Input() formControl!: FormControl;
 }

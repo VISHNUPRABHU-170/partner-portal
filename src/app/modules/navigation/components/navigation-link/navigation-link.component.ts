@@ -1,8 +1,5 @@
 import { Component, Input, OnInit, DestroyRef } from '@angular/core';
-import {
-  NavigationLinkComponentModel,
-  ROUTE_MAPPER,
-} from './navigation-link.component.model';
+import { NavigationLinkComponentModel, ROUTE_MAPPER } from './navigation-link.component.model';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { NavigationService } from '../../../core/services/navigation/navigation.service';
@@ -29,17 +26,15 @@ export class NavigationLinkComponent implements OnInit {
   }
 
   subscribeToNavigation() {
-    const Subscription = this.navigationService.routeChange.subscribe(
-      (url: string) => {
-        if (url) {
-          if (ROUTE_MAPPER[this.data.routerLink]?.includes(url)) {
-            this.data.active = true;
-          } else {
-            this.data.active = false;
-          }
+    const Subscription = this.navigationService.routeChange.subscribe((url: string) => {
+      if (url) {
+        if (ROUTE_MAPPER[this.data.routerLink]?.includes(url)) {
+          this.data.active = true;
+        } else {
+          this.data.active = false;
         }
       }
-    );
+    });
     this.destroyRef.onDestroy(() => {
       Subscription?.unsubscribe();
     });

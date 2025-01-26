@@ -10,11 +10,17 @@ import { RouterLink } from '@angular/router';
   styleUrl: './link.component.scss',
 })
 export class LinkComponent {
+  // Input property to accept link config from the parent component.
   @Input() data!: LinkComponentModel;
+
+  // Output property to emit click events to the parent component.
   event = output();
 
-  onClick() {
-    console.log(this.data.routerLink);
+  /**
+   * Handles the click event for the icon.
+   * Emits an event to the parent component if the icon does not have a defined routerLink.
+   */
+  onClick(): void {
     if (!this.data.routerLink) {
       this.event.emit();
     }
