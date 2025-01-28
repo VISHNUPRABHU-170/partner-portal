@@ -5,6 +5,7 @@ import { LinkComponent } from '../../../core/components/link/link.component';
 import { logInLinkConfig, progressBarConfig, registerFormConfig } from './config';
 import { FormBuilderComponent } from '../../../core/components/form-builder/form-builder.component';
 import { AuthService } from '../../services/auth.service';
+import { RegisterDataModel } from '../../models/register.model';
 
 @Component({
   selector: 'app-register',
@@ -33,7 +34,7 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  onRegister(data: any) {
+  onRegister(data: RegisterDataModel) {
     this.authService.spinnerBehaviorSubject.next(true);
     this.authService.onRegister(data);
   }

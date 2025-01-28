@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
-import { PASSWORD_VALIDATION_RULES } from '../../constants/validation-constants';
+import { EMAIL_VALIDATION_RULES, PASSWORD_VALIDATION_RULES } from '../../constants/validation-constants';
 
 /**
- * Injectable service to provide custom validators for Angular forms.
+ * Injectable service to provide custom validators for Angular Reactive forms.
  */
 @Injectable({
   providedIn: 'root',
@@ -19,6 +19,20 @@ export class CustomValidatorsService {
       const value = control.value;
       if (!value) return null;
       const errorMessages = PASSWORD_VALIDATION_RULES.filter(rule => !rule.regex.test(value)).map(rule => rule.errorMessage);
+      return errorMessages.length ? { message: errorMessages } : null;
+    };
+  }
+
+  /**
+   * Custom validator to validate email based on predefined rules.
+   * @returns A ValidatorFn that checks the email value against validation rules.
+   * If the email fails any rule, it returns a list of error messages.
+   */
+  email(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const value = control.value;
+      if (!value) return null;
+      const errorMessages = EMAIL_VALIDATION_RULES.filter(rule => !rule.regex.test(value)).map(rule => rule.errorMessage);
       return errorMessages.length ? { message: errorMessages } : null;
     };
   }

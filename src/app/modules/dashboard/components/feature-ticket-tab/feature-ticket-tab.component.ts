@@ -27,7 +27,7 @@ export class FeatureTicketTabComponent implements OnInit {
 
   subscribeToTicketStatus() {
     this.featureRequestService.ticketPriorityStatusBehaviorSubject.subscribe((ticketStatus: any) => {
-      this.updateChartConfig(ticketStatus);
+      if (ticketStatus) this.updateChartConfig(ticketStatus);
     });
   }
 

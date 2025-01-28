@@ -69,8 +69,8 @@ export class FormBuilderService {
     if (validators.includes(FormValidators.PASSWORD)) {
       formValidators.push(this.customValidatorsService.password());
     }
-    if (validators.includes(FormValidators.MATCH_FIELD)) {
-      formValidators.push();
+    if (validators.includes(FormValidators.EMAIL)) {
+      formValidators.push(this.customValidatorsService.email());
     }
 
     return formValidators;
