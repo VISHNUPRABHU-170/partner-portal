@@ -6,10 +6,16 @@
     background-color: #00000029;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
-    gap: 5px;
+    justify-content: space-between;
 
-    app-icon {
-      margin-top: 5px;
+    div {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      app-icon {
+        margin-top: 5px;
+      }
     }
   }
 
