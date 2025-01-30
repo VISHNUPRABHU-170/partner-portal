@@ -27,7 +27,7 @@ export class SupportTicketTabComponent implements OnInit {
 
   subscribeToTicketStatus() {
     this.supportRequestService.ticketPriorityStatusBehaviorSubject.subscribe((ticketStatus: any) => {
-      this.updateChartConfig(ticketStatus);
+      if (ticketStatus) this.updateChartConfig(ticketStatus);
     });
   }
 

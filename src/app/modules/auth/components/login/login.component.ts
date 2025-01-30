@@ -5,6 +5,7 @@ import { loginFormConfig, progressBarConfig, registerLinkConfig } from './config
 import { FormBuilderComponent } from '../../../core/components/form-builder/form-builder.component';
 import { AuthService } from '../../services/auth.service';
 import { ProgressBarComponent } from '../../../core/components/progress-bar/progress-bar.component';
+import { LoginDataModel } from '../../models/login.model';
 
 @Component({
   selector: 'app-login',
@@ -33,7 +34,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onLogIn(data: any) {
+  onLogIn(data: LoginDataModel) {
     this.authService.spinnerBehaviorSubject.next(true);
     this.authService.onLogin(data);
   }

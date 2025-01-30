@@ -1,3 +1,4 @@
+import { ButtonComponentModel } from '../../../../core/components/button/button.component.model';
 import { IconComponentModel } from '../../../../core/components/icon/icon.component.model';
 import { LinkComponentModel } from '../../../../core/components/link/link.component.model';
 import { ProgressBarComponentModel } from '../../../../core/components/progress-bar/progress-bar.component.model';
@@ -5,6 +6,11 @@ import { ProgressBarComponentModel } from '../../../../core/components/progress-
 export const backIconConfig: IconComponentModel = {
   name: 'arrow_back',
   routerLink: '/partner-portal/assistance-requests/support-dashboard',
+};
+
+export const updateButtonConfig: ButtonComponentModel = {
+  label: 'Update Ticket',
+  routerLink: ''
 };
 
 export const progressBarConfig: ProgressBarComponentModel = {

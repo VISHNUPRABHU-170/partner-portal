@@ -20,3 +20,10 @@ export const PASSWORD_VALIDATION_RULES = [
     errorMessage: 'Password must include 8 characters',
   },
 ];
+
+export const EMAIL_VALIDATION_RULES = [
+  {
+    regex: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+    errorMessage: 'Enter valid mail id.',
+  },
+];

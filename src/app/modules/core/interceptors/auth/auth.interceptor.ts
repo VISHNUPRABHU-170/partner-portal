@@ -2,6 +2,7 @@ import { HttpEvent, HttpHandlerFn, HttpInterceptorFn, HttpRequest } from '@angul
 import { Observable } from 'rxjs';
 import { inject } from '@angular/core';
 import { StorageService } from '../../services/storage/storage.service';
+import { environments } from '../../../../environments/environment';
 
 /**
  * Interceptor to attach an Authorization header to HTTP requests.
@@ -14,11 +15,22 @@ import { StorageService } from '../../services/storage/storage.service';
 export const authInterceptor: HttpInterceptorFn = (req: HttpRequest<any>, next: HttpHandlerFn): Observable<HttpEvent<any>> => {
   const storageService = inject(StorageService);
   const token = storageService.getSessionItem('token');
-  const modifiedReq = req.clone({
-    setHeaders: {
-      Authorization: `${token}`,
-      'Content-Type': 'application/json',
-    },
-  });
+  const accessToken = environments.ACCESS_TOKEN;
+  let modifiedReq: HttpRequest<any>;
+  if (token) {
+    modifiedReq = req.clone({
+      setHeaders: {
+        Authorization: `${token}`,
+        'Content-Type': 'application/json',
+      },
+    });
+  } else {
+    modifiedReq = req.clone({
+      setHeaders: {
+        access_token: `${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+    });
+  }
   return next(modifiedReq);
 };

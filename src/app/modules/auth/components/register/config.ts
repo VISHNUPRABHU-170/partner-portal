@@ -11,15 +11,15 @@ import { LinkComponentModel } from '../../../core/components/link/link.component
 import { ProgressBarComponentModel } from '../../../core/components/progress-bar/progress-bar.component.model';
 
 const userNameInputConfig: InputComponentModel = {
-  label: 'Enter User Name',
-  type: InputType.TEXT,
+  label: 'Enter Email ID',
+  type: InputType.EMAIL,
 };
 
 const userNameFormControlConfig: FormControlModel = {
-  name: 'userName',
+  name: 'emailID',
   config: userNameInputConfig,
   componentType: ComponentType.INPUT,
-  validators: [FormValidators.REQUIRED],
+  validators: [FormValidators.REQUIRED, FormValidators.EMAIL],
 };
 
 const passwordInputConfig: InputComponentModel = {

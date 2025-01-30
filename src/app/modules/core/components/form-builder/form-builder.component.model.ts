@@ -36,6 +36,7 @@ export interface FormControlModel {
 
 export enum FormValidators {
   REQUIRED = 'REQUIRED',
+  EMAIL = 'EMAIL',
   PASSWORD = 'PASSWORD',
   MATCH_FIELD = 'MATCH_FIELD',
 }

@@ -1,9 +1,13 @@
 import { DestroyRef, Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { NavigationService } from './../../core/services/navigation/navigation.service';
 import { StorageService } from '../../core/services/storage/storage.service';
 import { RestApiService } from './../../core/services/rest-api/rest-api.service';
 import { ToasterService } from '../../core/services/toaster/toaster.service';
-import { BehaviorSubject } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
+import { LoginDataModel } from '../models/login.model';
+import { RegisterDataModel } from '../models/register.model';
+import { HttpResponse } from '../../core/models/http-response.model';
 
 @Injectable({
   providedIn: 'root',
@@ -21,9 +25,13 @@ export class AuthService {
     private destroyRef: DestroyRef
   ) {}
 
-  onLogin(data: any): void {
+  /**
+   * Method to handle user login
+   * @param data - Login data (email and password)
+   */
+  onLogin(data: LoginDataModel): void {
     const Subscription = this.restApiService.post(this.authLoginURL, data).subscribe({
-      next: (response: any) => {
+      next: (response: HttpResponse<null>) => {
         this.spinnerBehaviorSubject.next(false);
         if (response.success === true) {
           this.storageService.setSessionItem('token', response.token);
@@ -31,9 +39,10 @@ export class AuthService {
         }
         this.toasterService.showSuccess(response.message);
       },
-      error: (error: any) => {
+      error: (response: HttpErrorResponse) => {
+        // Handle error response
         this.spinnerBehaviorSubject.next(false);
-        this.toasterService.showError(error.message);
+        this.toasterService.showError(response.error.message);
       },
     });
     this.destroyRef.onDestroy(() => {
@@ -41,18 +50,23 @@ export class AuthService {
     });
   }
 
-  onRegister(data: any): void {
+  /**
+   * Method to handle user registration
+   * @param data - Registration data (email, password, etc.)
+   */
+  onRegister(data: RegisterDataModel): void {
     const Subscription = this.restApiService.post(this.authRegisterURL, data).subscribe({
-      next: (response: any) => {
+      next: (response: HttpResponse<null>) => {
         this.spinnerBehaviorSubject.next(false);
         if (response.success == true) {
           this.navigationService.navigate('login');
         }
         this.toasterService.showSuccess(response.message);
       },
-      error: (error: any) => {
+      error: (response: HttpErrorResponse) => {
+        // Handle error response
         this.spinnerBehaviorSubject.next(false);
-        this.toasterService.showError(error.message);
+        this.toasterService.showError(response.error.message);
       },
     });
     this.destroyRef.onDestroy(() => {
